@@ -1,0 +1,6 @@
+{
+  "parent": "item/templates/cross",
+  "textures": {
+    "cross": "bountifulfares:block/hoary_apple_sapling"
+  }
+}

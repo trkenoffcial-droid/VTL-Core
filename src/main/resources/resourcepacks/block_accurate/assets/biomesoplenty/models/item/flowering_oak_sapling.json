@@ -1,0 +1,6 @@
+{
+  "parent": "item/templates/cross",
+  "textures": {
+    "cross": "biomesoplenty:block/flowering_oak_sapling"
+  }
+}

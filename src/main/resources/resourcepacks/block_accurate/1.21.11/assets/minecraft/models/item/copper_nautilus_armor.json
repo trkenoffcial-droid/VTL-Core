@@ -1,0 +1,6 @@
+{   
+    "parent": "item/templates/nautilus_armor",
+    "textures": {
+        "texture": "entity/equipment/nautilus_body/copper"
+    }
+}

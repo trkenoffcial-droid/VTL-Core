@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "vtl",
+  "version": "${version}",
+  "provides": [
+    "tier-tagger"
+  ],
+  "name": "VTL Core",
+  "description": "Viet TierList in the game: tiers on nametags, live testing queues and the VTL Hub.",
+  "authors": [
+    "Viet TierList",
+    "leoaxo098",
+    "uku",
+    "netiyiy (original creator)"
+  ],
+  "contact": {
+    "homepage": "https://www.tierslist.net",
+    "sources": "https://github.com/Leoaxo098/VTL-TierTagger"
+  },
+  "license": "MPL-2.0",
+  "icon": "assets/vtl/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "main": [
+      "com.kevin.tiertagger.TierTagger"
+    ],
+    "modmenu": [
+      "com.kevin.tiertagger.config.ModMenuIntegration"
+    ]
+  },
+  "mixins": [
+    "TierTagger.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.17",
+    "minecraft": ">=1.21.11",
+    "fabric-api": "*"
+  }
+}

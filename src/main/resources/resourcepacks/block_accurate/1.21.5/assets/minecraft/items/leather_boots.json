@@ -1,0 +1,3187 @@
+{
+  "model": {
+    "type": "minecraft:select",
+    "property": "minecraft:component",
+    "component": "minecraft:trim",
+    "cases": [
+      {
+        "when": {
+          "material": "minecraft:amethyst",
+          "pattern": "minecraft:bolt"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/bolt/leather_boots_amethyst_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:amethyst",
+          "pattern": "minecraft:coast"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/coast/leather_boots_amethyst_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:amethyst",
+          "pattern": "minecraft:dune"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/dune/leather_boots_amethyst_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:amethyst",
+          "pattern": "minecraft:eye"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/eye/leather_boots_amethyst_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:amethyst",
+          "pattern": "minecraft:flow"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/flow/leather_boots_amethyst_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:amethyst",
+          "pattern": "minecraft:host"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/host/leather_boots_amethyst_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:amethyst",
+          "pattern": "minecraft:raiser"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/raiser/leather_boots_amethyst_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:amethyst",
+          "pattern": "minecraft:rib"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/rib/leather_boots_amethyst_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:amethyst",
+          "pattern": "minecraft:sentry"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/sentry/leather_boots_amethyst_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:amethyst",
+          "pattern": "minecraft:shaper"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/shaper/leather_boots_amethyst_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:amethyst",
+          "pattern": "minecraft:silence"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/silence/leather_boots_amethyst_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:amethyst",
+          "pattern": "minecraft:snout"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/snout/leather_boots_amethyst_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:amethyst",
+          "pattern": "minecraft:spire"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/spire/leather_boots_amethyst_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:amethyst",
+          "pattern": "minecraft:tide"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/tide/leather_boots_amethyst_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:amethyst",
+          "pattern": "minecraft:vex"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/vex/leather_boots_amethyst_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:amethyst",
+          "pattern": "minecraft:ward"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/ward/leather_boots_amethyst_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:amethyst",
+          "pattern": "minecraft:wayfinder"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/wayfinder/leather_boots_amethyst_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:amethyst",
+          "pattern": "minecraft:wild"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/wild/leather_boots_amethyst_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:copper",
+          "pattern": "minecraft:bolt"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/bolt/leather_boots_copper_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:copper",
+          "pattern": "minecraft:coast"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/coast/leather_boots_copper_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:copper",
+          "pattern": "minecraft:dune"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/dune/leather_boots_copper_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:copper",
+          "pattern": "minecraft:eye"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/eye/leather_boots_copper_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:copper",
+          "pattern": "minecraft:flow"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/flow/leather_boots_copper_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:copper",
+          "pattern": "minecraft:host"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/host/leather_boots_copper_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:copper",
+          "pattern": "minecraft:raiser"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/raiser/leather_boots_copper_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:copper",
+          "pattern": "minecraft:rib"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/rib/leather_boots_copper_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:copper",
+          "pattern": "minecraft:sentry"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/sentry/leather_boots_copper_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:copper",
+          "pattern": "minecraft:shaper"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/shaper/leather_boots_copper_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:copper",
+          "pattern": "minecraft:silence"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/silence/leather_boots_copper_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:copper",
+          "pattern": "minecraft:snout"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/snout/leather_boots_copper_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:copper",
+          "pattern": "minecraft:spire"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/spire/leather_boots_copper_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:copper",
+          "pattern": "minecraft:tide"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/tide/leather_boots_copper_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:copper",
+          "pattern": "minecraft:vex"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/vex/leather_boots_copper_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:copper",
+          "pattern": "minecraft:ward"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/ward/leather_boots_copper_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:copper",
+          "pattern": "minecraft:wayfinder"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/wayfinder/leather_boots_copper_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:copper",
+          "pattern": "minecraft:wild"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/wild/leather_boots_copper_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:diamond",
+          "pattern": "minecraft:bolt"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/bolt/leather_boots_diamond_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:diamond",
+          "pattern": "minecraft:coast"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/coast/leather_boots_diamond_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:diamond",
+          "pattern": "minecraft:dune"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/dune/leather_boots_diamond_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:diamond",
+          "pattern": "minecraft:eye"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/eye/leather_boots_diamond_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:diamond",
+          "pattern": "minecraft:flow"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/flow/leather_boots_diamond_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:diamond",
+          "pattern": "minecraft:host"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/host/leather_boots_diamond_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:diamond",
+          "pattern": "minecraft:raiser"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/raiser/leather_boots_diamond_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:diamond",
+          "pattern": "minecraft:rib"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/rib/leather_boots_diamond_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:diamond",
+          "pattern": "minecraft:sentry"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/sentry/leather_boots_diamond_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:diamond",
+          "pattern": "minecraft:shaper"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/shaper/leather_boots_diamond_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:diamond",
+          "pattern": "minecraft:silence"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/silence/leather_boots_diamond_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:diamond",
+          "pattern": "minecraft:snout"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/snout/leather_boots_diamond_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:diamond",
+          "pattern": "minecraft:spire"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/spire/leather_boots_diamond_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:diamond",
+          "pattern": "minecraft:tide"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/tide/leather_boots_diamond_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:diamond",
+          "pattern": "minecraft:vex"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/vex/leather_boots_diamond_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:diamond",
+          "pattern": "minecraft:ward"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/ward/leather_boots_diamond_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:diamond",
+          "pattern": "minecraft:wayfinder"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/wayfinder/leather_boots_diamond_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:diamond",
+          "pattern": "minecraft:wild"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/wild/leather_boots_diamond_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:emerald",
+          "pattern": "minecraft:bolt"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/bolt/leather_boots_emerald_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:emerald",
+          "pattern": "minecraft:coast"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/coast/leather_boots_emerald_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:emerald",
+          "pattern": "minecraft:dune"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/dune/leather_boots_emerald_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:emerald",
+          "pattern": "minecraft:eye"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/eye/leather_boots_emerald_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:emerald",
+          "pattern": "minecraft:flow"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/flow/leather_boots_emerald_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:emerald",
+          "pattern": "minecraft:host"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/host/leather_boots_emerald_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:emerald",
+          "pattern": "minecraft:raiser"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/raiser/leather_boots_emerald_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:emerald",
+          "pattern": "minecraft:rib"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/rib/leather_boots_emerald_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:emerald",
+          "pattern": "minecraft:sentry"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/sentry/leather_boots_emerald_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:emerald",
+          "pattern": "minecraft:shaper"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/shaper/leather_boots_emerald_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:emerald",
+          "pattern": "minecraft:silence"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/silence/leather_boots_emerald_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:emerald",
+          "pattern": "minecraft:snout"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/snout/leather_boots_emerald_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:emerald",
+          "pattern": "minecraft:spire"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/spire/leather_boots_emerald_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:emerald",
+          "pattern": "minecraft:tide"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/tide/leather_boots_emerald_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:emerald",
+          "pattern": "minecraft:vex"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/vex/leather_boots_emerald_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:emerald",
+          "pattern": "minecraft:ward"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/ward/leather_boots_emerald_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:emerald",
+          "pattern": "minecraft:wayfinder"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/wayfinder/leather_boots_emerald_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:emerald",
+          "pattern": "minecraft:wild"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/wild/leather_boots_emerald_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:gold",
+          "pattern": "minecraft:bolt"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/bolt/leather_boots_gold_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:gold",
+          "pattern": "minecraft:coast"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/coast/leather_boots_gold_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:gold",
+          "pattern": "minecraft:dune"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/dune/leather_boots_gold_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:gold",
+          "pattern": "minecraft:eye"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/eye/leather_boots_gold_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:gold",
+          "pattern": "minecraft:flow"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/flow/leather_boots_gold_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:gold",
+          "pattern": "minecraft:host"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/host/leather_boots_gold_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:gold",
+          "pattern": "minecraft:raiser"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/raiser/leather_boots_gold_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:gold",
+          "pattern": "minecraft:rib"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/rib/leather_boots_gold_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:gold",
+          "pattern": "minecraft:sentry"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/sentry/leather_boots_gold_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:gold",
+          "pattern": "minecraft:shaper"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/shaper/leather_boots_gold_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:gold",
+          "pattern": "minecraft:silence"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/silence/leather_boots_gold_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:gold",
+          "pattern": "minecraft:snout"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/snout/leather_boots_gold_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:gold",
+          "pattern": "minecraft:spire"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/spire/leather_boots_gold_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:gold",
+          "pattern": "minecraft:tide"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/tide/leather_boots_gold_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:gold",
+          "pattern": "minecraft:vex"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/vex/leather_boots_gold_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:gold",
+          "pattern": "minecraft:ward"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/ward/leather_boots_gold_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:gold",
+          "pattern": "minecraft:wayfinder"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/wayfinder/leather_boots_gold_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:gold",
+          "pattern": "minecraft:wild"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/wild/leather_boots_gold_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:iron",
+          "pattern": "minecraft:bolt"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/bolt/leather_boots_iron_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:iron",
+          "pattern": "minecraft:coast"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/coast/leather_boots_iron_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:iron",
+          "pattern": "minecraft:dune"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/dune/leather_boots_iron_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:iron",
+          "pattern": "minecraft:eye"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/eye/leather_boots_iron_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:iron",
+          "pattern": "minecraft:flow"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/flow/leather_boots_iron_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:iron",
+          "pattern": "minecraft:host"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/host/leather_boots_iron_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:iron",
+          "pattern": "minecraft:raiser"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/raiser/leather_boots_iron_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:iron",
+          "pattern": "minecraft:rib"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/rib/leather_boots_iron_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:iron",
+          "pattern": "minecraft:sentry"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/sentry/leather_boots_iron_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:iron",
+          "pattern": "minecraft:shaper"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/shaper/leather_boots_iron_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:iron",
+          "pattern": "minecraft:silence"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/silence/leather_boots_iron_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:iron",
+          "pattern": "minecraft:snout"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/snout/leather_boots_iron_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:iron",
+          "pattern": "minecraft:spire"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/spire/leather_boots_iron_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:iron",
+          "pattern": "minecraft:tide"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/tide/leather_boots_iron_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:iron",
+          "pattern": "minecraft:vex"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/vex/leather_boots_iron_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:iron",
+          "pattern": "minecraft:ward"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/ward/leather_boots_iron_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:iron",
+          "pattern": "minecraft:wayfinder"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/wayfinder/leather_boots_iron_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:iron",
+          "pattern": "minecraft:wild"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/wild/leather_boots_iron_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:lapis",
+          "pattern": "minecraft:bolt"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/bolt/leather_boots_lapis_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:lapis",
+          "pattern": "minecraft:coast"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/coast/leather_boots_lapis_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:lapis",
+          "pattern": "minecraft:dune"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/dune/leather_boots_lapis_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:lapis",
+          "pattern": "minecraft:eye"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/eye/leather_boots_lapis_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:lapis",
+          "pattern": "minecraft:flow"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/flow/leather_boots_lapis_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:lapis",
+          "pattern": "minecraft:host"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/host/leather_boots_lapis_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:lapis",
+          "pattern": "minecraft:raiser"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/raiser/leather_boots_lapis_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:lapis",
+          "pattern": "minecraft:rib"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/rib/leather_boots_lapis_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:lapis",
+          "pattern": "minecraft:sentry"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/sentry/leather_boots_lapis_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:lapis",
+          "pattern": "minecraft:shaper"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/shaper/leather_boots_lapis_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:lapis",
+          "pattern": "minecraft:silence"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/silence/leather_boots_lapis_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:lapis",
+          "pattern": "minecraft:snout"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/snout/leather_boots_lapis_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:lapis",
+          "pattern": "minecraft:spire"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/spire/leather_boots_lapis_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:lapis",
+          "pattern": "minecraft:tide"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/tide/leather_boots_lapis_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:lapis",
+          "pattern": "minecraft:vex"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/vex/leather_boots_lapis_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:lapis",
+          "pattern": "minecraft:ward"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/ward/leather_boots_lapis_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:lapis",
+          "pattern": "minecraft:wayfinder"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/wayfinder/leather_boots_lapis_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:lapis",
+          "pattern": "minecraft:wild"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/wild/leather_boots_lapis_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:netherite",
+          "pattern": "minecraft:bolt"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/bolt/leather_boots_netherite_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:netherite",
+          "pattern": "minecraft:coast"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/coast/leather_boots_netherite_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:netherite",
+          "pattern": "minecraft:dune"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/dune/leather_boots_netherite_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:netherite",
+          "pattern": "minecraft:eye"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/eye/leather_boots_netherite_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:netherite",
+          "pattern": "minecraft:flow"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/flow/leather_boots_netherite_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:netherite",
+          "pattern": "minecraft:host"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/host/leather_boots_netherite_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:netherite",
+          "pattern": "minecraft:raiser"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/raiser/leather_boots_netherite_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:netherite",
+          "pattern": "minecraft:rib"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/rib/leather_boots_netherite_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:netherite",
+          "pattern": "minecraft:sentry"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/sentry/leather_boots_netherite_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:netherite",
+          "pattern": "minecraft:shaper"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/shaper/leather_boots_netherite_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:netherite",
+          "pattern": "minecraft:silence"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/silence/leather_boots_netherite_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:netherite",
+          "pattern": "minecraft:snout"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/snout/leather_boots_netherite_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:netherite",
+          "pattern": "minecraft:spire"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/spire/leather_boots_netherite_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:netherite",
+          "pattern": "minecraft:tide"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/tide/leather_boots_netherite_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:netherite",
+          "pattern": "minecraft:vex"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/vex/leather_boots_netherite_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:netherite",
+          "pattern": "minecraft:ward"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/ward/leather_boots_netherite_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:netherite",
+          "pattern": "minecraft:wayfinder"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/wayfinder/leather_boots_netherite_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:netherite",
+          "pattern": "minecraft:wild"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/wild/leather_boots_netherite_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:quartz",
+          "pattern": "minecraft:bolt"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/bolt/leather_boots_quartz_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:quartz",
+          "pattern": "minecraft:coast"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/coast/leather_boots_quartz_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:quartz",
+          "pattern": "minecraft:dune"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/dune/leather_boots_quartz_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:quartz",
+          "pattern": "minecraft:eye"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/eye/leather_boots_quartz_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:quartz",
+          "pattern": "minecraft:flow"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/flow/leather_boots_quartz_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:quartz",
+          "pattern": "minecraft:host"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/host/leather_boots_quartz_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:quartz",
+          "pattern": "minecraft:raiser"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/raiser/leather_boots_quartz_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:quartz",
+          "pattern": "minecraft:rib"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/rib/leather_boots_quartz_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:quartz",
+          "pattern": "minecraft:sentry"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/sentry/leather_boots_quartz_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:quartz",
+          "pattern": "minecraft:shaper"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/shaper/leather_boots_quartz_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:quartz",
+          "pattern": "minecraft:silence"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/silence/leather_boots_quartz_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:quartz",
+          "pattern": "minecraft:snout"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/snout/leather_boots_quartz_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:quartz",
+          "pattern": "minecraft:spire"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/spire/leather_boots_quartz_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:quartz",
+          "pattern": "minecraft:tide"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/tide/leather_boots_quartz_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:quartz",
+          "pattern": "minecraft:vex"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/vex/leather_boots_quartz_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:quartz",
+          "pattern": "minecraft:ward"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/ward/leather_boots_quartz_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:quartz",
+          "pattern": "minecraft:wayfinder"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/wayfinder/leather_boots_quartz_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:quartz",
+          "pattern": "minecraft:wild"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/wild/leather_boots_quartz_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:redstone",
+          "pattern": "minecraft:bolt"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/bolt/leather_boots_redstone_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:redstone",
+          "pattern": "minecraft:coast"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/coast/leather_boots_redstone_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:redstone",
+          "pattern": "minecraft:dune"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/dune/leather_boots_redstone_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:redstone",
+          "pattern": "minecraft:eye"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/eye/leather_boots_redstone_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:redstone",
+          "pattern": "minecraft:flow"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/flow/leather_boots_redstone_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:redstone",
+          "pattern": "minecraft:host"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/host/leather_boots_redstone_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:redstone",
+          "pattern": "minecraft:raiser"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/raiser/leather_boots_redstone_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:redstone",
+          "pattern": "minecraft:rib"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/rib/leather_boots_redstone_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:redstone",
+          "pattern": "minecraft:sentry"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/sentry/leather_boots_redstone_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:redstone",
+          "pattern": "minecraft:shaper"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/shaper/leather_boots_redstone_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:redstone",
+          "pattern": "minecraft:silence"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/silence/leather_boots_redstone_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:redstone",
+          "pattern": "minecraft:snout"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/snout/leather_boots_redstone_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:redstone",
+          "pattern": "minecraft:spire"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/spire/leather_boots_redstone_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:redstone",
+          "pattern": "minecraft:tide"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/tide/leather_boots_redstone_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:redstone",
+          "pattern": "minecraft:vex"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/vex/leather_boots_redstone_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:redstone",
+          "pattern": "minecraft:ward"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/ward/leather_boots_redstone_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:redstone",
+          "pattern": "minecraft:wayfinder"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/wayfinder/leather_boots_redstone_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:redstone",
+          "pattern": "minecraft:wild"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/wild/leather_boots_redstone_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:resin",
+          "pattern": "minecraft:bolt"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/bolt/leather_boots_resin_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:resin",
+          "pattern": "minecraft:coast"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/coast/leather_boots_resin_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:resin",
+          "pattern": "minecraft:dune"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/dune/leather_boots_resin_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:resin",
+          "pattern": "minecraft:eye"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/eye/leather_boots_resin_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:resin",
+          "pattern": "minecraft:flow"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/flow/leather_boots_resin_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:resin",
+          "pattern": "minecraft:host"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/host/leather_boots_resin_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:resin",
+          "pattern": "minecraft:raiser"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/raiser/leather_boots_resin_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:resin",
+          "pattern": "minecraft:rib"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/rib/leather_boots_resin_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:resin",
+          "pattern": "minecraft:sentry"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/sentry/leather_boots_resin_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:resin",
+          "pattern": "minecraft:shaper"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/shaper/leather_boots_resin_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:resin",
+          "pattern": "minecraft:silence"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/silence/leather_boots_resin_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:resin",
+          "pattern": "minecraft:snout"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/snout/leather_boots_resin_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:resin",
+          "pattern": "minecraft:spire"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/spire/leather_boots_resin_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:resin",
+          "pattern": "minecraft:tide"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/tide/leather_boots_resin_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:resin",
+          "pattern": "minecraft:vex"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/vex/leather_boots_resin_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:resin",
+          "pattern": "minecraft:ward"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/ward/leather_boots_resin_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:resin",
+          "pattern": "minecraft:wayfinder"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/wayfinder/leather_boots_resin_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      },
+      {
+        "when": {
+          "material": "minecraft:resin",
+          "pattern": "minecraft:wild"
+        },
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/trims/wild/leather_boots_resin_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
+        }
+      }
+    ],
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:item/leather_boots",
+      "tints": [
+        {
+          "type": "minecraft:dye",
+          "default": -6265536
+        }
+      ]
+    }
+  }
+}

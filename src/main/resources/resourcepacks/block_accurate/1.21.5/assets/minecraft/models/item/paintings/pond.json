@@ -1,0 +1,6 @@
+{
+	"parent": "item/paintings/templates/3x4",
+	"textures": {
+		"painting": "painting/pond"
+	}
+}

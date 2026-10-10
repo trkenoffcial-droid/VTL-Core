@@ -1,0 +1,6 @@
+{
+  "parent": "item/templates/hanging_sign",
+  "textures": {
+    "all": "entity/signs/hanging/crimson"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "item/templates/tall_cross",
+  "textures": {
+    "top": "wilderwild:block/cattail_top",
+    "bottom": "wilderwild:block/cattail_bottom"
+  }
+}

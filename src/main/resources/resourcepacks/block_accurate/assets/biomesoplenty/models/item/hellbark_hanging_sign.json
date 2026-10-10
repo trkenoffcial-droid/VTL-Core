@@ -1,0 +1,6 @@
+{
+  "parent": "item/templates/hanging_sign",
+  "textures": {
+    "all": "biomesoplenty:entity/signs/hanging/hellbark"
+  }
+}

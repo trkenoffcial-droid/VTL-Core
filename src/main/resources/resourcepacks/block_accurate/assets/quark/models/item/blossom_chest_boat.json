@@ -1,0 +1,6 @@
+{
+  "parent": "item/templates/chest_boat",
+  "textures": {
+    "chest_boat": "quark:model/entity/chest_boat/blossom"
+  }
+}

@@ -1,0 +1,63 @@
+{
+	"parent": "block/block",
+    "textures": {
+        "particle": "#side",
+        "top": "immersive_weathering:block/mossy_stone_top",
+        "side": "immersive_weathering:block/mossy_stone_side"
+	},
+	"elements": [
+		{
+			"name": "Center post",
+			"from": [12, 0, 4],
+			"to": [20, 16, 12],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 7.5, 8]},
+			"faces": {
+				"north": {"uv": [4, 0, 12, 16], "texture": "#side"},
+				"east": {"uv": [4, 0, 12, 16], "texture": "#side"},
+				"south": {"uv": [4, 0, 12, 16], "texture": "#side"},
+				"west": {"uv": [4, 0, 12, 16], "texture": "#side"},
+				"up": {"uv": [4, 4, 12, 12], "texture": "#top"},
+				"down": {"uv": [4, 4, 12, 12], "texture": "#side"}
+			}
+		},
+		{
+			"name": "Center post",
+			"from": [-4, 0, 4],
+			"to": [4, 16, 12],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 7.5, 8]},
+			"faces": {
+				"north": {"uv": [4, 0, 12, 16], "texture": "#side"},
+				"east": {"uv": [4, 0, 12, 16], "texture": "#side"},
+				"south": {"uv": [4, 0, 12, 16], "texture": "#side"},
+				"west": {"uv": [4, 0, 12, 16], "texture": "#side"},
+				"up": {"uv": [4, 4, 12, 12], "texture": "#top"},
+				"down": {"uv": [4, 4, 12, 12], "texture": "#side"}
+			}
+		},
+		{
+			"name": "wall",
+			"from": [0, 0, 5],
+			"to": [8, 14, 11],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 7.5, 8]},
+			"faces": {
+				"north": {"uv": [0, 2, 8, 16], "texture": "#side"},
+				"south": {"uv": [8, 2, 16, 16], "texture": "#side"},
+				"up": {"uv": [8, 5, 16, 11], "texture": "#top"},
+				"down": {"uv": [8, 5, 16, 11], "texture": "#side", "cullface": "down"}
+			}
+		},
+		{
+			"name": "wall",
+			"from": [8, 0, 5],
+			"to": [16, 14, 11],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 7.5, 8]},
+			"faces": {
+				"north": {"uv": [8, 2, 16, 16], "texture": "#side"},
+				"south": {"uv": [0, 2, 8, 16], "texture": "#side"},
+				"up": {"uv": [0, 5, 8, 11], "texture": "#top"},
+				"down": {"uv": [0, 5, 8, 11], "texture": "#side"}
+			}
+		}
+	]
+}
+

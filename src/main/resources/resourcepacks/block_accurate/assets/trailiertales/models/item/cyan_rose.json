@@ -1,0 +1,6 @@
+{
+  "parent": "item/templates/cross",
+  "textures": {
+    "cross": "trailiertales:block/cyan_rose"
+  }
+}

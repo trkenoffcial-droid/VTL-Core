@@ -1,0 +1,7 @@
+{
+  "parent": "item/templates/glass_pane",
+  "textures": {
+    "pane": "block/tinted_glass",
+    "edge": "immersive_weathering:block/tinted_glass_pane_top"
+  }
+}

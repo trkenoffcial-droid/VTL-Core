@@ -1,0 +1,7 @@
+{
+  "parent": "item/templates/tall_cross",
+  "textures": {
+    "top": "biomesoplenty:block/eyebulb_top",
+    "bottom": "biomesoplenty:block/eyebulb_bottom"
+  }
+}

@@ -1,0 +1,12 @@
+{
+    "parent": "item/templates/cross",
+    "textures": {
+      "cross": "block/pale_hanging_moss_tip"
+    },
+    "display": {
+      "thirdperson_righthand": {
+        "translation": [0, 1, 0.75],
+        "scale": [0.375, 0.375, 0.375]
+      }
+    }
+  }

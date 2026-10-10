@@ -1,0 +1,7 @@
+{
+  "parent": "item/templates/leggings_trim",
+  "textures": {
+    "all": "entity/equipment/humanoid_leggings/diamond",
+    "trim": "trims/entity/humanoid_leggings/wild_lapis"
+  }
+}

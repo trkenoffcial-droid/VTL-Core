@@ -1,0 +1,6 @@
+{
+  "parent": "item/templates/chestplate",
+  "textures": {
+    "all": "minecraft:models/armor/warden_layer_1"
+  }
+}

@@ -1,0 +1,11 @@
+{
+	"parent": "ad_astra:block/gray_flag",
+    "gui_light": "front",
+	"display": {
+        "gui": {
+            "rotation": [30, 135, 0],
+            "translation": [-2.5, -1.25, 0],
+            "scale":[0.43, 0.43, 0.43]
+		}
+	}
+}

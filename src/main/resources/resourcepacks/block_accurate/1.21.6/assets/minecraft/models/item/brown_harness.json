@@ -1,0 +1,6 @@
+{
+  "parent": "item/templates/happy_ghast_harness",
+  "textures": {
+    "harness": "entity/equipment/happy_ghast_body/brown_harness"
+  }
+}

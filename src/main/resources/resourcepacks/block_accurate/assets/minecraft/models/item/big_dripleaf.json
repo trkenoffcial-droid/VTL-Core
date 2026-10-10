@@ -1,0 +1,26 @@
+{
+  "parent": "block/big_dripleaf",
+  "gui_light": "side",
+  "display": {
+      "gui": {
+        "rotation": [30, 135, 0],
+        "translation": [0.5, -1.5, 0],
+        "scale":[0.625, 0.625, 0.625]
+      },
+      "thirdperson_righthand": {
+        "rotation": [0, 0, 0],
+        "translation": [0, 1, 0],
+        "scale": [0.375, 0.375, 0.375]
+      },
+      "fixed": {
+          "rotation": [0, 0, 0],
+          "translation": [0, 0, -2],
+          "scale":[0.75, 0.75, 0.75]
+      },
+      "head": {
+          "rotation": [0, 0, 0],
+          "translation": [0, 14, 0],
+          "scale": [1, 1, 1]
+      }
+   }
+}

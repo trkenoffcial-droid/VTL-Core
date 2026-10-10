@@ -1,0 +1,6 @@
+{
+  "parent": "ad_astra:item/templates/helmet",
+  "textures": {
+		"all": "ad_astra:entity/armor/space_suit"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "item/templates/glass_pane",
+  "textures": {
+    "pane": "immersive_weathering:block/frosty_glass",
+    "edge": "minecraft:block/glass_pane_top"
+  }
+}

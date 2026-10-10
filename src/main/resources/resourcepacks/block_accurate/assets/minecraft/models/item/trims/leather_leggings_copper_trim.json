@@ -1,0 +1,8 @@
+{
+  "parent": "item/templates/leggings_tinted_trim",
+  "textures": {
+    "all": "models/armor/leather_layer_2",
+    "overlay": "models/armor/leather_layer_2_overlay",
+    "trim": "trims/models/armor/wild_leggings_copper"
+  }
+}

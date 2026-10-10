@@ -1,0 +1,6 @@
+{
+  "parent": "boatload:item/templates/large_boat",
+  "textures": {
+    "boat": "upgrade_aquatic:entity/large_boat/river"
+  }
+}

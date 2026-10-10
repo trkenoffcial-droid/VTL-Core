@@ -1,0 +1,6 @@
+{
+  "parent": "upgrade_aquatic:item/templates/bedroll",
+  "textures": {
+    "bed": "upgrade_aquatic:block/magenta_bedroll"
+  }
+}

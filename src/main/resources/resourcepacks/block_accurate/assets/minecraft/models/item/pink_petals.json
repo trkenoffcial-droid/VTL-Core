@@ -1,0 +1,8 @@
+{
+  "parent": "item/templates/flowerbed",
+  "textures": {
+    "flowerbed": "block/pink_petals",
+    "stem": "block/pink_petals_stem_tint",
+    "layer0": "item/pink_petals"
+  }
+}

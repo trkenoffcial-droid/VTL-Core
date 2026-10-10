@@ -1,0 +1,1 @@
+{  "parent": "item/templates/door",  "textures": {    "top": "supplementaries:block/netherite_door_top",    "bottom": "supplementaries:block/netherite_door_bottom"  }}

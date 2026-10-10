@@ -1,0 +1,9 @@
+{
+  "parent": "create:item/templates/door",
+  "textures": {
+    "top": "create:block/andesite_door_top",
+    "bottom": "create:block/andesite_door_bottom",
+    "side": "create:block/andesite_door_side",
+    "particle": "create:block/andesite_casing"
+  }
+}

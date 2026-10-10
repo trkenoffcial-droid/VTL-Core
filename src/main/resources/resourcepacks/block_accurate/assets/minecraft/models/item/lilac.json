@@ -1,0 +1,7 @@
+{
+  "parent": "item/templates/tall_cross",
+  "textures": {
+    "top": "block/lilac_top",
+    "bottom": "block/lilac_bottom"
+  }
+}

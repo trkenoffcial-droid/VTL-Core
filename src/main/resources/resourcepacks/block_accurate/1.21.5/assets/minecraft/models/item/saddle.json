@@ -1,0 +1,72 @@
+{
+	"parent": "block/block",
+	"texture_size": [64, 64],
+	"textures": {
+		"particle": "entity/equipment/pig_saddle/saddle",
+		"all": "entity/equipment/pig_saddle/saddle"
+	},
+	"elements": [
+		{
+			"name": "body",
+			"from": [2.5, 5.5, -0.5],
+			"to": [13.5, 14.5, 16.5],
+			"rotation": {"angle": 0, "axis": "x", "origin": [8, 10, 8]},
+			"faces": {
+				"north": {"uv": [11.5, 4, 9, 2], "rotation": 180, "texture": "#all"},
+				"east": {"uv": [7, 4, 9, 8], "rotation": 90, "texture": "#all"},
+				"south": {"uv": [14, 2, 11.5, 4], "texture": "#all"},
+				"west": {"uv": [11.5, 4, 13.5, 8], "rotation": 270, "texture": "#all"},
+				"up": {"uv": [13.5, 4, 16, 8], "texture": "#all"},
+				"down": {"uv": [9, 4, 11.5, 8], "rotation": 180, "texture": "#all"}
+			}
+		},
+		{
+			"name": "body",
+			"from": [13.498, 5.502, -0.498],
+			"to": [2.502, 14.506, 16.506],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 10.004, 8.004]},
+			"faces": {
+				"north": {"uv": [9, 4, 11.5, 2], "rotation": 180, "texture": "#all"},
+				"east": {"uv": [13.5, 4, 11.5, 8], "rotation": 90, "texture": "#all"},
+				"south": {"uv": [11.5, 2, 14, 4], "texture": "#all"},
+				"west": {"uv": [9, 4, 7, 8], "rotation": 270, "texture": "#all"},
+				"up": {"uv": [16, 4, 13.5, 8], "texture": "#all"},
+				"down": {"uv": [11.5, 4, 9, 8], "rotation": 180, "texture": "#all"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [75, 45, 0],
+			"translation": [0, 2.5, 0],
+			"scale": [0.375, 0.375, 0.375]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, 45, 0],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"gui": {
+			"rotation": [30, 135, 0],
+			"translation": [0, -1.5, 0],
+			"scale": [0.625, 0.625, 0.625]
+		},
+		"head": {
+			"translation": [0, -1.5, 0],
+			"scale": [1.475, 1.475, 1.475]
+		},
+		"fixed": {
+			"rotation": [0, -90, 0],
+			"translation": [0, -1.5, 1],
+			"scale": [0.75, 0.75, 0.75]
+		}
+	},
+	"groups": [
+		0,
+		{
+			"name": "inner_faces",
+			"origin": [8, 0, 8],
+			"color": 0,
+			"children": [1]
+		}
+	]
+}

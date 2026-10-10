@@ -1,0 +1,6 @@
+{
+  "parent": "item/templates/torch",
+  "textures": {
+    "torch": "block/soul_torch"
+  }
+}

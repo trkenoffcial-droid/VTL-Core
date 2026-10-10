@@ -1,0 +1,425 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [64, 64],
+	"textures": {
+		"0": "chimes:block/metal_chimes"
+	},
+	"elements": [
+		{
+			"name": "LarA",
+			"from": [4, 8, 7],
+			"to": [6, 17, 9],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, -6, 11]},
+			"faces": {
+				"north": {"uv": [0.5, 3.5, 1, 5.75], "texture": "#0"},
+				"east": {"uv": [0, 3.5, 0.5, 5.75], "texture": "#0"},
+				"south": {"uv": [1.5, 3.5, 2, 5.75], "texture": "#0"},
+				"west": {"uv": [1, 3.5, 1.5, 5.75], "texture": "#0"},
+				"up": {"uv": [1, 3.5, 0.5, 3], "texture": "#0"},
+				"down": {"uv": [1.5, 3, 1, 3.5], "texture": "#0"}
+			}
+		},
+		{
+			"name": "LarB",
+			"from": [4, -5, 7],
+			"to": [6, 8, 9],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, -6, 11]},
+			"faces": {
+				"north": {"uv": [0.5, 6.25, 1, 9.5], "texture": "#0"},
+				"east": {"uv": [0, 6.25, 0.5, 9.5], "texture": "#0"},
+				"south": {"uv": [1.5, 6.25, 2, 9.5], "texture": "#0"},
+				"west": {"uv": [1, 6.25, 1.5, 9.5], "texture": "#0"},
+				"up": {"uv": [1, 6.25, 0.5, 5.75], "texture": "#0"},
+				"down": {"uv": [1.5, 5.75, 1, 6.25], "texture": "#0"}
+			}
+		},
+		{
+			"name": "TopperBoneBase",
+			"from": [3, 18, 3],
+			"to": [13, 20, 13],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [2.5, 2.5, 5, 3], "texture": "#0"},
+				"east": {"uv": [0, 2.5, 2.5, 3], "texture": "#0"},
+				"south": {"uv": [7.5, 2.5, 10, 3], "texture": "#0"},
+				"west": {"uv": [5, 2.5, 7.5, 3], "texture": "#0"},
+				"up": {"uv": [5, 2.5, 2.5, 0], "texture": "#0"},
+				"down": {"uv": [7.5, 0, 5, 2.5], "texture": "#0"}
+			}
+		},
+		{
+			"name": "SmaB",
+			"from": [10, 1, 7],
+			"to": [12, 8, 9],
+			"rotation": {"angle": 0, "axis": "y", "origin": [5, -7, 8]},
+			"faces": {
+				"north": {"uv": [6.5, 6.25, 7, 8], "texture": "#0"},
+				"east": {"uv": [6, 6.25, 6.5, 8], "texture": "#0"},
+				"south": {"uv": [7.5, 6.25, 8, 8], "texture": "#0"},
+				"west": {"uv": [7, 6.25, 7.5, 8], "texture": "#0"},
+				"up": {"uv": [7, 6.25, 6.5, 5.75], "texture": "#0"},
+				"down": {"uv": [7.5, 5.75, 7, 6.25], "texture": "#0"}
+			}
+		},
+		{
+			"name": "SmaA",
+			"from": [10, 8, 7],
+			"to": [12, 17, 9],
+			"rotation": {"angle": 0, "axis": "y", "origin": [5, -7, 8]},
+			"faces": {
+				"north": {"uv": [6.5, 3.5, 7, 5.75], "texture": "#0"},
+				"east": {"uv": [6, 3.5, 6.5, 5.75], "texture": "#0"},
+				"south": {"uv": [7.5, 3.5, 8, 5.75], "texture": "#0"},
+				"west": {"uv": [7, 3.5, 7.5, 5.75], "texture": "#0"},
+				"up": {"uv": [7, 3.5, 6.5, 3], "texture": "#0"},
+				"down": {"uv": [7.5, 3, 7, 3.5], "texture": "#0"}
+			}
+		},
+		{
+			"name": "MedString_r1",
+			"from": [7.5, 16, 11],
+			"to": [8.5, 18, 11],
+			"rotation": {"angle": -45, "axis": "y", "origin": [8, -6, 11]},
+			"faces": {
+				"north": {"uv": [9.5, 0, 9.75, 0.5], "texture": "#0"},
+				"south": {"uv": [9.75, 0, 10, 0.5], "texture": "#0"}
+			}
+		},
+		{
+			"name": "SmaString_r1",
+			"from": [10.5, 17, 8],
+			"to": [11.5, 18, 8],
+			"rotation": {"angle": -45, "axis": "y", "origin": [11, -6, 8]},
+			"faces": {
+				"north": {"uv": [9.5, 0, 9.75, 0.25], "texture": "#0"},
+				"south": {"uv": [9.75, 0, 10, 0.25], "texture": "#0"}
+			}
+		},
+		{
+			"name": "MedA",
+			"from": [7, 7, 4],
+			"to": [9, 16, 6],
+			"rotation": {"angle": 0, "axis": "y", "origin": [11, -6, 8]},
+			"faces": {
+				"north": {"uv": [4.5, 3.5, 5, 5.75], "texture": "#0"},
+				"east": {"uv": [4, 3.5, 4.5, 5.75], "texture": "#0"},
+				"south": {"uv": [5.5, 3.5, 6, 5.75], "texture": "#0"},
+				"west": {"uv": [5, 3.5, 5.5, 5.75], "texture": "#0"},
+				"up": {"uv": [5, 3.5, 4.5, 3], "texture": "#0"},
+				"down": {"uv": [5.5, 3, 5, 3.5], "texture": "#0"}
+			}
+		},
+		{
+			"name": "MedB",
+			"from": [7, -2, 4],
+			"to": [9, 7, 6],
+			"rotation": {"angle": 0, "axis": "y", "origin": [11, -6, 8]},
+			"faces": {
+				"north": {"uv": [4.5, 6.25, 5, 8.5], "texture": "#0"},
+				"east": {"uv": [4, 6.25, 4.5, 8.5], "texture": "#0"},
+				"south": {"uv": [5.5, 6.25, 6, 8.5], "texture": "#0"},
+				"west": {"uv": [5, 6.25, 5.5, 8.5], "texture": "#0"},
+				"up": {"uv": [5, 6.25, 4.5, 5.75], "texture": "#0"},
+				"down": {"uv": [5.5, 5.75, 5, 6.25], "texture": "#0"}
+			}
+		},
+		{
+			"name": "LarString_r1",
+			"from": [7.5, 16, 5],
+			"to": [8.5, 18, 5],
+			"rotation": {"angle": -45, "axis": "y", "origin": [8, -5, 5]},
+			"faces": {
+				"north": {"uv": [9.5, 0, 9.75, 0.5], "texture": "#0"},
+				"south": {"uv": [9.75, 0, 10, 0.5], "texture": "#0"}
+			}
+		},
+		{
+			"name": "BigB",
+			"from": [7, -4, 10],
+			"to": [9, 7, 12],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, -5, 5]},
+			"faces": {
+				"north": {"uv": [2.5, 6.25, 3, 9], "texture": "#0"},
+				"east": {"uv": [2, 6.25, 2.5, 9], "texture": "#0"},
+				"south": {"uv": [3.5, 6.25, 4, 9], "texture": "#0"},
+				"west": {"uv": [3, 6.25, 3.5, 9], "texture": "#0"},
+				"up": {"uv": [3, 6.25, 2.5, 5.75], "texture": "#0"},
+				"down": {"uv": [3.5, 5.75, 3, 6.25], "texture": "#0"}
+			}
+		},
+		{
+			"name": "BigString_r1",
+			"from": [4.5, 17, 8],
+			"to": [5.5, 18, 8],
+			"rotation": {"angle": -45, "axis": "y", "origin": [5, -6, 8]},
+			"faces": {
+				"north": {"uv": [9.5, 0, 9.75, 0.25], "texture": "#0"},
+				"south": {"uv": [9.75, 0, 10, 0.25], "texture": "#0"}
+			}
+		},
+		{
+			"name": "BigString_r1",
+			"from": [6.5, 20, 8],
+			"to": [9.5, 24, 8],
+			"rotation": {"angle": -45, "axis": "y", "origin": [8, -2, 8]},
+			"faces": {
+				"north": {"uv": [8.75, 0, 9.5, 1], "texture": "#0"},
+				"south": {"uv": [8, 0, 8.75, 1], "texture": "#0"}
+			}
+		},
+		{
+			"name": "BigString_r1",
+			"from": [8, 20, 6.5],
+			"to": [8, 21, 9.5],
+			"rotation": {"angle": -45, "axis": "y", "origin": [8, -2, 8]},
+			"faces": {
+				"east": {"uv": [9, 1.25, 9.75, 1], "texture": "#0"},
+				"west": {"uv": [8.25, 1.25, 9, 1], "texture": "#0"}
+			}
+		},
+		{
+			"name": "BigA",
+			"from": [7, 7, 10],
+			"to": [9, 16, 12],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, -5, 5]},
+			"faces": {
+				"north": {"uv": [2.5, 3.5, 3, 5.75], "texture": "#0"},
+				"east": {"uv": [2, 3.5, 2.5, 5.75], "texture": "#0"},
+				"south": {"uv": [3.5, 3.5, 4, 5.75], "texture": "#0"},
+				"west": {"uv": [3, 3.5, 3.5, 5.75], "texture": "#0"},
+				"up": {"uv": [3, 3.5, 2.5, 3], "texture": "#0"},
+				"down": {"uv": [3.5, 3, 3, 3.5], "texture": "#0"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [75, 45, 0],
+			"translation": [0, 2.5, 0],
+			"scale": [0.375, 0.375, 0.375]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, 45, 0],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"ground": {
+			"translation": [0, 3.75, 0],
+			"scale": [0.3, 0.3, 0.3]
+		},
+		"gui": {
+			"rotation": [30, 225, 0],
+			"translation": [0, -0.75, 0],
+			"scale": [0.47, 0.47, 0.47]
+		},
+		"fixed": {
+			"translation": [0, 0, -0.75],
+			"scale": [0.5, 0.5, 0.5]
+		}
+	},
+	"groups": [
+		{
+			"name": "LarA",
+			"origin": [8, 23, 8],
+			"color": 0,
+			"children": [0]
+		},
+		{
+			"name": "LarStrA",
+			"origin": [11, 22, 8],
+			"color": 0,
+			"children": []
+		},
+		{
+			"name": "LarB",
+			"origin": [8, 23, 8],
+			"color": 0,
+			"children": [1]
+		},
+		{
+			"name": "LarStrB",
+			"origin": [11, 22, 8],
+			"color": 0,
+			"children": []
+		},
+		{
+			"name": "TopperBoneSma",
+			"origin": [5, 22, 8],
+			"color": 0,
+			"children": []
+		},
+		{
+			"name": "TopperBoneBase",
+			"origin": [8, 20, 8],
+			"color": 0,
+			"children": [2]
+		},
+		{
+			"name": "TopperStringBig",
+			"origin": [8, 22, 5],
+			"color": 0,
+			"children": []
+		},
+		{
+			"name": "MetalTopper",
+			"origin": [8, 16, 8],
+			"color": 0,
+			"children": []
+		},
+		{
+			"name": "MetalLower",
+			"origin": [8, 16, 8],
+			"color": 0,
+			"children": []
+		},
+		{
+			"name": "SmaStrA",
+			"origin": [5, 22, 8],
+			"color": 0,
+			"children": []
+		},
+		{
+			"name": "root",
+			"origin": [8, 24, 8],
+			"color": 0,
+			"children": []
+		},
+		{
+			"name": "SmaStrB",
+			"origin": [5, 22, 8],
+			"color": 0,
+			"children": []
+		},
+		{
+			"name": "SmaB",
+			"origin": [8, 23, 8],
+			"color": 0,
+			"children": [3]
+		},
+		{
+			"name": "TopperBoneB",
+			"origin": [8, 20, 8],
+			"color": 0,
+			"children": []
+		},
+		{
+			"name": "Chain1_r1",
+			"origin": [8, 21, 8],
+			"color": 0,
+			"children": []
+		},
+		{
+			"name": "SmaA",
+			"origin": [8, 23, 8],
+			"color": 0,
+			"children": [4]
+		},
+		{
+			"name": "TopperBoneA",
+			"origin": [8, 24, 8],
+			"color": 0,
+			"children": []
+		},
+		{
+			"name": "MedString_r1",
+			"origin": [8, 23, 8],
+			"color": 0,
+			"children": [5]
+		},
+		{
+			"name": "TopperStringLar",
+			"origin": [11, 22, 8],
+			"color": 0,
+			"children": []
+		},
+		{
+			"name": "BigStrB",
+			"origin": [8, 22, 5],
+			"color": 0,
+			"children": []
+		},
+		{
+			"name": "Chain_r1",
+			"origin": [8, 20, 8],
+			"color": 0,
+			"children": []
+		},
+		{
+			"name": "BigStrA",
+			"origin": [8, 22, 5],
+			"color": 0,
+			"children": []
+		},
+		{
+			"name": "TopperBone",
+			"origin": [8, 16, 8],
+			"color": 0,
+			"children": []
+		},
+		{
+			"name": "Topper",
+			"origin": [8, 20, 8],
+			"color": 0,
+			"children": []
+		},
+		{
+			"name": "SmaString_r1",
+			"origin": [8, 23, 8],
+			"color": 0,
+			"children": [6]
+		},
+		{
+			"name": "MedA",
+			"origin": [8, 22, 8],
+			"color": 0,
+			"children": [7]
+		},
+		{
+			"name": "MedB",
+			"origin": [8, 22, 8],
+			"color": 0,
+			"children": [8]
+		},
+		{
+			"name": "LarString_r1",
+			"origin": [8, 23, 8],
+			"color": 0,
+			"children": [9]
+		},
+		{
+			"name": "MedStrB",
+			"origin": [8, 22, 11],
+			"color": 0,
+			"children": []
+		},
+		{
+			"name": "TopperBoneMed",
+			"origin": [8, 22, 11],
+			"color": 0,
+			"children": []
+		},
+		{
+			"name": "BigB",
+			"origin": [8, 22, 8],
+			"color": 0,
+			"children": [10]
+		},
+		{
+			"name": "BigString_r1",
+			"origin": [8, 23, 8],
+			"color": 0,
+			"children": [11, 12, 13]
+		},
+		{
+			"name": "MedStrA",
+			"origin": [8, 22, 11],
+			"color": 0,
+			"children": []
+		},
+		{
+			"name": "BigA",
+			"origin": [8, 22, 8],
+			"color": 0,
+			"children": [14]
+		}
+	]
+}

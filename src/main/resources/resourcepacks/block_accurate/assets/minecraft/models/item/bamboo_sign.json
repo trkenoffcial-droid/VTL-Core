@@ -1,0 +1,6 @@
+{
+  "parent": "item/templates/sign",
+  "textures": {
+    "all": "entity/signs/bamboo"
+  }
+}

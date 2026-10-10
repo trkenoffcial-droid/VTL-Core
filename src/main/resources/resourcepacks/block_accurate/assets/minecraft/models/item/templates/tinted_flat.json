@@ -1,0 +1,16 @@
+{
+	"parent": "item/templates/flat",
+	"textures": {
+		"particle": "#flat"
+	},
+	"elements": [
+		{
+			"from": [0, 1, 0],
+			"to": [16, 1, 16],
+			"faces": {
+				"up": {"uv": [0, 0, 16, 16], "texture": "#flat", "tintindex": 0},
+				"down": {"uv": [0, 16, 16, 0], "texture": "#flat", "tintindex": 0}
+			}
+		}
+	]
+}

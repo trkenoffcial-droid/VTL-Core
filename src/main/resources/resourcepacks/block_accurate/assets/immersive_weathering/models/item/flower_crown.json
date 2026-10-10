@@ -1,0 +1,6 @@
+{
+  "parent": "item/templates/helmet",
+  "textures": {
+    "all": "minecraft:models/armor/flower_layer_1"
+  }
+}

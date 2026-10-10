@@ -1,0 +1,1 @@
+{  "parent": "item/templates/door",  "textures": {    "top": "immersive_weathering:block/weathered_iron_door_top",    "bottom": "immersive_weathering:block/weathered_iron_door_bottom"  }}

@@ -1,0 +1,6 @@
+{
+  "parent": "boatload:item/templates/furnace_boat",
+  "textures": {
+    "furnace_boat": "upgrade_aquatic:entity/furnace_boat/river"
+  }
+}

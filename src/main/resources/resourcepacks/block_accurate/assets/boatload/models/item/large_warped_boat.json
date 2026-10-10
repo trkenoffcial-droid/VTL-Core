@@ -1,0 +1,6 @@
+{
+  "parent": "boatload:item/templates/large_boat",
+  "textures": {
+    "boat": "boatload:entity/large_boat/warped"
+  }
+}

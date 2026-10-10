@@ -1,0 +1,6 @@
+{
+  "parent": "ad_astra:item/templates/boots",
+  "textures": {
+		"all": "ad_astra:entity/armor/netherite_space_suit"
+  }
+}

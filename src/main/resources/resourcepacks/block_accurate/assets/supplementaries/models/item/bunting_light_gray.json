@@ -1,0 +1,7 @@
+
+{
+  "parent": "item/templates/flat_side",
+  "textures": {
+    "side": "supplementaries:item/buntings/bunting_light_gray"
+  }
+}

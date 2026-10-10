@@ -1,0 +1,13 @@
+{
+  "parent": "create:block/toolbox/item",
+  "textures": {
+    "0": "create:block/toolbox/cyan"
+  },
+  "display": {
+        "gui": {
+            "rotation": [30, 135, 0],
+            "translation": [0.25, 2.25, 0],
+            "scale": [0.79, 0.79, 0.79]
+        }
+    }
+}

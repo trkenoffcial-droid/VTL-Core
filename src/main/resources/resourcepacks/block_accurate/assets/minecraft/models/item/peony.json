@@ -1,0 +1,7 @@
+{
+  "parent": "item/templates/tall_cross",
+  "textures": {
+    "top": "block/peony_top",
+    "bottom": "block/peony_bottom"
+  }
+}

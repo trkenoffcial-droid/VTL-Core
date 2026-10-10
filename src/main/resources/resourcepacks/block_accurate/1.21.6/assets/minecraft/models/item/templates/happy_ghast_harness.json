@@ -1,0 +1,99 @@
+{
+	"format_version": "1.21.6",
+	"parent": "block/block",
+	"texture_size": [64, 64],
+	"textures": {
+		"particle": "#harness"
+	},
+	"elements": [
+		{
+			"name": "goggles",
+			"from": [-0.15, 11.38125, -8.80625],
+			"to": [16.15, 16.68125, -3.50625],
+			"rotation": {"angle": 45, "axis": "x", "origin": [8, 4.03125, -0.65625]},
+			"faces": {
+				"north": {"uv": [1.25, 9.25, 5.25, 10.5], "texture": "#harness"},
+				"east": {"uv": [0, 9.25, 1.25, 10.5], "texture": "#harness"},
+				"south": {"uv": [6.5, 9.25, 10.5, 10.5], "texture": "#harness"},
+				"west": {"uv": [5.25, 9.25, 6.5, 10.5], "texture": "#harness"},
+				"up": {"uv": [5.25, 9.25, 1.25, 8], "texture": "#harness"},
+				"down": {"uv": [9.25, 8, 5.25, 9.25], "texture": "#harness"}
+			}
+		},
+		{
+			"name": "harness",
+			"from": [0, 0, 0],
+			"to": [16, 16, 16],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [4, 4, 8, 8], "texture": "#harness"},
+				"east": {"uv": [0, 4, 4, 8], "texture": "#harness"},
+				"south": {"uv": [12, 4, 16, 8], "texture": "#harness"},
+				"west": {"uv": [8, 4, 12, 8], "texture": "#harness"},
+				"up": {"uv": [8, 4, 4, 0], "texture": "#harness"},
+				"down": {"uv": [12, 0, 8, 4], "texture": "#harness"}
+			}
+		},
+		{
+			"name": "harness",
+			"from": [16, 16, 16],
+			"to": [0, 0, 0],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [12, 8, 16, 4], "texture": "#harness"},
+				"east": {"uv": [8, 8, 12, 4], "texture": "#harness"},
+				"south": {"uv": [4, 8, 8, 4], "texture": "#harness"},
+				"west": {"uv": [0, 8, 4, 4], "texture": "#harness"},
+				"up": {"uv": [8, 0, 12, 4], "texture": "#harness"},
+				"down": {"uv": [4, 4, 8, 0], "texture": "#harness"}
+			}
+		},
+		{
+			"name": "goggles",
+			"from": [16.15, 16.68125, -3.50625],
+			"to": [-0.15, 11.38125, -8.80625],
+			"rotation": {"angle": 45, "axis": "x", "origin": [8, 4.03125, -0.65625]},
+			"faces": {
+				"north": {"uv": [6.5, 10.5, 10.5, 9.25], "texture": "#harness"},
+				"east": {"uv": [5.25, 10.5, 6.5, 9.25], "texture": "#harness"},
+				"south": {"uv": [1.25, 10.5, 5.25, 9.25], "texture": "#harness"},
+				"west": {"uv": [0, 10.5, 1.25, 9.25], "texture": "#harness"},
+				"up": {"uv": [5.25, 8, 9.25, 9.25], "texture": "#harness"},
+				"down": {"uv": [1.25, 9.25, 5.25, 8], "texture": "#harness"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "goggles",
+			"origin": [8, 10, 2.5],
+			"color": 0,
+			"children": [0]
+		},
+		{
+			"name": "harness",
+			"origin": [8, 0, 8],
+			"color": 0,
+			"children": [1]
+		},
+		{
+			"name": "inner_faces",
+			"origin": [0, 0, 0],
+			"color": 0,
+			"children": [
+				{
+					"name": "harness",
+					"origin": [0, 0, 0],
+					"color": 0,
+					"children": [2]
+				},
+				{
+					"name": "goggles",
+					"origin": [0, 0, 0],
+					"color": 0,
+					"children": [3]
+				}
+			]
+		}
+	]
+}

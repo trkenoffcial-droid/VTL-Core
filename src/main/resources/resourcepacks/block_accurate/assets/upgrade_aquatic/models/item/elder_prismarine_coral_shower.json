@@ -1,0 +1,6 @@
+{
+  "parent": "item/templates/cross",
+  "textures": {
+    "cross": "upgrade_aquatic:block/elder_prismarine_coral_shower"
+  }
+}

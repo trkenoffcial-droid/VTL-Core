@@ -1,0 +1,6 @@
+{
+  "parent": "item/amethyst_bud",
+  "textures": {
+    "cross": "biomesoplenty:block/brimstone_bud"
+  }
+}

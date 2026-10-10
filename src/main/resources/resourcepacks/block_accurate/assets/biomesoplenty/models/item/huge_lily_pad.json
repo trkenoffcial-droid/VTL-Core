@@ -1,0 +1,60 @@
+{
+	"parent": "block/thin_block",
+	"ambientocclusion": false,
+	"textures": {
+		"particle": "biomesoplenty:block/huge_lily_pad_south_west",
+		"north_east": "biomesoplenty:block/huge_lily_pad_north_east",
+		"north_west": "biomesoplenty:block/huge_lily_pad_north_west",
+		"south_east": "biomesoplenty:block/huge_lily_pad_south_east",
+		"south_west": "biomesoplenty:block/huge_lily_pad_south_west"
+	},
+	"elements": [
+		{
+			"name": "north_east",
+			"from": [8, 0.25, -8],
+			"to": [24, 0.25, 8],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, -8]},
+			"faces": {
+				"up": {"uv": [0, 0, 16, 16], "texture": "#north_east", "tintindex": 0},
+				"down": {"uv": [0, 16, 16, 0], "texture": "#north_east", "tintindex": 0}
+			}
+		},
+		{
+			"name": "north_west",
+			"from": [-8, 0.25, -8],
+			"to": [8, 0.25, 8],
+			"rotation": {"angle": 0, "axis": "y", "origin": [-8, 0, -8]},
+			"faces": {
+				"up": {"uv": [0, 0, 16, 16], "texture": "#north_west", "tintindex": 0},
+				"down": {"uv": [0, 16, 16, 0], "texture": "#north_west", "tintindex": 0}
+			}
+		},
+		{
+			"name": "south_east",
+			"from": [8, 0.25, 8],
+			"to": [24, 0.25, 24],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"up": {"uv": [0, 0, 16, 16], "texture": "#south_east", "tintindex": 0},
+				"down": {"uv": [0, 16, 16, 0], "texture": "#south_east", "tintindex": 0}
+			}
+		},
+		{
+			"name": "south_west",
+			"from": [-8, 0.25, 8],
+			"to": [8, 0.25, 24],
+			"rotation": {"angle": 0, "axis": "y", "origin": [-8, 0, 8]},
+			"faces": {
+				"up": {"uv": [0, 0, 16, 16], "texture": "#south_west", "tintindex": 0},
+				"down": {"uv": [0, 16, 16, 0], "texture": "#south_west", "tintindex": 0}
+			}
+		}
+	],
+	"display": {
+        "gui": {
+            "rotation": [30, 180, 0],
+            "translation": [0, 0, 0],
+            "scale":[0.425, 0.425, 0.425]
+		}
+	}
+}

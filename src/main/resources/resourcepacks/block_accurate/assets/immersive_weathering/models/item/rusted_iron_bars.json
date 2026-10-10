@@ -1,0 +1,6 @@
+{
+  "parent": "item/iron_bars",
+  "textures": {
+    "edge": "immersive_weathering:block/rusted_iron_bars"
+  }
+}

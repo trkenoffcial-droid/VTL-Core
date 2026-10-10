@@ -1,0 +1,7 @@
+{
+  "parent": "item/templates/helmet_trim",
+  "textures": {
+    "all": "entity/equipment/humanoid/iron",
+    "trim": "trims/entity/humanoid/wild_gold"
+  }
+}

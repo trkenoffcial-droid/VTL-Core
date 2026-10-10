@@ -1,0 +1,6 @@
+{
+	"parent": "twigs:item/templates/paper_lantern",
+	"textures": {
+		"side": "twigs:block/blue_orchid_paper_lantern"
+	}
+}

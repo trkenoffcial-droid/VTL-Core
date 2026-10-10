@@ -1,0 +1,6 @@
+{
+    "parent": "item/templates/cross",
+    "textures": {
+      "cross": "immersive_weathering:item/frosty_grass_item"
+    }
+  }

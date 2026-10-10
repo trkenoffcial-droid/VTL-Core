@@ -1,0 +1,1 @@
+{  "parent": "item/templates/door",  "textures": {    "top": "dustrial_decor:block/cardboard_door_top",    "bottom": "dustrial_decor:block/cardboard_door_bottom"  }}

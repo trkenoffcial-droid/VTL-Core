@@ -1,0 +1,6 @@
+{
+  "parent": "item/templates/cross",
+  "textures": {
+    "cross": "gardens_of_the_dead:block/soulblight_fungus"
+  }
+}

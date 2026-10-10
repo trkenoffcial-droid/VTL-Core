@@ -1,0 +1,6 @@
+{
+  "parent": "item/templates/chest_boat",
+  "textures": {
+    "chest_boat": "bountifulfares:entity/chest_boat/hoary_boat"
+  }
+}

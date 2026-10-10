@@ -1,0 +1,7 @@
+{
+  "parent": "item/templates/door",
+  "textures": {
+    "top": "deeperdarker:block/bloom_door_top",
+    "bottom": "deeperdarker:block/bloom_door_bottom"
+  }
+}

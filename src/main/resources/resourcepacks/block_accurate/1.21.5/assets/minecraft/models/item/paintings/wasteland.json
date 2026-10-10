@@ -1,0 +1,6 @@
+{
+	"parent": "item/paintings/templates/1x1",
+	"textures": {
+		"painting": "painting/wasteland"
+	}
+}

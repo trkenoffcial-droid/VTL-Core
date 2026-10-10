@@ -1,0 +1,6 @@
+{
+  "parent": "item/templates/flat",
+  "textures": {
+    "flat": "block/frogspawn"
+  }
+}

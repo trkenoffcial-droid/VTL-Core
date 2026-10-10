@@ -1,0 +1,7 @@
+{
+  "parent": "item/templates/tall_cross",
+  "textures": {
+    "top": "farmersdelight:block/wild_rice_top",
+    "bottom": "farmersdelight:block/wild_rice_bottom"
+  }
+}

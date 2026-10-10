@@ -1,0 +1,6 @@
+{
+  "parent": "boatload:item/templates/wide_raft",
+  "textures": {
+    "boat": "boatload:entity/large_boat/bamboo"
+  }
+}

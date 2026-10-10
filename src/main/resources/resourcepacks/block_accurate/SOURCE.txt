@@ -1,0 +1,4 @@
+Block-Accurate: 3D Item Models
+https://github.com/teyokuma/3D-Item-Models (commit 9743a75dce, 2026-09-07)
+Copyright (c) 2024 teyokuma - MIT License, see LICENSE.txt in this folder.
+Bundled unchanged except: README images and the 26.x overlays left out, pack.mcmeta description and overlay list adjusted.

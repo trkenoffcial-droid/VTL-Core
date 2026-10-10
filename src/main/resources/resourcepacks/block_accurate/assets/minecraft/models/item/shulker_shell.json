@@ -1,0 +1,52 @@
+{
+	"parent": "block/block",
+	"texture_size": [64, 64],
+	"textures": {
+		"particle": "#all",
+		"all": "entity/shulker/shulker"
+	},
+	"elements": [
+		{
+			"name": "lid",
+			"from": [0, 2, 0],
+			"to": [16, 14, 16],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 8, 8]},
+			"faces": {
+				"north": {"uv": [4, 4, 8, 7], "texture": "#all"},
+				"east": {"uv": [0, 4, 4, 7], "texture": "#all"},
+				"south": {"uv": [12, 4, 16, 7], "texture": "#all"},
+				"west": {"uv": [8, 4, 12, 7], "texture": "#all"},
+				"up": {"uv": [8, 4, 4, 0], "texture": "#all"},
+				"down": {"uv": [12, 0, 8, 4], "texture": "#all"}
+			}
+		},
+		{
+			"name": "lid",
+			"from": [16.002, 2.002, 0.002],
+			"to": [0, 14.006, 16.006],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8.001, 8.004, 8.004]},
+			"faces": {
+				"north": {"uv": [8, 4, 4, 7], "texture": "#all"},
+				"east": {"uv": [12, 4, 8, 7], "texture": "#all"},
+				"south": {"uv": [16, 4, 12, 7], "texture": "#all"},
+				"west": {"uv": [4, 4, 0, 7], "texture": "#all"},
+				"up": {"uv": [4, 4, 8, 0], "texture": "#all"},
+				"down": {"uv": [8, 0, 12, 4], "texture": "#all"}
+			}
+		}
+	],
+	"display": {
+		"head": {
+			"translation": [0, 2, 0]
+		}
+	},
+	"groups": [
+		0,
+		{
+			"name": "inner_faces",
+			"origin": [8.001, 8.004, 8.004],
+			"color": 0,
+			"children": [1]
+		}
+	]
+}

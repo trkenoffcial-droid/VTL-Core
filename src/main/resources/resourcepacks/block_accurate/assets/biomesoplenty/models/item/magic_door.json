@@ -1,0 +1,1 @@
+{  "parent": "item/templates/door",  "textures": {    "top": "biomesoplenty:block/magic_door_top",    "bottom": "biomesoplenty:block/magic_door_bottom"  }}

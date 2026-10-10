@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/templates/helmet",
+  "textures": {
+    "all": "create:models/armor/netherite_diving_layer_1"
+  }
+}

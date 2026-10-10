@@ -1,0 +1,6 @@
+{
+  "parent": "item/templates/torch",
+  "textures": {
+    "torch": "realistictorches:block/torch_unlit"
+  }
+}

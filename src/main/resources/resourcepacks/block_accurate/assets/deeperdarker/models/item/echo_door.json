@@ -1,0 +1,7 @@
+{
+  "parent": "item/templates/door",
+  "textures": {
+    "top": "deeperdarker:block/echo_door_top",
+    "bottom": "deeperdarker:block/echo_door_bottom"
+  }
+}

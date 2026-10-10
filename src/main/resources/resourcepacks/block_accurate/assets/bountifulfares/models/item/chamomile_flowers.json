@@ -1,0 +1,8 @@
+{
+  "parent": "item/templates/flowerbed",
+   "textures": {
+    "flowerbed": "bountifulfares:block/chamomile_flowers",
+    "stem": "bountifulfares:block/chamomile_flowers_stem_tint",
+    "layer0": "bountifulfares:item/chamomile_flowers"
+  }
+}

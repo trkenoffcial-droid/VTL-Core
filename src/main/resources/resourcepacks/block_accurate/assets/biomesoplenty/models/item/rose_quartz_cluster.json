@@ -1,0 +1,6 @@
+{
+  "parent": "item/templates/cross",
+  "textures": {
+    "cross": "biomesoplenty:block/rose_quartz_cluster"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "item/templates/chestplate_trim",
+  "textures": {
+    "all": "models/armor/gold_layer_1",
+    "trim": "trims/models/armor/wild_emerald"
+  }
+}

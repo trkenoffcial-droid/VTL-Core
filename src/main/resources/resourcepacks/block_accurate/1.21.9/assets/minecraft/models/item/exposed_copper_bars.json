@@ -1,0 +1,6 @@
+{
+  "parent": "item/iron_bars",
+  "textures": {
+    "edge": "block/exposed_copper_bars"
+  }
+}

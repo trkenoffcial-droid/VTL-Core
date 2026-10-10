@@ -1,0 +1,6 @@
+{
+  "parent": "item/templates/leggings",
+  "textures": {
+    "all": "deeperdarker:models/armor/resonarium_layer_2"
+  }
+}

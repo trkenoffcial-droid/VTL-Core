@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/templates/boots",
+  "textures": {
+    "all": "create:models/armor/copper_diving_layer_1"
+  }
+}

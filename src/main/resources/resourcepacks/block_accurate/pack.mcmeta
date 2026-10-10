@@ -1,0 +1,142 @@
+{
+  "pack": {
+    "description": "3D item models (Block-Accurate by teyokuma, MIT) - bundled with VTL",
+    "pack_format": 15,
+    "supported_formats": [
+      15,
+      99
+    ],
+    "min_format": [
+      15,
+      0
+    ],
+    "max_format": [
+      99,
+      0
+    ]
+  },
+  "overlays": {
+    "entries": [
+      {
+        "formats": [
+          18,
+          99
+        ],
+        "min_format": [
+          18,
+          0
+        ],
+        "max_format": [
+          99,
+          0
+        ],
+        "directory": "1.20.2"
+      },
+      {
+        "formats": [
+          22,
+          99
+        ],
+        "min_format": [
+          22,
+          0
+        ],
+        "max_format": [
+          99,
+          0
+        ],
+        "directory": "1.20.3"
+      },
+      {
+        "formats": [
+          42,
+          99
+        ],
+        "min_format": [
+          42,
+          0
+        ],
+        "max_format": [
+          99,
+          0
+        ],
+        "directory": "1.21.2"
+      },
+      {
+        "formats": [
+          46,
+          99
+        ],
+        "min_format": [
+          46,
+          0
+        ],
+        "max_format": [
+          99,
+          0
+        ],
+        "directory": "1.21.4"
+      },
+      {
+        "formats": [
+          55,
+          99
+        ],
+        "min_format": [
+          55,
+          0
+        ],
+        "max_format": [
+          99,
+          0
+        ],
+        "directory": "1.21.5"
+      },
+      {
+        "formats": [
+          63,
+          99
+        ],
+        "min_format": [
+          63,
+          0
+        ],
+        "max_format": [
+          99,
+          0
+        ],
+        "directory": "1.21.6"
+      },
+      {
+        "formats": [
+          69,
+          99
+        ],
+        "min_format": [
+          69,
+          0
+        ],
+        "max_format": [
+          99,
+          0
+        ],
+        "directory": "1.21.9"
+      },
+      {
+        "formats": [
+          75,
+          99
+        ],
+        "min_format": [
+          75,
+          0
+        ],
+        "max_format": [
+          99,
+          0
+        ],
+        "directory": "1.21.11"
+      }
+    ]
+  }
+}

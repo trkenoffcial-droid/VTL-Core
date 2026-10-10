@@ -1,0 +1,8 @@
+{
+  "parent": "item/templates/boots_tinted_trim",
+  "textures": {
+    "all": "entity/equipment/humanoid/leather",
+    "overlay": "entity/equipment/humanoid/leather_overlay",
+    "trim": "trims/entity/humanoid/wild_gold"
+  }
+}

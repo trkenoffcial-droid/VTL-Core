@@ -1,0 +1,6 @@
+{
+  "parent": "item/templates/chest_boat",
+  "textures": {
+    "chest_boat": "entity/chest_boat/birch"
+  }
+}

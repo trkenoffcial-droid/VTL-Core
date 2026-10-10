@@ -1,0 +1,7 @@
+{
+  "parent": "item/templates/chestplate_trim",
+  "textures": {
+    "all": "entity/equipment/humanoid/iron",
+    "trim": "trims/entity/humanoid/wild_diamond"
+  }
+}

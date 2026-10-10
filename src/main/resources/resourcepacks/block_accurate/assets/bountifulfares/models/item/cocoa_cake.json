@@ -1,0 +1,9 @@
+{
+  "parent": "item/cake",
+  "textures": {
+    "particle": "bountifulfares:block/cocoa_cake_side",
+    "bottom": "bountifulfaresblock/cocoa_cake_bottom",
+    "top": "bountifulfares:block/cocoa_cake_top",
+    "side": "bountifulfares:block/cocoa_cake_side"
+  }
+}

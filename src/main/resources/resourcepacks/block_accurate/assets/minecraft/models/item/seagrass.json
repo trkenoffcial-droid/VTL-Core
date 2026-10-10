@@ -1,0 +1,6 @@
+{
+  "parent": "item/templates/crop",
+  "textures": {
+    "crop": "item/seagrass"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "item/templates/tall_cross",
+  "textures": {
+    "top": "trailiertales:block/manedrop_top",
+    "bottom": "trailiertales:block/manedrop_bottom"
+  }
+}

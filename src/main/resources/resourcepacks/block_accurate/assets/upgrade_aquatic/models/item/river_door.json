@@ -1,0 +1,7 @@
+{
+  "parent": "item/templates/door",
+  "textures": {
+    "top": "upgrade_aquatic:block/river_door_top",
+    "bottom": "upgrade_aquatic:block/river_door_bottom"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "item/templates/tall_cross",
+  "textures": {
+    "top": "wilderwild:block/datura_top",
+    "bottom": "wilderwild:block/datura_bottom"
+  }
+}

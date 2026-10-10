@@ -1,0 +1,8 @@
+{
+  "parent": "item/templates/boots_tinted_trim",
+  "textures": {
+    "all": "models/armor/leather_layer_1",
+    "overlay": "models/armor/leather_layer_1_overlay",
+    "trim": "trims/models/armor/wild_redstone"
+  }
+}

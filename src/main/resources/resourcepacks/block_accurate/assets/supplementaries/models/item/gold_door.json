@@ -1,0 +1,1 @@
+{  "parent": "item/templates/door",  "textures": {    "top": "supplementaries:block/gold_door_top",    "bottom": "supplementaries:block/gold_door_bottom"  }}

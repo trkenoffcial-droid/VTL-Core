@@ -1,0 +1,6 @@
+{
+  "parent": "item/templates/horse_armor",
+  "textures": {
+    "horse_armor": "entity/equipment/horse_body/iron"
+  }
+}

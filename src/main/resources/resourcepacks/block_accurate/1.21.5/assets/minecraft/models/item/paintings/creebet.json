@@ -1,0 +1,6 @@
+{
+	"parent": "item/paintings/templates/2x1",
+	"textures": {
+		"painting": "painting/creebet"
+	}
+}

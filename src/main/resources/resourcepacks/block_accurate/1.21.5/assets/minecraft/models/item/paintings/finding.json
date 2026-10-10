@@ -1,0 +1,6 @@
+{
+	"parent": "item/paintings/templates/4x2",
+	"textures": {
+		"painting": "painting/finding"
+	}
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "item/iron_bars",
+  "textures": {
+    "edge": "architects_palette:block/entwine_bars"
+  }
+}

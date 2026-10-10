@@ -1,0 +1,6 @@
+{
+  "parent": "item/templates/lantern",
+  "textures": {
+    "lantern": "dustrial_decor:block/redstone_lantern"
+  }
+}

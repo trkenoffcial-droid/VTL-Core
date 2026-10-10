@@ -1,0 +1,166 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [64, 64],
+	"textures": {
+		"0": "chimes:block/glass_bells"
+	},
+	"elements": [
+		{
+			"name": "ChimeBone",
+			"from": [7.5, 10, 7.5],
+			"to": [8.5, 15, 8.5],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, -6, 8]},
+			"faces": {
+				"north": {"uv": [4.75, 0.25, 5, 1.5], "texture": "#0"},
+				"east": {"uv": [4.5, 0.25, 4.75, 1.5], "texture": "#0"},
+				"south": {"uv": [5.25, 0.25, 5.5, 1.5], "texture": "#0"},
+				"west": {"uv": [5, 0.25, 5.25, 1.5], "texture": "#0"},
+				"up": {"uv": [5, 0.25, 4.75, 0], "texture": "#0"},
+				"down": {"uv": [5.25, 0, 5, 0.25], "texture": "#0"}
+			}
+		},
+		{
+			"name": "GlassBowlBone",
+			"from": [5, 13, 5],
+			"to": [11, 18, 11],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [1.5, 1.5, 3, 2.75], "texture": "#0"},
+				"east": {"uv": [0, 1.5, 1.5, 2.75], "texture": "#0"},
+				"south": {"uv": [4.5, 1.5, 6, 2.75], "texture": "#0"},
+				"west": {"uv": [3, 1.5, 4.5, 2.75], "texture": "#0"},
+				"up": {"uv": [3, 1.5, 1.5, 0], "texture": "#0"},
+				"down": {"uv": [4.5, 0, 3, 1.5], "texture": "#0"}
+			}
+		},
+		{
+			"name": "GlassBowlBone",
+			"from": [6, 12, 6],
+			"to": [10, 13, 10],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [1, 3.75, 2, 4], "texture": "#0"},
+				"east": {"uv": [0, 3.75, 1, 4], "texture": "#0"},
+				"south": {"uv": [3, 3.75, 4, 4], "texture": "#0"},
+				"west": {"uv": [2, 3.75, 3, 4], "texture": "#0"},
+				"up": {"uv": [2, 3.75, 1, 2.75], "texture": "#0"},
+				"down": {"uv": [3, 2.75, 2, 3.75], "texture": "#0"}
+			}
+		},
+		{
+			"name": "cube_r2",
+			"from": [6.5, 14, 8],
+			"to": [9.5, 18, 8],
+			"rotation": {"angle": -45, "axis": "y", "origin": [8, -7, 8]},
+			"faces": {
+				"north": {"uv": [6.75, 0, 7.5, 0.75], "texture": "#0"},
+				"south": {"uv": [6, 0, 6.75, 0.75], "texture": "#0"}
+			}
+		},
+		{
+			"name": "cube_r2",
+			"from": [6.5, 18, 8],
+			"to": [9.5, 24, 8],
+			"rotation": {"angle": -45, "axis": "y", "origin": [8, -3, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 0.75, 1.5], "texture": "#0"},
+				"south": {"uv": [0.75, 0, 1.5, 1.5], "texture": "#0"}
+			}
+		},
+		{
+			"name": "cube_r3",
+			"from": [8, -10, 5.5],
+			"to": [8, 10, 10.5],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, -14, 8]},
+			"faces": {
+				"east": {"uv": [8.5, 0, 9.75, 5], "texture": "#0"},
+				"west": {"uv": [7.25, 0, 8.5, 5], "texture": "#0"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [59, 72, 0],
+			"translation": [0, 0.25, 0],
+			"scale": [0.375, 0.375, 0.375]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, 45, 0],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"ground": {
+			"translation": [0, 3.5, 0],
+			"scale": [0.3, 0.3, 0.3]
+		},
+		"gui": {
+			"rotation": [30, 225, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"fixed": {
+			"rotation": [0, -90, 0],
+			"scale": [0.5, 0.5, 0.5]
+		}
+	},
+	"groups": [
+		{
+			"name": "ChimeBone",
+			"origin": [8, 21, 8],
+			"color": 0,
+			"children": [0]
+		},
+		{
+			"name": "SmallGlassWindBellB",
+			"origin": [8, 16, 8],
+			"color": 0,
+			"children": []
+		},
+		{
+			"name": "root",
+			"origin": [8, 24, 8],
+			"color": 0,
+			"children": []
+		},
+		{
+			"name": "ChimeStringBone",
+			"origin": [8, 18, 8],
+			"color": 0,
+			"children": []
+		},
+		{
+			"name": "Tag",
+			"origin": [8, 19, 8],
+			"color": 0,
+			"children": []
+		},
+		{
+			"name": "GlassBowlBone",
+			"origin": [8, 18, 8],
+			"color": 0,
+			"children": [1, 2]
+		},
+		{
+			"name": "cube_r1",
+			"origin": [8, 12.625, 8],
+			"color": 0,
+			"children": []
+		},
+		{
+			"name": "SmallGlassWindBell",
+			"origin": [8, 16, 8],
+			"color": 0,
+			"children": []
+		},
+		{
+			"name": "cube_r2",
+			"origin": [8, 18.625, 8],
+			"color": 0,
+			"children": [3, 4]
+		},
+		{
+			"name": "cube_r3",
+			"origin": [8, 26.625, 8],
+			"color": 0,
+			"children": [5]
+		}
+	]
+}

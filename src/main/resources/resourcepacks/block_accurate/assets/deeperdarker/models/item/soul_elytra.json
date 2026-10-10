@@ -1,0 +1,6 @@
+{
+  "parent": "item/elytra",
+  "textures": {
+    "all": "deeperdarker:entity/soul_elytra"
+  }
+}

@@ -1,0 +1,18 @@
+{
+	"parent": "supplementaries:item/flute_in_hand",
+	"display": {
+		"ground": {
+			"rotation": [90, 0, 0],
+            "scale":[0.375, 0.375, 0.375]
+		},
+        "gui": {
+            "rotation": [30, 135, 0],
+            "translation": [0, 0.75, 0],
+            "scale":[0.9375, 0.9375, 0.9375]
+        },
+		"fixed": {
+			"rotation": [0, 0, 0],
+			"scale": [1, 1, 1]
+		}
+	}
+}

@@ -1,0 +1,47 @@
+{
+	"parent": "block/block",
+	"texture_size": [16, 32],
+	"textures": {
+		"painting": "painting/graham",
+		"particle": "painting/back",
+		"back": "painting/back"
+	},
+	"elements": [
+		{
+			"from": [0, -8, 7.5],
+			"to": [16, 8, 8.5],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [0, 8, 16, 16], "texture": "#painting"},
+				"east": {"uv": [15, 0, 16, 16], "texture": "#back"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#back"},
+				"west": {"uv": [0, 0, 1, 16], "texture": "#back"},
+				"up": {"uv": [0, 0, 16, 1], "rotation": 180, "texture": "#back"},
+				"down": {"uv": [0, 15, 16, 16], "rotation": 180, "texture": "#back"}
+			}
+		},
+		{
+			"from": [0, 8, 7.5],
+			"to": [16, 24, 8.5],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 16, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 16, 8], "texture": "#painting"},
+				"east": {"uv": [15, 0, 16, 16], "texture": "#back"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#back"},
+				"west": {"uv": [0, 0, 1, 16], "texture": "#back"},
+				"up": {"uv": [0, 0, 16, 1], "rotation": 180, "texture": "#back"},
+				"down": {"uv": [0, 15, 16, 16], "rotation": 180, "texture": "#back"}
+			}
+		}
+	],
+	"display": {
+		"head": {
+			"translation": [0, 0, -8]
+		},
+		"gui": {
+            "rotation": [30, 135, 0],
+            "translation": [0, 0, 0],
+			"scale": [0.475, 0.475, 0.475]
+        }
+	}
+}

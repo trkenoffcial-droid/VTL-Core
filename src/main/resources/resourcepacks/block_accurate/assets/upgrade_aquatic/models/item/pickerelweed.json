@@ -1,0 +1,7 @@
+{
+  "parent": "item/templates/cross",
+  "textures": {
+    "cross": "upgrade_aquatic:block/pickerelweed_land",
+    "layer0": "upgrade_aquatic:item/pickerelweed"
+  }
+}

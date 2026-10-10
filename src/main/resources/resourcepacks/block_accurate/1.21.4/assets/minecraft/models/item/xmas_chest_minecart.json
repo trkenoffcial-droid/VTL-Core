@@ -1,0 +1,6 @@
+{
+	"parent": "item/chest_minecart",
+	"textures": {
+	  "chest": "entity/chest/christmas"
+  }
+}

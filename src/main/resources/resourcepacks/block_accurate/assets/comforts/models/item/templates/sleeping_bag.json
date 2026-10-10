@@ -1,0 +1,57 @@
+{
+	"parent": "block/thin_block",
+	"texture_size": [64, 64],
+	"textures": {
+		"particle": "#sleeping_bag"
+	},
+	"elements": [
+		{
+			"from": [0, 0, -7],
+			"to": [16, 3, 9],
+			"rotation": {"angle": 0, "axis": "y", "origin": [0, 0, -7]},
+			"faces": {
+				"north": {"uv": [4.75, 0.75, 0.75, 0], "texture": "#sleeping_bag"},
+				"east": {"uv": [0.75, 9.5, 0, 5.5], "rotation": 90, "texture": "#sleeping_bag"},
+				"south": {"uv": [0, 34, 16, 36], "texture": "#sleeping_bag", "cullface": "south"},
+				"west": {"uv": [5.5, 9.5, 4.75, 5.5], "rotation": 270, "texture": "#sleeping_bag"},
+				"up": {"uv": [4.75, 9.5, 0.75, 5.5], "texture": "#sleeping_bag"},
+				"down": {"uv": [5.5, 5.5, 9.5, 9.5], "texture": "#sleeping_bag"}
+			}
+		},
+		{
+			"from": [0, 0, 9],
+			"to": [16, 3, 25],
+			"rotation": {"angle": 0, "axis": "y", "origin": [0, 0, 9]},
+			"faces": {
+				"north": {"uv": [0, 32, 16, 34], "texture": "#sleeping_bag", "cullface": "north"},
+				"east": {"uv": [0.75, 4.75, 0, 0.75], "rotation": 90, "texture": "#sleeping_bag"},
+				"south": {"uv": [8.75, 5.5, 4.75, 4.75], "texture": "#sleeping_bag"},
+				"west": {"uv": [5.5, 4.75, 4.75, 0.75], "rotation": 270, "texture": "#sleeping_bag"},
+				"up": {"uv": [4.75, 4.75, 0.75, 0.75], "texture": "#sleeping_bag"},
+				"down": {"uv": [5.5, 0.75, 9.5, 4.75], "texture": "#sleeping_bag"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [30, 160, 0],
+			"translation": [-0.75, 3.5, 0.25],
+			"scale": [0.23, 0.23, 0.23]
+		},
+		"firstperson_righthand": {
+			"rotation": [30, 160, 0],
+			"translation": [0.75, 2.5, 2.25],
+			"scale": [0.45, 0.45, 0.45]
+		},
+		"gui": {
+			"rotation": [30, 135, 0],
+			"translation": [-0.25, 0, 0],
+			"scale": [0.425, 0.425, 0.425]
+		},
+		"fixed": {
+			"rotation": [-90, 0, 0],
+			"translation": [0, 0, -3],
+			"scale": [0.5, 0.5, 0.5]
+		}
+	}
+}

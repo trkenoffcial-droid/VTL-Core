@@ -1,0 +1,7 @@
+{
+  "parent": "item/templates/leggings_trim",
+  "textures": {
+    "all": "entity/equipment/humanoid/chainmail_layer_2",
+    "trim": "trims/entity/humanoid/wild_leggings_resin"
+  }
+}

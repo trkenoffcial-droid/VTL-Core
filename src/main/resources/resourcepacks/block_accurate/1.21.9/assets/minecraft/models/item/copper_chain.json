@@ -1,0 +1,6 @@
+{
+  "parent": "item/templates/chain",
+  "textures": {
+    "all": "block/copper_chain"
+  }
+}

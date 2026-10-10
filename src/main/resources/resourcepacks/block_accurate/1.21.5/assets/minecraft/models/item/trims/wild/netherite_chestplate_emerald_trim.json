@@ -1,0 +1,7 @@
+{
+  "parent": "item/templates/chestplate_trim",
+  "textures": {
+    "all": "entity/equipment/humanoid/netherite",
+    "trim": "trims/entity/humanoid/wild_emerald"
+  }
+}

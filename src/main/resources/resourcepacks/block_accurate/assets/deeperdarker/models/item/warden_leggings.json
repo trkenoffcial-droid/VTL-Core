@@ -1,0 +1,6 @@
+{
+  "parent": "item/templates/leggings",
+  "textures": {
+    "all": "minecraft:models/armor/warden_layer_2"
+  }
+}

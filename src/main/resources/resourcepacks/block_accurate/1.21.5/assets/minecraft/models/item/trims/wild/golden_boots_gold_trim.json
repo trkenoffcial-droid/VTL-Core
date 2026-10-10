@@ -1,0 +1,7 @@
+{
+  "parent": "item/templates/boots_trim",
+  "textures": {
+    "all": "entity/equipment/humanoid/gold",
+    "trim": "trims/entity/humanoid/wild_gold_darker"
+  }
+}

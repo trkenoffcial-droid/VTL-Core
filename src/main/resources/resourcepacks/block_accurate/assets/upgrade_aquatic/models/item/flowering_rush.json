@@ -1,0 +1,8 @@
+{
+  "parent": "item/templates/tall_cross",
+  "textures": {
+    "top": "upgrade_aquatic:block/flowering_rush_top",
+    "bottom": "upgrade_aquatic:block/flowering_rush_bottom",
+    "layer0": "upgrade_aquatic:item/flowering_rush"
+  }
+}

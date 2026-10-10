@@ -1,0 +1,6 @@
+{
+  "parent": "item/templates/boat",
+  "textures": {
+    "boat": "bountifulfares:entity/boat/hoary_boat"
+  }
+}

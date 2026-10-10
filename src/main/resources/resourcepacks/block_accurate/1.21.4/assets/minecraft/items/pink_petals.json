@@ -1,0 +1,23 @@
+{
+  "model": {
+    "type": "minecraft:composite",
+    "models": [
+      {
+        "type": "minecraft:model",
+        "model": "minecraft:item/pink_petals_1"
+      },
+      {
+        "type": "minecraft:model",
+        "model": "minecraft:item/pink_petals_2"
+      },
+      {
+        "type": "minecraft:model",
+        "model": "minecraft:item/pink_petals_3"
+      },
+      {
+        "type": "minecraft:model",
+        "model": "minecraft:item/pink_petals_4"
+      }
+    ]
+  }
+}

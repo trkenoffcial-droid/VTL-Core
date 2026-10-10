@@ -1,0 +1,7 @@
+{
+  "parent": "item/templates/tinted_tall_cross",
+  "textures": {
+    "top": "gardens_of_the_dead:block/tall_blistercrown_top",
+    "bottom": "gardens_of_the_dead:block/tall_blistercrown_bottom"
+  }
+}

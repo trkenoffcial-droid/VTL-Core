@@ -1,0 +1,6 @@
+{
+  "parent": "item/templates/boat",
+  "textures": {
+    "boat": "quark:model/entity/boat/azalea"
+  }
+}

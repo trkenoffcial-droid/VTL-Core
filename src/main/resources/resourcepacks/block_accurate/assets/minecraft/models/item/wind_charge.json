@@ -1,0 +1,138 @@
+{
+	"parent": "block/block",
+	"texture_size": [64, 32],
+	"textures": {
+		"wind_charge": "entity/projectiles/wind_charge"
+	},
+	"elements": [
+		{
+			"name": "charge",
+			"from": [6, 6, 6],
+			"to": [10, 10, 10],
+			"rotation": {"angle": -45, "axis": "y", "origin": [8, 8, 8]},
+			"faces": {
+				"north": {"uv": [1, 2, 2, 4], "texture": "#wind_charge"},
+				"east": {"uv": [0, 2, 1, 4], "texture": "#wind_charge"},
+				"south": {"uv": [3, 2, 4, 4], "texture": "#wind_charge"},
+				"west": {"uv": [2, 2, 3, 4], "texture": "#wind_charge"},
+				"up": {"uv": [2, 2, 1, 0], "texture": "#wind_charge"},
+				"down": {"uv": [3, 0, 2, 2], "texture": "#wind_charge"}
+			}
+		},
+		{
+			"name": "wind",
+			"from": [5, 6, 5],
+			"to": [11, 10, 11],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 8, 8]},
+			"faces": {
+				"north": {"uv": [1.5, 7.5, 3, 9.5], "texture": "#wind_charge"},
+				"east": {"uv": [0, 7.5, 1.5, 9.5], "texture": "#wind_charge"},
+				"south": {"uv": [4.5, 7.5, 6, 9.5], "texture": "#wind_charge"},
+				"west": {"uv": [3, 7.5, 4.5, 9.5], "texture": "#wind_charge"},
+				"up": {"uv": [3, 7.5, 1.5, 4.5], "texture": "#wind_charge"},
+				"down": {"uv": [4.5, 4.5, 3, 7.5], "texture": "#wind_charge"}
+			}
+		},
+		{
+			"name": "wind",
+			"from": [4, 7, 4],
+			"to": [12, 9, 12],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 8, 8]},
+			"faces": {
+				"north": {"uv": [5.75, 14, 7.75, 15], "texture": "#wind_charge"},
+				"east": {"uv": [3.75, 14, 5.75, 15], "texture": "#wind_charge"},
+				"south": {"uv": [9.75, 14, 11.75, 15], "texture": "#wind_charge"},
+				"west": {"uv": [7.75, 14, 9.75, 15], "texture": "#wind_charge"},
+				"up": {"uv": [7.75, 14, 5.75, 10], "texture": "#wind_charge"},
+				"down": {"uv": [9.75, 10, 7.75, 14], "texture": "#wind_charge"}
+			}
+		},
+		{
+			"name": "charge",
+			"from": [10, 6.002, 6.002],
+			"to": [6.004, 10.006, 10.006],
+			"rotation": {"angle": -45, "axis": "y", "origin": [8.002, 8.004, 8.004]},
+			"faces": {
+				"north": {"uv": [2, 2, 1, 4], "texture": "#wind_charge"},
+				"east": {"uv": [3, 2, 2, 4], "texture": "#wind_charge"},
+				"south": {"uv": [4, 2, 3, 4], "texture": "#wind_charge"},
+				"west": {"uv": [1, 2, 0, 4], "texture": "#wind_charge"},
+				"up": {"uv": [1, 2, 2, 0], "texture": "#wind_charge"},
+				"down": {"uv": [2, 0, 3, 2], "texture": "#wind_charge"}
+			}
+		},
+		{
+			"name": "wind",
+			"from": [11, 6.002, 5.002],
+			"to": [5.004, 10.006, 11.006],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8.002, 8.004, 8.004]},
+			"faces": {
+				"north": {"uv": [3, 7.5, 1.5, 9.5], "texture": "#wind_charge"},
+				"east": {"uv": [4.5, 7.5, 3, 9.5], "texture": "#wind_charge"},
+				"south": {"uv": [6, 7.5, 4.5, 9.5], "texture": "#wind_charge"},
+				"west": {"uv": [1.5, 7.5, 0, 9.5], "texture": "#wind_charge"},
+				"up": {"uv": [1.5, 7.5, 3, 4.5], "texture": "#wind_charge"},
+				"down": {"uv": [3, 4.5, 4.5, 7.5], "texture": "#wind_charge"}
+			}
+		},
+		{
+			"name": "wind",
+			"from": [12, 7.002, 4.002],
+			"to": [4.004, 9.006, 12.006],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8.002, 8.004, 8.004]},
+			"faces": {
+				"north": {"uv": [7.75, 14, 5.75, 15], "texture": "#wind_charge"},
+				"east": {"uv": [9.75, 14, 7.75, 15], "texture": "#wind_charge"},
+				"south": {"uv": [11.75, 14, 9.75, 15], "texture": "#wind_charge"},
+				"west": {"uv": [5.75, 14, 3.75, 15], "texture": "#wind_charge"},
+				"up": {"uv": [5.75, 14, 7.75, 10], "texture": "#wind_charge"},
+				"down": {"uv": [7.75, 10, 9.75, 14], "texture": "#wind_charge"}
+			}
+		}
+	],
+	"display": {
+		"firstperson_righthand": {
+			"rotation": [0, 135, 0],
+			"translation": [0, 1, 0],
+			"scale": [0.4, 0.4, 0.4]
+		},
+        "gui": {
+            "rotation": [30, -45, 0],
+            "translation": [0, 0, 0],
+            "scale": [1, 1, 1]
+		}
+	},
+	"groups": [
+		{
+			"name": "charge",
+			"origin": [8, 2, 8],
+			"color": 0,
+			"children": [0]
+		},
+		{
+			"name": "wind",
+			"origin": [8, 2, 8],
+			"color": 0,
+			"children": [1, 2]
+		},
+		{
+			"name": "inner_faces",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [
+				{
+					"name": "charge",
+					"origin": [8, 2, 8],
+					"color": 0,
+					"children": [3]
+				},
+				{
+					"name": "wind",
+					"origin": [8, 2, 8],
+					"color": 0,
+					"children": [4, 5]
+				}
+			]
+		}
+	]
+}

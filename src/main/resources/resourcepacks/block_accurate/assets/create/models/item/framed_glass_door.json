@@ -1,0 +1,9 @@
+{
+  "parent": "create:item/templates/door",
+  "textures": {
+    "top": "create:block/glass_door_top",
+    "bottom": "create:block/glass_door_bottom",
+    "side": "create:block/glass_door_side",
+    "particle": "create:block/glass_casing"
+  }
+}

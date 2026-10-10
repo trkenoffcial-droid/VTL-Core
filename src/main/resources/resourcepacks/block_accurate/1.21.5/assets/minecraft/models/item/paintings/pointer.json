@@ -1,0 +1,6 @@
+{
+	"parent": "item/paintings/templates/4x4",
+	"textures": {
+		"painting": "painting/pointer"
+	}
+}

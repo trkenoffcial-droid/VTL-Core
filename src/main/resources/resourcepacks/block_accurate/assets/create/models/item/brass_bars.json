@@ -1,0 +1,24 @@
+{
+  "parent": "create:item/bars",
+  "textures": {
+    "bars": "create:block/bars/brass_bars",
+    "edge": "create:block/bars/brass_bars_edge"
+  },
+    "display": {
+        "fixed": {
+            "rotation": [0, 0, 0],
+            "translation": [0, 0, 0],
+            "scale":[0.75, 0.75, 0.75]
+        },
+        "firstperson_righthand": {
+            "rotation": [0, 135, 0],
+            "translation": [0, 0, 0],
+            "scale": [0.4, 0.4, 0.4]
+        },
+        "head": {
+            "rotation": [0, 0, 0],
+            "translation": [0, 0, -8],
+            "scale": [1, 1, 1]
+        }
+    }
+}

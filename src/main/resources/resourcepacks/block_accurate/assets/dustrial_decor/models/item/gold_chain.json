@@ -1,0 +1,7 @@
+{
+  "parent": "item/chain",
+  "textures": {
+    "all": "dustrial_decor:block/gold_chain",
+    "layer0": "dustrial_decor:item/gold_chain"
+  }
+}

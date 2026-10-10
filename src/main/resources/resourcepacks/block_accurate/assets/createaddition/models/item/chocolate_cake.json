@@ -1,0 +1,9 @@
+{
+  "parent": "item/cake",
+  "textures": {
+    "particle": "createaddition:block/chocolate_cake/side",
+    "bottom": "createaddition:block/chocolate_cake/bottom",
+    "top": "createaddition:block/chocolate_cake/top",
+    "side": "createaddition:block/chocolate_cake/side"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "item/templates/tall_cross",
+  "textures": {
+    "top": "biomesoplenty:block/tall_lavender_top",
+    "bottom": "biomesoplenty:block/tall_lavender_bottom"
+  }
+}

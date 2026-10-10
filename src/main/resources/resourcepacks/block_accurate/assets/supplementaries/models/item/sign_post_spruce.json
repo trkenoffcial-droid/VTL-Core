@@ -1,0 +1,7 @@
+{
+	"parent": "supplementaries:item/templates/sign_post_template",
+	"textures": {
+		"particle": "supplementaries:block/sign_posts/sign_post_spruce",
+		"east": "supplementaries:block/sign_posts/sign_post_spruce"
+	}
+}

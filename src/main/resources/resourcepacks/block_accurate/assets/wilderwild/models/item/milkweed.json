@@ -1,0 +1,7 @@
+{
+  "parent": "item/templates/tall_cross",
+  "textures": {
+    "top": "wilderwild:block/milkweed_top",
+    "bottom": "wilderwild:block/milkweed_bottom"
+  }
+}

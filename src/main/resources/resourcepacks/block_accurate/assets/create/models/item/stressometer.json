@@ -1,0 +1,15 @@
+{
+  "parent": "create:block/gauge/stressometer/item",
+  "display": {
+        "firstperson_righthand": {
+            "rotation": [0, -135, 0],
+            "translation": [0, 0, 0],
+            "scale": [0.4, 0.4, 0.4]
+        },
+        "thirdperson_righthand": {
+            "rotation": [75, 135, 0],
+            "translation": [0, 2.5, 0],
+            "scale": [0.375, 0.375, 0.375]
+        }
+    }
+}

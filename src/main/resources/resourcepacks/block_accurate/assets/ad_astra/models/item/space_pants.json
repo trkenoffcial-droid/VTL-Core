@@ -1,0 +1,6 @@
+{
+  "parent": "ad_astra:item/templates/pants",
+  "textures": {
+		"all": "ad_astra:entity/armor/space_suit"
+  }
+}

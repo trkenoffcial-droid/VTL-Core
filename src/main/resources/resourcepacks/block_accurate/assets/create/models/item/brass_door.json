@@ -1,0 +1,9 @@
+{
+  "parent": "create:item/templates/door",
+  "textures": {
+    "top": "create:block/brass_door_top",
+    "bottom": "create:block/brass_door_bottom",
+    "side": "create:block/brass_door_side",
+    "particle": "create:block/brass_casing"
+  }
+}

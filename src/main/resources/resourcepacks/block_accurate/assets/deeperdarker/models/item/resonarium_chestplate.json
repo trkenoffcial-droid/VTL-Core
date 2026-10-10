@@ -1,0 +1,6 @@
+{
+  "parent": "item/templates/chestplate",
+  "textures": {
+    "all": "deeperdarker:models/armor/resonarium_layer_1"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "parent": "item/templates/helmet",
+  "textures": {
+    "all": "models/armor/netherite_layer_1"
+  },
+    "overrides": [
+      {
+        "model": "item/trims/netherite_helmet_quartz_trim",
+        "predicate": {
+          "trim_type": 0.1
+        }
+      },
+      {
+        "model": "item/trims/netherite_helmet_iron_trim",
+        "predicate": {
+          "trim_type": 0.2
+        }
+      },
+      {
+        "model": "item/trims/netherite_helmet_netherite_trim",
+        "predicate": {
+          "trim_type": 0.3
+        }
+      },
+      {
+        "model": "item/trims/netherite_helmet_redstone_trim",
+        "predicate": {
+          "trim_type": 0.4
+        }
+      },
+      {
+        "model": "item/trims/netherite_helmet_copper_trim",
+        "predicate": {
+          "trim_type": 0.5
+        }
+      },
+      {
+        "model": "item/trims/netherite_helmet_gold_trim",
+        "predicate": {
+          "trim_type": 0.6
+        }
+      },
+      {
+        "model": "item/trims/netherite_helmet_emerald_trim",
+        "predicate": {
+          "trim_type": 0.7
+        }
+      },
+      {
+        "model": "item/trims/netherite_helmet_diamond_trim",
+        "predicate": {
+          "trim_type": 0.8
+        }
+      },
+      {
+        "model": "item/trims/netherite_helmet_lapis_trim",
+        "predicate": {
+          "trim_type": 0.9
+        }
+      },
+      {
+        "model": "item/trims/netherite_helmet_amethyst_trim",
+        "predicate": {
+          "trim_type": 1.0
+      }
+    }
+  ]
+}

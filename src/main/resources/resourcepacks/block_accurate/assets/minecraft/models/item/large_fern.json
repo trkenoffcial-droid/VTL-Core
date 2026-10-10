@@ -1,0 +1,7 @@
+{
+  "parent": "item/templates/tinted_tall_cross",
+  "textures": {
+    "top": "block/large_fern_top",
+    "bottom": "block/large_fern_bottom"
+  }
+}

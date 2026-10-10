@@ -1,0 +1,6 @@
+{
+  "parent": "item/templates/boots",
+  "textures": {
+    "all": "deeperdarker:models/armor/resonarium_layer_1"
+  }
+}

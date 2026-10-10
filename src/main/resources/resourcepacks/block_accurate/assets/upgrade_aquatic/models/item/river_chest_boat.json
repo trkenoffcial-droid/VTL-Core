@@ -1,0 +1,6 @@
+{
+  "parent": "item/templates/chest_boat",
+  "textures": {
+    "chest_boat": "upgrade_aquatic:entity/chest_boat/river"
+  }
+}

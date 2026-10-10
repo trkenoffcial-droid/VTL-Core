@@ -1,0 +1,7 @@
+{
+  "parent": "item/templates/boots_trim",
+  "textures": {
+    "all": "entity/equipment/humanoid/chainmail",
+    "trim": "trims/entity/humanoid/wild_quartz"
+  }
+}

@@ -1,0 +1,1 @@
+{  "parent": "item/templates/door",  "textures": {    "top": "quark:block/blossom_door_top",    "bottom": "quark:block/blossom_door_bottom"  }}

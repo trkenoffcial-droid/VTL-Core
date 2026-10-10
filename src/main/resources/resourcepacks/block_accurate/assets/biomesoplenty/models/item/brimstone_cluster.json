@@ -1,0 +1,7 @@
+{
+  "parent": "item/templates/tall_cross",
+  "textures": {
+    "top": "biomesoplenty:block/brimstone_cluster_top",
+    "bottom": "biomesoplenty:block/brimstone_cluster_bottom"
+  }
+}

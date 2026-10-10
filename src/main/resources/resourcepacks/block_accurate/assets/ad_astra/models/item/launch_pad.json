@@ -1,0 +1,36 @@
+{
+	"parent": "ad_astra:block/launch_pad",
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [85, 0, 0],
+			"translation": [-5.5, 0, 5.75]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [85, 0, 0],
+			"translation": [-5.5, 0, 5.75]
+		},
+		"firstperson_righthand": {
+			"rotation": [-17, 0, 0],
+			"translation": [-9, 24, 9.5]
+		},
+		"firstperson_lefthand": {
+			"rotation": [-17, 0, 0],
+			"translation": [-9, 24, 9.5]
+		},
+        "ground": {
+            "rotation": [0, 0, 0],
+            "translation": [0, 3, 0],
+            "scale":[0.25, 0.25, 0.25]
+		},
+		"gui": {
+            "rotation": [30, 135, 0],
+            "translation": [0, -2.25, 0],
+            "scale":[0.23, 0.23, 0.23]
+		},
+		"fixed": {
+			"rotation": [90, 0, 0],
+			"translation": [0, 0, 10.5],
+			"scale": [0.67, 1.55, 0.67]
+		}
+	}
+}

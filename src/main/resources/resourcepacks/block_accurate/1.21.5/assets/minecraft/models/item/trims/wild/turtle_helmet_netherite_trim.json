@@ -1,0 +1,7 @@
+{
+  "parent": "item/templates/helmet_trim",
+  "textures": {
+    "all": "entity/equipment/humanoid/turtle_scute",
+    "trim": "trims/entity/humanoid/wild_netherite"
+  }
+}

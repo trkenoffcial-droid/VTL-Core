@@ -1,0 +1,6 @@
+{
+  "parent": "boatload:item/templates/furnace_boat",
+  "textures": {
+    "furnace_boat": "boatload:entity/furnace_boat/crimson"
+  }
+}

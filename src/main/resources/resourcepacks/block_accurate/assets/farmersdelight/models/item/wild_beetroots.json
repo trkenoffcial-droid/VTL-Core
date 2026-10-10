@@ -1,0 +1,6 @@
+{
+  "parent": "item/templates/cross",
+  "textures": {
+    "cross": "farmersdelight:block/wild_beetroots"
+  }
+}

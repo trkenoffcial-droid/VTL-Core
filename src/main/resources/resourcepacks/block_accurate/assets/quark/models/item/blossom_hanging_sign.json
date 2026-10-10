@@ -1,0 +1,1 @@
+{  "parent": "item/templates/hanging_sign",  "textures": {    "all": "quark:entity/signs/hanging/blossom"  }}

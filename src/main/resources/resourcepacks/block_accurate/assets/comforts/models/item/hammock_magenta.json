@@ -1,0 +1,6 @@
+{
+  "parent": "comforts:item/templates/hammock",
+  "textures": {
+    "hammock": "comforts:entity/hammock/magenta"
+  }
+}

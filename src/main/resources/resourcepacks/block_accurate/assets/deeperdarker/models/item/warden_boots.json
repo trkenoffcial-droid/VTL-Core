@@ -1,0 +1,6 @@
+{
+  "parent": "item/templates/boots",
+  "textures": {
+    "all": "minecraft:models/armor/warden_layer_1"
+  }
+}

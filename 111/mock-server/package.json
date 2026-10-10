@@ -1,0 +1,14 @@
+{
+  "name": "vtl-queue-mock-server",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Mock of the VTL bot game-mod gateway (protocol v2) for testing the TierTagger mod",
+  "main": "mock-queue-server.js",
+  "scripts": {
+    "start": "node mock-queue-server.js",
+    "demo": "node mock-queue-server.js --demo"
+  },
+  "dependencies": {
+    "ws": "^8.18.0"
+  }
+}

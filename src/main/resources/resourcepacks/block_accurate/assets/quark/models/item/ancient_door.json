@@ -1,0 +1,7 @@
+{
+  "parent": "item/templates/door",
+  "textures": {
+    "top": "quark:block/ancient_door_top",
+    "bottom": "quark:block/ancient_door_bottom"
+  }
+}

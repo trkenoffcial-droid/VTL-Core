@@ -1,0 +1,6 @@
+{
+  "parent": "item/templates/torch",
+  "textures": {
+    "torch": "architects_palette:block/nether_brass_torch"
+  }
+}

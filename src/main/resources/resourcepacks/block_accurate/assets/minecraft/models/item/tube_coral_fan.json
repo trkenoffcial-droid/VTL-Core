@@ -1,0 +1,6 @@
+{
+  "parent": "item/templates/coral_fan",
+  "textures": {
+    "fan": "block/tube_coral_fan"
+  }
+}

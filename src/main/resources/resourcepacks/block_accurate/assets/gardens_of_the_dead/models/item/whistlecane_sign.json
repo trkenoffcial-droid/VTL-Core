@@ -1,0 +1,6 @@
+{
+  "parent": "item/templates/sign",
+  "textures": {
+    "all": "gardens_of_the_dead:entity/signs/whistlecane"
+  }
+}

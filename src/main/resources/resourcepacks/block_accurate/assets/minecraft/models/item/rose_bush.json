@@ -1,0 +1,7 @@
+{
+  "parent": "item/templates/tall_cross",
+  "textures": {
+    "top": "block/rose_bush_top",
+    "bottom": "block/rose_bush_bottom"
+  }
+}

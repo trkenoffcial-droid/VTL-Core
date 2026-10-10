@@ -1,0 +1,6 @@
+{
+	"parent": "item/paintings/templates/3x3",
+	"textures": {
+		"painting": "painting/endboss"
+	}
+}

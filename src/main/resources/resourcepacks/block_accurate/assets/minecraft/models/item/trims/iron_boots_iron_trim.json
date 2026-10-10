@@ -1,0 +1,7 @@
+{
+  "parent": "item/templates/boots_trim",
+  "textures": {
+    "all": "models/armor/iron_layer_1",
+    "trim": "trims/models/armor/wild_iron_darker"
+  }
+}

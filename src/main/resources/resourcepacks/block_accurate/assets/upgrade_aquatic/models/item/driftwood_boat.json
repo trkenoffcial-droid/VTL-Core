@@ -1,0 +1,6 @@
+{
+  "parent": "item/templates/boat",
+  "textures": {
+    "boat": "upgrade_aquatic:entity/boat/driftwood"
+  }
+}
