@@ -1,3 +1,9 @@
+# VTL Core
+
+Copyright (c) 2026 Viet TierList. VTL Core's own changes and additions are licensed under the
+Mozilla Public License 2.0 (`LICENSE`), like the TierTagger code they build on. The names and
+logos are not licensed: see `TRADEMARKS.md`.
+
 # Third-party content
 
 ## Block-Accurate: 3D Item Models

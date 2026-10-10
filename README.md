@@ -189,6 +189,13 @@ git config --global core.longpaths true
   ([Leoaxo098/VTL-TierTagger](https://github.com/Leoaxo098/VTL-TierTagger)). Copyright (c) 2025 MCTiers.
 - **3D item icons:** [Block-Accurate 3D Item Models](https://github.com/teyokuma/3D-Item-Models),
   copyright (c) 2024 teyokuma, MIT license. See [`NOTICE.md`](NOTICE.md).
-- **License:** [Mozilla Public License 2.0](LICENSE).
+- **License:** [Mozilla Public License 2.0](LICENSE). You may use, change, share and sell the code
+  on its terms: keep the notices, and share the source of the MPL files with any build you give out.
+- **Name and logo:** "VTL Core", "Viet TierList", "VTL" and the VTL logos are not covered by the
+  license. A fork needs its own name and logo. See [`TRADEMARKS.md`](TRADEMARKS.md).
+- **Viet TierList services:** the queue, ticket chat and account link talk to the Viet TierList
+  servers (the Discord bot and tierslist.net). Those servers are not part of this source and not
+  covered by its license. Viet TierList may refuse modified or unofficial clients, and players or
+  accounts it has banned.
 
 Not an official Minecraft product. Not approved by or associated with Mojang or Microsoft.
