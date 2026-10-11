@@ -12,6 +12,7 @@ import net.minecraft.client.gui.narration.NarrationElementOutput;
 import net.minecraft.client.gui.screens.PauseScreen;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.TitleScreen;
+//? if >=1.21.9
 import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.contents.TranslatableContents;
@@ -73,8 +74,13 @@ public final class MenuButtons {
             g.renderOutline(x, y, SIZE, SIZE, isHoveredOrFocused() ? 0xFFFFFFFF : HubTheme.GOLD);
         }
 
+        //? if >=1.21.9 {
         @Override
         public void onClick(MouseButtonEvent event, boolean doubleClick) {
+        //?} else {
+        /*@Override
+        public void onClick(double mouseX, double mouseY) {
+        *///?}
             VtlHubScreen.open(HubTab.Id.PLAY);
         }
 

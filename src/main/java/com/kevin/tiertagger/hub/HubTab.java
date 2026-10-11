@@ -1,7 +1,6 @@
 package com.kevin.tiertagger.hub;
 
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.input.KeyEvent;
 
 /** One page of the VTL Hub. Its widgets go through the screen; it draws the rest itself. */
 public interface HubTab {
@@ -34,7 +33,7 @@ public interface HubTab {
 
     default void tick() {}
 
-    default boolean keyPressed(KeyEvent event) {
+    default boolean keyPressed(int key) {
         return false;
     }
 

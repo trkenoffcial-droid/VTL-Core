@@ -5,7 +5,7 @@ It shows every player's tier above their head, and brings the whole testing flow
 see which queues are open, join one, chat with your tester and watch your result, without
 switching to Discord.
 
-**Fabric · Minecraft 1.21.11 · client side only**
+**Fabric · Minecraft 1.21.8 to 26.3 · client side only**
 
 ![VTL Hub](docs/images/hub-play.png)
 
@@ -89,9 +89,20 @@ If another screen is open, a toast tells you to press **R** to see the result.
 
 ## Install
 
-1. Install [Fabric Loader](https://fabricmc.net/use/) 0.17 or newer for Minecraft **1.21.11**.
+1. Install [Fabric Loader](https://fabricmc.net/use/) 0.17 or newer for your Minecraft version.
 2. Install [Fabric API](https://modrinth.com/mod/fabric-api).
-3. Put `VTL-Core+mc1.21.11.jar` in your `mods` folder.
+3. Put the VTL Core jar for your Minecraft version in your `mods` folder:
+
+   | Minecraft | Jar |
+   |---|---|
+   | 1.21.8 | `VTL-Core+mc1.21.8.jar` |
+   | 1.21.9, 1.21.10 | `VTL-Core+mc1.21.10.jar` |
+   | 1.21.11 | `VTL-Core+mc1.21.11.jar` |
+   | 26.1, 26.1.1, 26.1.2 | `VTL-Core+mc26.1.2.jar` |
+   | 26.2 | `VTL-Core+mc26.2.jar` |
+   | 26.3 | `VTL-Core+mc26.3.jar` |
+
+   A jar for another version shows Fabric's "incompatible mod" message instead of starting.
    - Remove any other TierTagger jar: this mod replaces it.
    - [Mod Menu](https://modrinth.com/mod/modmenu) is optional.
 
@@ -147,13 +158,19 @@ The protocol is documented in [`111/MOD-PROTOCOL-v2.md`](111/MOD-PROTOCOL-v2.md)
 
 ## Building
 
-You need **JDK 21**.
+You need **JDK 25** (it also builds the Java 21 jars for Minecraft 1.21.x).
 
 ```bash
-./gradlew build
+./gradlew chiseledBuild
 ```
 
-The jar is written to `build/libs/`.
+The six jars are written to `build/libs/<mod version>/`. One source tree builds every Minecraft version
+with [Stonecutter](https://stonecutter.kikugie.dev):
+- `src/` holds the code as it is for Minecraft 1.21.11;
+- `//? if` comments and the string replacements in `build.gradle.kts` adapt it to the other versions;
+- `versions/<minecraft>/gradle.properties` holds each version's dependencies.
+
+`./gradlew :26.3:build` builds one version; `./gradlew :26.3:runClient` starts its dev client.
 
 On Windows, turn on long paths before cloning, because the bundled 3D item pack has deep folders:
 
@@ -165,7 +182,7 @@ git config --global core.longpaths true
 - [`111/mock-server/`](111/mock-server) runs the same gateway code as the bot, with simulated
   queues, testers and tickets.
 - [`TESTING.md`](TESTING.md) covers the rest:
-  - headless checks (`./gradlew hubStateCheck`, `queueProtocolCheck`, …);
+  - headless checks (`./gradlew :1.21.11:hubStateCheck`, `:1.21.11:queueProtocolCheck`, …);
   - automatic dev-client screenshots;
   - a step-by-step manual test.
 

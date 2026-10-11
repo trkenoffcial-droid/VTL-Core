@@ -16,11 +16,10 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.EditBox;
-import net.minecraft.client.input.KeyEvent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.FormattedCharSequence;
 import net.minecraft.util.Util;
-import org.lwjgl.glfw.GLFW;
+import com.mojang.blaze3d.platform.InputConstants;
 
 import java.net.URI;
 import java.time.Instant;
@@ -149,8 +148,8 @@ public class TicketTab implements HubTab {
     }
 
     @Override
-    public boolean keyPressed(KeyEvent event) {
-        if ((event.key() == GLFW.GLFW_KEY_ENTER || event.key() == GLFW.GLFW_KEY_KP_ENTER) && input != null && input.isFocused()) {
+    public boolean keyPressed(int key) {
+        if ((key == InputConstants.KEY_RETURN || key == InputConstants.KEY_NUMPADENTER) && input != null && input.isFocused()) {
             send();
             return true;
         }

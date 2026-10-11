@@ -5,11 +5,13 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.narration.NarrationElementOutput;
+//? if >=1.21.9
 import net.minecraft.client.input.KeyEvent;
+//? if >=1.21.9
 import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
-import org.lwjgl.glfw.GLFW;
+import com.mojang.blaze3d.platform.InputConstants;
 
 import java.util.function.Consumer;
 
@@ -38,15 +40,26 @@ public class HubToggle extends AbstractWidget {
         HubTheme.centered(g, font, text, knobX + knobW / 2, y + (h - 8) / 2, value ? 0xFFFFFFFF : 0xFFB0A4C0, 1f);
     }
 
+    //? if >=1.21.9 {
     @Override
     public void onClick(MouseButtonEvent event, boolean doubleClick) {
+    //?} else {
+    /*@Override
+    public void onClick(double mouseX, double mouseY) {
+    *///?}
         flip();
     }
 
+    //? if >=1.21.9 {
     @Override
     public boolean keyPressed(KeyEvent event) {
+        int key = event.key();
+    //?} else {
+    /*@Override
+    public boolean keyPressed(int key, int scanCode, int modifiers) {
+    *///?}
         if (!this.active || !this.visible || !this.isFocused()) return false;
-        if (event.key() == GLFW.GLFW_KEY_ENTER || event.key() == GLFW.GLFW_KEY_SPACE) {
+        if (key == InputConstants.KEY_RETURN || key == InputConstants.KEY_SPACE) {
             this.playDownSound(Minecraft.getInstance().getSoundManager());
             flip();
             return true;

@@ -1,5 +1,7 @@
 package com.kevin.tiertagger.hub;
 
+import com.kevin.tiertagger.compat.Players;
+
 import com.kevin.tiertagger.TierCache;
 import com.kevin.tiertagger.TierTagger;
 import com.kevin.tiertagger.hub.widget.HubButton;
@@ -9,10 +11,9 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.components.PlayerSkinWidget;
-import net.minecraft.client.input.KeyEvent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.PlayerSkin;
-import org.lwjgl.glfw.GLFW;
+import com.mojang.blaze3d.platform.InputConstants;
 
 import java.util.List;
 import java.util.UUID;
@@ -50,6 +51,13 @@ public class PlayersTab implements HubTab {
         search = new EditBox(mc.font, x + (w - boxW - 86) / 2, top, boxW, 20, Component.translatable("vtl.players.search"));
         search.setMaxLength(32);
         search.setHint(Component.translatable("vtl.players.hint"));
+        //? if >=26 {
+        /*// 26.1 dropped EditBox#setFilter: drop what a player name cannot hold as it is typed
+        search.setResponder(s -> {
+            String clean = s.replaceAll("[^A-Za-z0-9_-]", "");
+            if (!clean.equals(s)) search.setValue(clean);
+        });
+        *///?} else
         search.setFilter(s -> s.matches("[A-Za-z0-9_-]*"));
         search.setValue(lastQuery);
         screen.add(search);
@@ -93,9 +101,9 @@ public class PlayersTab implements HubTab {
         state = State.LOADING;
         Minecraft mc = Minecraft.getInstance();
         CompletableFuture<Supplier<PlayerSkin>> skin = CompletableFuture.supplyAsync(() -> {
-            GameProfile profile = mc.services().profileResolver().fetchByName(query)
+            GameProfile profile = Players.fetchByName(query)
                     .orElseGet(() -> new GameProfile(UUID.randomUUID(), query));
-            return mc.getSkinManager().createLookup(profile, true);
+            return Players.skin(profile, true);
         });
         TierCache.searchPlayer(query)
                 .thenCombine(skin, (info, skinLookup) -> {
@@ -117,8 +125,8 @@ public class PlayersTab implements HubTab {
     }
 
     @Override
-    public boolean keyPressed(KeyEvent event) {
-        if (search != null && search.isFocused() && (event.key() == GLFW.GLFW_KEY_ENTER || event.key() == GLFW.GLFW_KEY_KP_ENTER)) {
+    public boolean keyPressed(int key) {
+        if (search != null && search.isFocused() && (key == InputConstants.KEY_RETURN || key == InputConstants.KEY_NUMPADENTER)) {
             submit(search.getValue());
             return true;
         }

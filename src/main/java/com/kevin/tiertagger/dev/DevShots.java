@@ -4,6 +4,8 @@ import com.google.gson.JsonObject;
 import com.kevin.tiertagger.TierTagger;
 import com.kevin.tiertagger.config.TierTaggerConfig;
 import com.kevin.tiertagger.hub.HubTab;
+import com.kevin.tiertagger.hub.Kit;
+import com.kevin.tiertagger.hub.PlayTab;
 import com.kevin.tiertagger.hub.VtlHubScreen;
 import com.kevin.tiertagger.hub.VtlResultScreen;
 import com.kevin.tiertagger.queue.QueueLinker;
@@ -11,10 +13,21 @@ import com.kevin.tiertagger.queue.QueueMessages.Queue;
 import com.kevin.tiertagger.queue.QueueTokenStore;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.screen.v1.ScreenEvents;
+import com.mojang.blaze3d.platform.InputConstants;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.Screenshot;
+import net.minecraft.client.gui.components.AbstractWidget;
+import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.screens.AccessibilityOnboardingScreen;
+//? if >=1.21.9
+import net.minecraft.client.input.CharacterEvent;
+//? if >=1.21.9
+import net.minecraft.client.input.KeyEvent;
+//? if >=1.21.9
+import net.minecraft.client.input.MouseButtonEvent;
+//? if >=1.21.9
+import net.minecraft.client.input.MouseButtonInfo;
 import net.minecraft.client.gui.screens.TitleScreen;
 import net.minecraft.client.tutorial.TutorialSteps;
 import net.minecraft.world.Difficulty;
@@ -129,6 +142,8 @@ public final class DevShots {
         });
         step("tester again", 30, null, () -> dev("say", Map.of("text", "Ok, I'm in. First to 3, sword only. Good luck!")));
         shot("07b-ticket-chat", 30, null);
+        // input check: a click on the ticket box and two typed characters, through the screen's own events
+        step("type check", 2, null, DevShots::typeCheck);
         // /result: the result screen opens over the hub - a promotion, LT3 -> HT3
         step("result", 2, null, () -> dev("result", Map.of("tier", "HT3", "previous", "LT3")));
         step("result opens", 2, () -> mc.screen instanceof VtlResultScreen, () -> {});
@@ -146,6 +161,8 @@ public final class DevShots {
         grab("07g-result-demoted", 80);
         step("result closed again", 2, null, () -> mc.screen.onClose());
         step("back to play", 10, () -> mc.screen instanceof VtlHubScreen, () -> hub().switchTo(HubTab.Id.PLAY));
+        // input check: clicks on the carousel arrows move the kit selection and back
+        step("click check", 10, null, DevShots::clickCheck);
         step("world", 2, null, () -> {
             mc.setScreen(null);
             createWorld();
@@ -235,6 +252,87 @@ public final class DevShots {
         return hub;
     }
 
+    /** Logs "click ok" when a left click on "›" selects another kit and a click on "‹" brings the first one back. */
+    private static void clickCheck() {
+        VtlHubScreen hub = hub();
+        if (!(hub.tab() instanceof PlayTab play)) {
+            TierTagger.getLogger().warn("[devshots] click FAILED: the PLAY tab is not open");
+            return;
+        }
+        Kit before = play.selectedKit();
+        boolean moved = click(hub, "›") && play.selectedKit() != before;
+        boolean back = click(hub, "‹") && play.selectedKit() == before;
+        if (moved && back) TierTagger.getLogger().info("[devshots] click ok");
+        else TierTagger.getLogger().warn("[devshots] click FAILED: {} -> {}", before, play.selectedKit());
+        // the arrow keys go through the screen's key event to the tab
+        boolean keyMoved = key(hub, InputConstants.KEY_RIGHT) && play.selectedKit() != before;
+        boolean keyBack = key(hub, InputConstants.KEY_LEFT) && play.selectedKit() == before;
+        if (keyMoved && keyBack) TierTagger.getLogger().info("[devshots] key ok");
+        else TierTagger.getLogger().warn("[devshots] key FAILED: {} -> {}", before, play.selectedKit());
+    }
+
+    /** A key press on the hub screen; true when the screen used it. */
+    private static boolean key(VtlHubScreen hub, int key) {
+        //? if >=1.21.9 {
+        return hub.keyPressed(new KeyEvent(key, 0, 0));
+        //?} else {
+        /*return hub.keyPressed(key, 0, 0);
+        *///?}
+    }
+
+    /** Logs "type ok" when a click on the ticket box and the characters h, i leave "hi" in it. */
+    private static void typeCheck() {
+        VtlHubScreen hub = hub();
+        EditBox box = null;
+        for (var child : hub.children()) {
+            if (child instanceof EditBox b) box = b;
+        }
+        if (box == null) {
+            TierTagger.getLogger().warn("[devshots] type FAILED: no ticket box");
+            return;
+        }
+        box.setValue("");
+        press(hub, box);
+        //? if >=26 {
+        /*hub.charTyped(new CharacterEvent('h'));
+        hub.charTyped(new CharacterEvent('i'));
+        *///?} elif >=1.21.9 {
+        hub.charTyped(new CharacterEvent('h', 0));
+        hub.charTyped(new CharacterEvent('i', 0));
+        //?} else {
+        /*hub.charTyped('h', 0);
+        hub.charTyped('i', 0);
+        *///?}
+        String typed = box.getValue();
+        box.setValue("");
+        if ("hi".equals(typed)) TierTagger.getLogger().info("[devshots] type ok");
+        else TierTagger.getLogger().warn("[devshots] type FAILED: the box holds '{}'", typed);
+    }
+
+    /** Clicks the visible widget labelled {@code label}; false when there is none. */
+    private static boolean click(VtlHubScreen hub, String label) {
+        for (var child : hub.children()) {
+            if (child instanceof AbstractWidget w && w.visible && label.equals(w.getMessage().getString())) {
+                press(hub, w);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /** A left button press and release on the centre of {@code w}. */
+    private static void press(VtlHubScreen hub, AbstractWidget w) {
+        double x = w.getX() + w.getWidth() / 2.0, y = w.getY() + w.getHeight() / 2.0;
+        //? if >=1.21.9 {
+        MouseButtonEvent event = new MouseButtonEvent(x, y, new MouseButtonInfo(InputConstants.MOUSE_BUTTON_LEFT, 0));
+        hub.mouseClicked(event, false);
+        hub.mouseReleased(event);
+        //?} else {
+        /*hub.mouseClicked(x, y, InputConstants.MOUSE_BUTTON_LEFT);
+        hub.mouseReleased(x, y, InputConstants.MOUSE_BUTTON_LEFT);
+        *///?}
+    }
+
     static boolean waiting(String queueId) {
         for (Queue q : TierTagger.getQueue().openQueues()) {
             if (queueId.equals(q.queueId()) && q.me() != null && q.me().isWaiting()) return true;
@@ -258,10 +356,22 @@ public final class DevShots {
 
     static void createWorld() {
         Minecraft mc = Minecraft.getInstance();
+        //? if >=26 {
+        /*LevelSettings settings = new LevelSettings("vtl-devshots", GameType.CREATIVE,
+                new LevelSettings.DifficultySettings(Difficulty.PEACEFUL, false, false), true, WorldDataConfiguration.DEFAULT);
+        *///?} else {
         LevelSettings settings = new LevelSettings("vtl-devshots", GameType.CREATIVE, false, Difficulty.PEACEFUL, true,
                 new GameRules(FeatureFlags.DEFAULT_FLAGS), WorldDataConfiguration.DEFAULT);
+        //?}
+        //? if >=26.2 {
+        /*// 26.2 dropped WorldPresets#createFlatWorldDimensions: build the flat preset from the registry
+        java.util.function.Function<net.minecraft.core.HolderLookup.Provider, net.minecraft.world.level.levelgen.WorldDimensions> flat =
+                lookup -> lookup.lookupOrThrow(net.minecraft.core.registries.Registries.WORLD_PRESET)
+                        .getOrThrow(WorldPresets.FLAT).value().createWorldDimensions();
+        *///?} else
+        java.util.function.Function<net.minecraft.core.HolderLookup.Provider, net.minecraft.world.level.levelgen.WorldDimensions> flat = WorldPresets::createFlatWorldDimensions;
         mc.createWorldOpenFlows().createFreshLevel("vtl-devshots-" + System.currentTimeMillis(), settings,
-                WorldOptions.defaultWithRandomSeed(), WorldPresets::createFlatWorldDimensions, new TitleScreen());
+                WorldOptions.defaultWithRandomSeed(), flat, new TitleScreen());
     }
 
     static void command(String command) {

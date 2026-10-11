@@ -54,8 +54,10 @@ public final class VtlFigure {
         s.skin = skin;
         s.showHat = s.showJacket = s.showLeftPants = s.showRightPants = s.showLeftSleeve = s.showRightSleeve = true;
         s.showCape = false;
+        //? if >=1.21.9 {
         s.lightCoords = LIGHT;
         s.outlineColor = 0;
+        //?}
         s.ageInTicks = seconds * 20f;
         s.boundingBoxWidth = 0.6f;
         s.boundingBoxHeight = 1.8f;
@@ -67,6 +69,7 @@ public final class VtlFigure {
         s.xRot = 0f;
         s.pose = net.minecraft.world.entity.Pose.STANDING;
         s.mainArm = HumanoidArm.RIGHT;
+        //? if >=1.21.9
         s.shadowPieces.clear();
 
         s.headEquipment = kit.headStack();
@@ -83,13 +86,24 @@ public final class VtlFigure {
     private static void hold(Minecraft mc, AvatarRenderState s, ItemStack stack, boolean right) {
         ItemStack copy = stack == null ? ItemStack.EMPTY : stack.copy();
         if (right) {
-            s.rightHandItemStack = copy;
             s.rightArmPose = copy.isEmpty() ? HumanoidModel.ArmPose.EMPTY : HumanoidModel.ArmPose.ITEM;
+            //? if >=1.21.11 {
+            s.rightHandItemStack = copy;
             if (!copy.isEmpty()) mc.getItemModelResolver().updateForTopItem(s.rightHandItemState, copy, ItemDisplayContext.THIRD_PERSON_RIGHT_HAND, mc.level, null, 0);
+            //?} else {
+            /*// before 1.21.11 the state has no stack: clear it so the last kit's item does not stay
+            s.rightHandItem.clear();
+            if (!copy.isEmpty()) mc.getItemModelResolver().updateForTopItem(s.rightHandItem, copy, ItemDisplayContext.THIRD_PERSON_RIGHT_HAND, mc.level, null, 0);
+            *///?}
         } else {
-            s.leftHandItemStack = copy;
             s.leftArmPose = copy.isEmpty() ? HumanoidModel.ArmPose.EMPTY : HumanoidModel.ArmPose.ITEM;
+            //? if >=1.21.11 {
+            s.leftHandItemStack = copy;
             if (!copy.isEmpty()) mc.getItemModelResolver().updateForTopItem(s.leftHandItemState, copy, ItemDisplayContext.THIRD_PERSON_LEFT_HAND, mc.level, null, 0);
+            //?} else {
+            /*s.leftHandItem.clear();
+            if (!copy.isEmpty()) mc.getItemModelResolver().updateForTopItem(s.leftHandItem, copy, ItemDisplayContext.THIRD_PERSON_LEFT_HAND, mc.level, null, 0);
+            *///?}
         }
     }
 }

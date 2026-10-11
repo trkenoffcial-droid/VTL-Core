@@ -16,27 +16,27 @@ jobs:
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: 21
+          java-version: 25
           cache: gradle
 
       - uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      - name: Build and run the self-checks
+      - name: Build every Minecraft version and run the self-checks
         run: |
           chmod +x gradlew
-          ./gradlew build hubStateCheck configCheck queueTuningCheck --no-daemon
+          ./gradlew chiseledBuild :1.21.11:hubStateCheck :1.21.11:configCheck :1.21.11:queueTuningCheck --no-daemon
 
       - name: Protocol check against the mock server
         run: |
           npm --prefix 111/mock-server ci
           node 111/mock-server/mock-queue-server.js > mock.log 2>&1 &
           sleep 3
-          ./gradlew queueProtocolCheck --no-daemon
+          ./gradlew :1.21.11:queueProtocolCheck --no-daemon
 
       - uses: actions/upload-artifact@v4
         with:
           name: VTL-Core
-          path: build/libs/VTL-Core+mc*.jar
+          path: build/libs/*/VTL-Core+mc*.jar
           if-no-files-found: error

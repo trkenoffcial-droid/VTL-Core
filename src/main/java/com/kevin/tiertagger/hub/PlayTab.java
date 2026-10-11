@@ -19,13 +19,12 @@ import com.kevin.tiertagger.queue.QueueTokenStore;
 import com.kevin.tiertagger.queue.QueueWebSocket;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.input.KeyEvent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.util.Util;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import org.lwjgl.glfw.GLFW;
+import com.mojang.blaze3d.platform.InputConstants;
 
 import java.net.URI;
 import java.util.Comparator;
@@ -155,6 +154,11 @@ public class PlayTab implements HubTab {
         refresh();
     }
 
+    /** The kit whose card is selected (DevShots reads it). */
+    public Kit selectedKit() {
+        return views.get(selected).kit();
+    }
+
     private void step(int direction) {
         userPicked = true;
         selected = Math.floorMod(selected + direction, views.size());
@@ -218,12 +222,12 @@ public class PlayTab implements HubTab {
     // --- input ---
 
     @Override
-    public boolean keyPressed(KeyEvent event) {
-        if (event.key() == GLFW.GLFW_KEY_LEFT) {
+    public boolean keyPressed(int key) {
+        if (key == InputConstants.KEY_LEFT) {
             step(-1);
             return true;
         }
-        if (event.key() == GLFW.GLFW_KEY_RIGHT) {
+        if (key == InputConstants.KEY_RIGHT) {
             step(1);
             return true;
         }
@@ -232,7 +236,8 @@ public class PlayTab implements HubTab {
 
     @Override
     public boolean mouseClicked(double mouseX, double mouseY, int button) {
-        return button == 0 && player.mouseClicked(mouseX, mouseY);
+        // left button by its constant: SDL (26.3) numbers it 1
+        return button == InputConstants.MOUSE_BUTTON_LEFT && player.mouseClicked(mouseX, mouseY);
     }
 
     @Override

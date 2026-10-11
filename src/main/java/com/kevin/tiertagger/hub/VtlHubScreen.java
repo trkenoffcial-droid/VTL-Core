@@ -1,5 +1,7 @@
 package com.kevin.tiertagger.hub;
 
+import com.kevin.tiertagger.compat.Players;
+
 import com.kevin.tiertagger.TierTagger;
 import com.kevin.tiertagger.config.TierTaggerConfig;
 import com.kevin.tiertagger.hub.widget.HubButton;
@@ -13,7 +15,9 @@ import net.minecraft.client.gui.components.Renderable;
 import net.minecraft.client.gui.components.events.GuiEventListener;
 import net.minecraft.client.gui.narration.NarratableEntry;
 import net.minecraft.client.gui.screens.Screen;
+//? if >=1.21.9
 import net.minecraft.client.input.KeyEvent;
+//? if >=1.21.9
 import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.Util;
@@ -61,9 +65,14 @@ public class VtlHubScreen extends Screen {
         return current;
     }
 
+    /** The tab object on screen (DevShots reads its state). */
+    public HubTab tab() {
+        return tab;
+    }
+
     /** The player's own skin, looked up once per hub. */
     public Supplier<PlayerSkin> ownSkin() {
-        if (ownSkin == null) ownSkin = Minecraft.getInstance().getSkinManager().createLookup(Minecraft.getInstance().getGameProfile(), true);
+        if (ownSkin == null) ownSkin = Players.skin(Minecraft.getInstance().getGameProfile(), true);
         return ownSkin;
     }
 
@@ -102,8 +111,9 @@ public class VtlHubScreen extends Screen {
 
     @Override
     protected void init() {
+        com.kevin.tiertagger.compat.ItemComponents.ensureBound(); // 26.1+: items need components, even on the title screen
         this.compact = this.width < 460 || this.height < 280;
-        if (ownSkin == null) ownSkin = Minecraft.getInstance().getSkinManager().createLookup(Minecraft.getInstance().getGameProfile(), true);
+        if (ownSkin == null) ownSkin = Players.skin(Minecraft.getInstance().getGameProfile(), true);
 
         if (tab != null) tab.removed();
         tab = switch (current) {
@@ -251,11 +261,19 @@ public class VtlHubScreen extends Screen {
         return Component.translatable(id.translationKey);
     }
 
+    //? if >=1.21.9 {
     @Override
     public boolean keyPressed(KeyEvent event) {
-        if (tab != null && tab.keyPressed(event)) return true;
+        if (tab != null && tab.keyPressed(event.key())) return true;
         return super.keyPressed(event);
     }
+    //?} else {
+    /*@Override
+    public boolean keyPressed(int key, int scanCode, int modifiers) {
+        if (tab != null && tab.keyPressed(key)) return true;
+        return super.keyPressed(key, scanCode, modifiers);
+    }
+    *///?}
 
     @Override
     public boolean mouseScrolled(double mouseX, double mouseY, double horizontal, double vertical) {
@@ -263,6 +281,7 @@ public class VtlHubScreen extends Screen {
         return super.mouseScrolled(mouseX, mouseY, horizontal, vertical);
     }
 
+    //? if >=1.21.9 {
     @Override
     public boolean mouseClicked(MouseButtonEvent event, boolean doubleClick) {
         if (super.mouseClicked(event, doubleClick)) return true;
@@ -280,6 +299,25 @@ public class VtlHubScreen extends Screen {
         boolean handled = tab != null && tab.mouseReleased(event.x(), event.y());
         return super.mouseReleased(event) || handled;
     }
+    //?} else {
+    /*@Override
+    public boolean mouseClicked(double mouseX, double mouseY, int button) {
+        if (super.mouseClicked(mouseX, mouseY, button)) return true;
+        return tab != null && tab.mouseClicked(mouseX, mouseY, button);
+    }
+
+    @Override
+    public boolean mouseDragged(double mouseX, double mouseY, int button, double dragX, double dragY) {
+        if (tab != null && tab.mouseDragged(mouseX, mouseY, dragX, dragY)) return true;
+        return super.mouseDragged(mouseX, mouseY, button, dragX, dragY);
+    }
+
+    @Override
+    public boolean mouseReleased(double mouseX, double mouseY, int button) {
+        boolean handled = tab != null && tab.mouseReleased(mouseX, mouseY);
+        return super.mouseReleased(mouseX, mouseY, button) || handled;
+    }
+    *///?}
 
     @Override
     public void removed() {

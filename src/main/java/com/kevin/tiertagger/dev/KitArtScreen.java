@@ -1,5 +1,7 @@
 package com.kevin.tiertagger.dev;
 
+import com.kevin.tiertagger.compat.Players;
+
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.kevin.tiertagger.TierTagger;
@@ -47,11 +49,12 @@ final class KitArtScreen extends Screen {
 
     @Override
     protected void init() {
+        com.kevin.tiertagger.compat.ItemComponents.ensureBound(); // 26.1+: items need components, even on the title screen
         Minecraft mc = Minecraft.getInstance();
         Kit[] kits = Kit.values();
         for (int i = 0; i < kits.length; i++) {
             GameProfile profile = new GameProfile(UUID.fromString(UUIDS[i % UUIDS.length]), "vtl" + kits[i].id());
-            skins.put(kits[i], mc.getSkinManager().createLookup(profile, false));
+            skins.put(kits[i], Players.skin(profile, false));
         }
     }
 

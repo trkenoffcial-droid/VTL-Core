@@ -5,10 +5,12 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.narration.NarrationElementOutput;
+//? if >=1.21.9
 import net.minecraft.client.input.KeyEvent;
+//? if >=1.21.9
 import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.network.chat.Component;
-import org.lwjgl.glfw.GLFW;
+import com.mojang.blaze3d.platform.InputConstants;
 
 /** A VTL-styled button. Drawn by the mod instead of Minecraft's grey button sprite. */
 public class HubButton extends AbstractWidget {
@@ -103,16 +105,26 @@ public class HubButton extends AbstractWidget {
         return a << 24 | r << 16 | gr << 8 | b;
     }
 
+    //? if >=1.21.9 {
     @Override
     public void onClick(MouseButtonEvent event, boolean doubleClick) {
+    //?} else {
+    /*@Override
+    public void onClick(double mouseX, double mouseY) {
+    *///?}
         if (this.active) this.onPress.run();
     }
 
+    //? if >=1.21.9 {
     @Override
     public boolean keyPressed(KeyEvent event) {
-        if (!this.active || !this.visible || !this.isFocused()) return false;
         int key = event.key();
-        if (key == GLFW.GLFW_KEY_ENTER || key == GLFW.GLFW_KEY_SPACE || key == GLFW.GLFW_KEY_KP_ENTER) {
+    //?} else {
+    /*@Override
+    public boolean keyPressed(int key, int scanCode, int modifiers) {
+    *///?}
+        if (!this.active || !this.visible || !this.isFocused()) return false;
+        if (key == InputConstants.KEY_RETURN || key == InputConstants.KEY_SPACE || key == InputConstants.KEY_NUMPADENTER) {
             this.playDownSound(Minecraft.getInstance().getSoundManager());
             this.onPress.run();
             return true;

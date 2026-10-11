@@ -2,12 +2,12 @@
   "required": true,
   "minVersion": "0.8",
   "package": "com.kevin.tiertagger.mixin",
-  "compatibilityLevel": "JAVA_21",
+  "compatibilityLevel": "${mixin_java}",
   "mixins": [
     "MixinPlayer"
   ],
   "client": [
-    "MixinGameRenderer",
+    ${trailer_mixin}
     "MixinHumanoidModel",
     "MixinHumanoidRenderState",
     "MixinPlayerTabOverlay",

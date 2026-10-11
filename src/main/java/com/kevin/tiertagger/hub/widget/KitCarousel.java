@@ -11,6 +11,7 @@ import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.narration.NarrationElementOutput;
+//? if >=1.21.9
 import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
@@ -232,9 +233,15 @@ public class KitCarousel extends AbstractWidget {
 
     // --- input ---
 
+    //? if >=1.21.9 {
     @Override
     public void onClick(MouseButtonEvent event, boolean doubleClick) {
-        int i = cardAt(event.x(), event.y());
+        double mouseX = event.x(), mouseY = event.y();
+    //?} else {
+    /*@Override
+    public void onClick(double mouseX, double mouseY) {
+    *///?}
+        int i = cardAt(mouseX, mouseY);
         if (i >= 0) onSelect.accept(i);
     }
 

@@ -1,4 +1,5 @@
-# Pushing a tag like v1.0.0 builds VTL Core and publishes a GitHub Release with the jar attached.
+# Pushing a tag like v1.0.0 builds VTL Core for every Minecraft version and publishes a GitHub Release
+# with the six jars attached.
 name: Release
 
 on:
@@ -18,17 +19,17 @@ jobs:
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: 21
+          java-version: 25
           cache: gradle
 
-      - name: Build and run the self-checks
+      - name: Build every Minecraft version and run the self-checks
         run: |
           chmod +x gradlew
-          ./gradlew build hubStateCheck configCheck queueTuningCheck --no-daemon
+          ./gradlew chiseledBuild :1.21.11:hubStateCheck :1.21.11:configCheck :1.21.11:queueTuningCheck --no-daemon
 
       - name: Publish the release
         uses: softprops/action-gh-release@v2
         with:
           name: VTL Core ${{ github.ref_name }}
-          files: build/libs/VTL-Core+mc*.jar
+          files: build/libs/*/VTL-Core+mc*.jar
           generate_release_notes: true

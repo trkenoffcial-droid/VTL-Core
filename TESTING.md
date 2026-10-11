@@ -20,16 +20,16 @@ npm --prefix 111/mock-server install
 ```
 
 ```bash
-./gradlew configCheck          # vtl.json load/save, broken file, tiertagger.toml import (18)
-./gradlew hubStateCheck        # kit cards, chosen queue, button action (32); also runs
+./gradlew :1.21.11:configCheck          # vtl.json load/save, broken file, tiertagger.toml import (18)
+./gradlew :1.21.11:hubStateCheck        # kit cards, chosen queue, button action (32); also runs
                                # quickJoinCheck (9), textFitCheck (19), ticketLogCheck (29),
                                # animatorCheck (25), tierChangeCheck (15), particleCheck (13)
-./gradlew queueTuningCheck     # reconnect backoff, close codes, dedupe set
+./gradlew :1.21.11:queueTuningCheck     # reconnect backoff, close codes, dedupe set
 ```
 
 ```bash
 node 111/mock-server/mock-queue-server.js      # terminal 1, leave it running
-./gradlew queueProtocolCheck                   # terminal 2
+./gradlew :1.21.11:queueProtocolCheck           # terminal 2
 ```
 
 `queueProtocolCheck` runs the mod's real `QueueClient` against the mock through
@@ -42,14 +42,15 @@ must end with `QueueProtocolCheck: 53 checks passed`.
 
 ```bash
 node 111/mock-server/mock-queue-server.js      # terminal 1
-./gradlew runClient -Pdevshots                 # terminal 2
+./gradlew :<minecraft>:runClient -Pdevshots     # terminal 2, e.g. :26.3:runClient
 ```
 
 The dev client opens at 1920x1080, walks through every Hub state against the
 mock (not linked, settings, players, linked, waiting at GUI scale 2/3/auto,
 your turn), makes a flat creative world for the HUD shot, renders the kit card
 figures, and quits. Add `-PdevshotsSize=854x480` to shoot a small window instead (the kit
-card figures need 1200 px and are skipped there). Shots land in `run/vtl-shots/screenshots/`. It only runs
+card figures need 1200 px and are skipped there). Shots land in `versions/<minecraft>/run/vtl-shots/screenshots/`.
+The run also checks input on that version: the log must show `[devshots] type ok`, `click ok` and `key ok`. It only runs
 from the development environment; a released jar ignores it.
 
 The kit card images come from that run:
@@ -63,7 +64,7 @@ writes `src/main/resources/assets/vtl/textures/gui/kit/<kit>.png` and
 
 ## 3. Point the mod at the mock
 
-Build (`./gradlew build`) and copy `build/libs/VTL-Core+mc*.jar` into the
+Build (`./gradlew chiseledBuild`) and copy the jar for your game, `build/libs/<mod version>/VTL-Core+mc<minecraft>.jar`, into the
 instance's `mods/` folder. Fabric API is required; ukulib is not.
 
 Open the Hub (**R**, `/vtl`, or the VTL button on the title and pause menus),

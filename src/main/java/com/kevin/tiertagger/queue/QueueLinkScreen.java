@@ -93,12 +93,21 @@ public class QueueLinkScreen extends ParentScreen {
                 : Component.translatable("tiertagger.queue.linked");
     }
 
+    //? if >=1.21.11 {
     @Override
     public void resize(int width, int height) {
         String code = this.codeField == null ? "" : this.codeField.getText();
         this.init(width, height);
         if (this.codeField != null) this.codeField.setText(code);
     }
+    //?} else {
+    /*@Override
+    public void resize(net.minecraft.client.Minecraft minecraft, int width, int height) {
+        String code = this.codeField == null ? "" : this.codeField.getText();
+        this.init(minecraft, width, height);
+        if (this.codeField != null) this.codeField.setText(code);
+    }
+    *///?}
 
     @Override
     public void render(GuiGraphics graphics, int mouseX, int mouseY, float delta) {

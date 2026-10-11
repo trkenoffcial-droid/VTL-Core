@@ -1,9 +1,105 @@
 plugins {
-    id("net.fabricmc.fabric-loom-remap") version "1.14-SNAPSHOT"
+    // applies fabric-loom-remap below Minecraft 26 and fabric-loom (no remapping) from 26
+    id("dev.kikugie.loom-back-compat")
     id("io.freefair.lombok") version "9.1.0"
 }
 
+// Stonecutter runs this script once per node (versions/<node>); the node's properties pick the game.
+stonecutter {
+    // 1.21.9 moved PlayerSkin and renamed PlayerRenderState to AvatarRenderState
+    replacements.string(current.parsed >= "1.21.9") {
+        replace("import net.minecraft.client.resources.PlayerSkin;", "import net.minecraft.world.entity.player.PlayerSkin;")
+        replace("PlayerRenderState", "AvatarRenderState")
+        // authlib 7 made GameProfile a record; the client's services moved under Minecraft#services
+        replace("getGameProfile().getName()", "getGameProfile().name()")
+        replace("getProfile().getName()", "getProfile().name()")
+        replace("getGameProfile().getId()", "getGameProfile().id()")
+        replace("getProfile().getId()", "getProfile().id()")
+        replace("mc.getMinecraftSessionService()", "mc.services().sessionService()")
+    }
+    // 26.1 (unobfuscated): GUI drawing became render state extraction, and Fabric API took Mojang's names
+    replacements.string(current.parsed >= "26") {
+        replace("GuiGraphics", "GuiGraphicsExtractor")
+        replace("import net.minecraft.client.gui.components.PlayerFaceRenderer;", "import net.minecraft.client.gui.components.PlayerFaceExtractor;")
+        replace("PlayerFaceRenderer.draw(", "PlayerFaceExtractor.extractRenderState(")
+        replace("ClientCommandManager", "ClientCommands")
+        replace("net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper", "net.fabricmc.fabric.api.client.keymapping.v1.KeyMappingHelper")
+        replace("KeyBindingHelper.registerKeyBinding(", "KeyMappingHelper.registerKeyMapping(")
+        replace("import net.fabricmc.fabric.api.resource.ResourceManagerHelper;", "import net.fabricmc.fabric.api.resource.v1.ResourceLoader;")
+        replace("import net.fabricmc.fabric.api.resource.ResourcePackActivationType;", "import net.fabricmc.fabric.api.resource.v1.pack.PackActivationType;")
+        replace("ResourceManagerHelper.registerBuiltinResourcePack(", "ResourceLoader.registerBuiltinPack(")
+        replace("ResourcePackActivationType.NORMAL", "PackActivationType.NORMAL")
+        // render overrides became extract* (whole declaration lines: our own render methods keep their names)
+        replace("public void render(GuiGraphics g, int mouseX, int mouseY, float delta)", "public void extractRenderState(GuiGraphicsExtractor g, int mouseX, int mouseY, float delta)")
+        replace("public void render(GuiGraphics graphics, int mouseX, int mouseY, float delta)", "public void extractRenderState(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float delta)")
+        replace("public void render(GuiGraphics g, DeltaTracker delta)", "public void extractRenderState(GuiGraphicsExtractor g, DeltaTracker delta)")
+        replace("super.render(", "super.extractRenderState(")
+        replace("renderBackground(", "extractBackground(")
+        replace("renderWidget(", "extractWidgetRenderState(")
+        replace("Screens.getButtons(", "Screens.getWidgets(")
+        // GuiGraphicsExtractor's drawing calls (on the GuiGraphics variable only: HubTheme has its own
+        // drawString and text helpers, and every rule also runs backwards on the older nodes)
+        replace("g.drawString(", "g.text(")
+        replace("graphics.drawCenteredString(", "graphics.centeredText(")
+        replace("g.renderOutline(", "g.outline(")
+        replace("g.renderItem(", "g.item(")
+        replace("g.submitEntityRenderState(", "g.entity(")
+        replace("this.codeField.render(", "this.codeField.extractRenderState(")
+        // other 26.1 renames
+        replace("mc.resizeDisplay()", "mc.resizeGui()")
+        // (not getChat()...: one pass runs every group, and 26.2 rewrites mc.gui.getChat())
+        replace(".addMessage(message);", ".addClientSystemMessage(message);")
+        replace("mc.player.displayClientMessage(message, true)", "mc.player.sendOverlayMessage(message)")
+        replace("getSource().getWorld()", "getSource().getLevel()")
+    }
+    // 26.2: the open screen and screen changes moved to Minecraft#gui, the HUD parts to Gui#hud
+    replacements.string(current.parsed >= "26.2") {
+        replace("mc.screen", "mc.gui.screen()")
+        replace("Minecraft.getInstance().screen", "Minecraft.getInstance().gui.screen()")
+        replace("mc.setScreen(", "mc.gui.setScreen(")
+        replace("Minecraft.getInstance().setScreen(", "Minecraft.getInstance().gui.setScreen(")
+        replace("mc.getToastManager()", "mc.gui.toastManager()")
+        replace("Minecraft.getInstance().getToastManager()", "Minecraft.getInstance().gui.toastManager()")
+        replace("mc.gui.getChat()", "mc.gui.hud.getChat()")
+        replace("mc.gui.setTitle(", "mc.gui.hud.setTitle(")
+        replace("mc.gui.setTimes(", "mc.gui.hud.setTimes(")
+        replace("mc.gui.setSubtitle(", "mc.gui.hud.setSubtitle(")
+        replace("mc.options.hideGui", "mc.gui.hud.isHidden()")
+        replace("import net.minecraft.world.entity.EntityType;", "import net.minecraft.world.entity.EntityTypes;")
+        replace("EntityType.PLAYER", "EntityTypes.PLAYER")
+        replace("mc.getMainRenderTarget()", "mc.gameRenderer.mainRenderTarget()")
+    }
+    // 26.3: opening links moved to Blaze3D; the vanilla registries split into world and reloadable lookups
+    replacements.string(current.parsed >= "26.3") {
+        replace("Util.getPlatform().openUri(uri);", "com.mojang.blaze3d.Blaze3D.openUri(uri);")
+        replace("Util.getPlatform().openUri(url);", "com.mojang.blaze3d.Blaze3D.openUri(java.net.URI.create(url));")
+        replace("VanillaRegistries.createLookup()", "VanillaRegistries.createWorldLookup()")
+    }
+    // GuiGraphics#renderOutline was called submitOutline in 1.21.9 and 1.21.10 only
+    replacements.string(current.parsed >= "1.21.9" && current.parsed < "1.21.11") {
+        replace("g.renderOutline(", "g.submitOutline(")
+    }
+    // 1.21.11 renamed ResourceLocation to Identifier and moved Util and GameRules
+    replacements.string(current.parsed >= "1.21.11") {
+        replace("ResourceLocation", "Identifier")
+        replace("import net.minecraft.Util;", "import net.minecraft.util.Util;")
+        replace("net.minecraft.world.level.GameRules", "net.minecraft.world.level.gamerules.GameRules")
+    }
+}
+
+// The trailer recorder (dev only) is built for 1.21.11 alone.
+val trailerNode = sc.current.version == "1.21.11"
+if (!trailerNode) {
+    sourceSets.main {
+        java {
+            exclude("com/kevin/tiertagger/dev/Trailer.java", "com/kevin/tiertagger/dev/TrailerCard.java",
+                "com/kevin/tiertagger/dev/FrameRecorder.java", "com/kevin/tiertagger/dev/VirtualClock.java",
+                "com/kevin/tiertagger/mixin/MixinGameRenderer.java")
+        }
+    }
+}
 version = "${project.property("mod_version")}+mc${project.property("minecraft_version")}"
+val javaRelease = (project.property("java_release") as String).toInt()
 group = project.property("maven_group") as String
 
 repositories {
@@ -18,18 +114,20 @@ repositories {
 dependencies {
     // To change the versions see the gradle.properties file
     minecraft("com.mojang:minecraft:${project.property("minecraft_version")}")
-    mappings(loom.officialMojangMappings())
+    loomx.applyMojangMappings()
     modImplementation("net.fabricmc:fabric-loader:${project.property("loader_version")}")
 
     // Fabric API modules the mod uses; players install Fabric API itself.
     val fabricApiVersion = project.property("fabric_api_version") as String
+    // Fabric API for 26.x renamed key-binding to key-mapping and dropped resource-loader-v0
+    val unobfuscated = sc.current.parsed >= "26"
     for (module in listOf(
         "fabric-command-api-v2",
-        "fabric-key-binding-api-v1",
+        if (unobfuscated) "fabric-key-mapping-api-v1" else "fabric-key-binding-api-v1",
         "fabric-lifecycle-events-v1",
         "fabric-screen-api-v1",
         "fabric-rendering-v1",
-        "fabric-resource-loader-v0",
+        if (unobfuscated) "fabric-resource-loader-v1" else "fabric-resource-loader-v0",
     )) {
         modImplementation(fabricApi.module(module, fabricApiVersion))
     }
@@ -39,7 +137,8 @@ dependencies {
     // ModMenu is optional: only its API is needed to compile the settings button.
     modCompileOnly("com.terraformersmc:modmenu:${project.property("modmenu_version")}") { isTransitive = false }
 
-    modRuntimeOnly("me.djtheredstoner:DevAuth-fabric:${project.property("devauth_version")}")
+    // DevAuth (dev logins) is built for the obfuscated game; 26.x dev clients run without it
+    if (sc.current.parsed < "26") modRuntimeOnly("me.djtheredstoner:DevAuth-fabric:${project.property("devauth_version")}")
 }
 
 // ./gradlew runClient -Pdevshots: the dev client walks through the hub states against the mock
@@ -71,31 +170,48 @@ base {
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_21
-    targetCompatibility = JavaVersion.VERSION_21
+    sourceCompatibility = JavaVersion.toVersion(javaRelease)
+    targetCompatibility = JavaVersion.toVersion(javaRelease)
 }
 
 tasks.processResources {
-    inputs.property("version", project.version)
+    val values = mapOf(
+        "version" to project.version.toString(),
+        "mc_range" to project.property("mc_range") as String,
+        "loader_min" to project.property("loader_min") as String,
+        "mixin_java" to project.property("mixin_java") as String,
+        // the trailer's frame hook exists only where the trailer recorder is built
+        "trailer_mixin" to if (trailerNode) "\"MixinGameRenderer\"," else "",
+    )
+    inputs.properties(values)
     filteringCharset = "UTF-8"
 
-    filesMatching("fabric.mod.json") {
-        expand("version" to project.version)
+    filesMatching(listOf("fabric.mod.json", "TierTagger.mixins.json")) {
+        expand(values)
     }
 }
 
 tasks.withType<JavaCompile>().configureEach {
     options.encoding = "UTF-8"
+    options.release = javaRelease
 }
 
 // The released jar is named after the game version only (VTL-Core+mc1.21.11.jar); the mod
 // version stays in fabric.mod.json, where Mod Menu shows it.
-tasks.named<org.gradle.api.tasks.bundling.AbstractArchiveTask>("remapJar") {
+loomx.modJar.configure {
     archiveFileName.set("${base.archivesName.get()}+mc${project.property("minecraft_version")}.jar")
 }
 
+/** chiseledBuild (stonecutter.gradle.kts) collects every node's jar in build/libs/<mod version>/. */
+tasks.register<Copy>("buildAndCollect") {
+    group = "build"
+    description = "Builds this node's jar and copies it to build/libs/<mod version>/"
+    from(loomx.modJar.flatMap { it.archiveFile })
+    into(rootProject.layout.buildDirectory.dir("libs/${project.property("mod_version")}"))
+}
+
 tasks.jar {
-    from("LICENSE") {
+    from(rootProject.file("LICENSE")) {
         rename { "${it}_${project.base.archivesName.get()}" }
     }
 }
@@ -115,32 +231,32 @@ val queueCheckOutput = layout.buildDirectory.dir("queue-check")
 val queueCheckClasspath = files(configurations.compileClasspath.map { cp -> cp.filter { it.name.startsWith("gson-") } })
 
 val compileQueueCheck by tasks.registering(JavaCompile::class) {
-    source("src/main/java/com/kevin/tiertagger/queue/QueueTuning.java")
-    source("src/main/java/com/kevin/tiertagger/queue/QueueMessages.java")
-    source("src/main/java/com/kevin/tiertagger/queue/QueueClient.java")
-    source("src/test/java/com/kevin/tiertagger/queue/QueueTuningCheck.java")
-    source("src/test/java/com/kevin/tiertagger/queue/QueueProtocolCheck.java")
-    source("src/main/java/com/kevin/tiertagger/config/JsonConfigStore.java")
-    source("src/main/java/com/kevin/tiertagger/config/LegacyTomlImport.java")
-    source("src/test/java/com/kevin/tiertagger/config/ConfigCheck.java")
-    source("src/main/java/com/kevin/tiertagger/hub/Kit.java")
-    source("src/main/java/com/kevin/tiertagger/hub/HubState.java")
-    source("src/test/java/com/kevin/tiertagger/hub/HubStateCheck.java")
-    source("src/main/java/com/kevin/tiertagger/queue/QuickJoin.java")
-    source("src/test/java/com/kevin/tiertagger/queue/QuickJoinCheck.java")
-    source("src/main/java/com/kevin/tiertagger/hub/TextFit.java")
-    source("src/main/java/com/kevin/tiertagger/queue/TicketLog.java")
-    source("src/test/java/com/kevin/tiertagger/queue/TicketLogCheck.java")
-    source("src/main/java/com/kevin/tiertagger/queue/LinkRequest.java")
-    source("src/test/java/com/kevin/tiertagger/queue/LinkRequestCheck.java")
-    source("src/main/java/com/kevin/tiertagger/hub/anim/Pose.java")
-    source("src/main/java/com/kevin/tiertagger/hub/anim/VtlModelAnimator.java")
-    source("src/main/java/com/kevin/tiertagger/hub/anim/TierChange.java")
-    source("src/main/java/com/kevin/tiertagger/hub/fx/VtlParticleSystem.java")
-    source("src/test/java/com/kevin/tiertagger/hub/anim/AnimatorCheck.java")
-    source("src/test/java/com/kevin/tiertagger/hub/anim/TierChangeCheck.java")
-    source("src/test/java/com/kevin/tiertagger/hub/fx/ParticleCheck.java")
-    source("src/test/java/com/kevin/tiertagger/hub/TextFitCheck.java")
+    source(rootProject.file("src/main/java/com/kevin/tiertagger/queue/QueueTuning.java"))
+    source(rootProject.file("src/main/java/com/kevin/tiertagger/queue/QueueMessages.java"))
+    source(rootProject.file("src/main/java/com/kevin/tiertagger/queue/QueueClient.java"))
+    source(rootProject.file("src/test/java/com/kevin/tiertagger/queue/QueueTuningCheck.java"))
+    source(rootProject.file("src/test/java/com/kevin/tiertagger/queue/QueueProtocolCheck.java"))
+    source(rootProject.file("src/main/java/com/kevin/tiertagger/config/JsonConfigStore.java"))
+    source(rootProject.file("src/main/java/com/kevin/tiertagger/config/LegacyTomlImport.java"))
+    source(rootProject.file("src/test/java/com/kevin/tiertagger/config/ConfigCheck.java"))
+    source(rootProject.file("src/main/java/com/kevin/tiertagger/hub/Kit.java"))
+    source(rootProject.file("src/main/java/com/kevin/tiertagger/hub/HubState.java"))
+    source(rootProject.file("src/test/java/com/kevin/tiertagger/hub/HubStateCheck.java"))
+    source(rootProject.file("src/main/java/com/kevin/tiertagger/queue/QuickJoin.java"))
+    source(rootProject.file("src/test/java/com/kevin/tiertagger/queue/QuickJoinCheck.java"))
+    source(rootProject.file("src/main/java/com/kevin/tiertagger/hub/TextFit.java"))
+    source(rootProject.file("src/main/java/com/kevin/tiertagger/queue/TicketLog.java"))
+    source(rootProject.file("src/test/java/com/kevin/tiertagger/queue/TicketLogCheck.java"))
+    source(rootProject.file("src/main/java/com/kevin/tiertagger/queue/LinkRequest.java"))
+    source(rootProject.file("src/test/java/com/kevin/tiertagger/queue/LinkRequestCheck.java"))
+    source(rootProject.file("src/main/java/com/kevin/tiertagger/hub/anim/Pose.java"))
+    source(rootProject.file("src/main/java/com/kevin/tiertagger/hub/anim/VtlModelAnimator.java"))
+    source(rootProject.file("src/main/java/com/kevin/tiertagger/hub/anim/TierChange.java"))
+    source(rootProject.file("src/main/java/com/kevin/tiertagger/hub/fx/VtlParticleSystem.java"))
+    source(rootProject.file("src/test/java/com/kevin/tiertagger/hub/anim/AnimatorCheck.java"))
+    source(rootProject.file("src/test/java/com/kevin/tiertagger/hub/anim/TierChangeCheck.java"))
+    source(rootProject.file("src/test/java/com/kevin/tiertagger/hub/fx/ParticleCheck.java"))
+    source(rootProject.file("src/test/java/com/kevin/tiertagger/hub/TextFitCheck.java"))
     classpath = queueCheckClasspath
     destinationDirectory.set(queueCheckOutput)
     options.encoding = "UTF-8"

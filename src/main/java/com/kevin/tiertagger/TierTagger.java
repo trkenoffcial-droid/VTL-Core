@@ -33,7 +33,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.Entity;
-import org.lwjgl.glfw.GLFW;
+import com.mojang.blaze3d.platform.InputConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -128,7 +128,7 @@ public class TierTagger implements ModInitializer {
             dispatcher.register(commandTree(MOD_ID));
         });
 
-        openHubKey = registerKey(new KeyMapping("vtl.key.openHub", GLFW.GLFW_KEY_R, KEY_CATEGORY), mc -> {
+        openHubKey = registerKey(new KeyMapping("vtl.key.openHub", InputConstants.KEY_R, KEY_CATEGORY), mc -> {
             // straight to the chat while a ticket is open or has unread messages
             if (mc.screen != null) return;
             var result = QueueWebSocket.takePendingResult();
@@ -139,7 +139,7 @@ public class TierTagger implements ModInitializer {
             var ticket = queue.ticketLog().snapshot();
             VtlHubScreen.open(ticket.active() || ticket.unread() > 0 ? HubTab.Id.TICKET : HubTab.Id.PLAY);
         });
-        quickJoinKey = registerKey(new KeyMapping("vtl.key.quickJoin", GLFW.GLFW_KEY_J, KEY_CATEGORY), mc ->
+        quickJoinKey = registerKey(new KeyMapping("vtl.key.quickJoin", InputConstants.KEY_J, KEY_CATEGORY), mc ->
                 QueueWebSocket.QUICK_JOIN.take(mc.screen != null).ifPresent(q -> {
                     QueueNotifier.info(Component.translatable("tiertagger.queue.join.sending", q.displayName(),
                             com.kevin.tiertagger.queue.QueueMessages.regionLabel(q.region())));
@@ -150,9 +150,10 @@ public class TierTagger implements ModInitializer {
         com.kevin.tiertagger.hub.ItemPack.register();
         com.kevin.tiertagger.hud.QueueHud.register();
         com.kevin.tiertagger.dev.DevShots.register();
+        //? if 1.21.11
         com.kevin.tiertagger.dev.Trailer.register();
 
-        registerKey(new KeyMapping("tiertagger.keybind.gamemode", GLFW.GLFW_KEY_UNKNOWN, KEY_CATEGORY),
+        registerKey(new KeyMapping("tiertagger.keybind.gamemode", InputConstants.UNKNOWN.getValue(), KEY_CATEGORY),
                 mc -> {
                     GameMode next = TierCache.findNextMode(manager.getConfig().getGameMode());
                     manager.getConfig().setGameMode(next.id());
@@ -185,7 +186,11 @@ public class TierTagger implements ModInitializer {
         return quickJoinKey;
     }
 
+    //? if >=1.21.9 {
     public static final KeyMapping.Category KEY_CATEGORY = KeyMapping.Category.register(Identifier.fromNamespaceAndPath("vtl", "main"));
+    //?} else {
+    /*public static final String KEY_CATEGORY = "key.category.vtl.main";
+    *///?}
 
     /** Names of the players on the current server, for tab completion. */
     private static final SuggestionProvider<FabricClientCommandSource> PLAYER_NAMES =

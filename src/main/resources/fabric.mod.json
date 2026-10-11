@@ -33,8 +33,8 @@
     "TierTagger.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.17",
-    "minecraft": "~1.21.11",
+    "fabricloader": ">=${loader_min}",
+    "minecraft": "${mc_range}",
     "fabric-api": "*"
   }
 }

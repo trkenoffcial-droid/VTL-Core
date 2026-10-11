@@ -1,5 +1,7 @@
 package com.kevin.tiertagger.hub;
 
+import com.kevin.tiertagger.compat.Players;
+
 import com.kevin.tiertagger.TierTagger;
 import com.kevin.tiertagger.hub.anim.Pose;
 import com.kevin.tiertagger.hub.anim.TierChange;
@@ -16,6 +18,7 @@ import com.kevin.tiertagger.queue.QueueMessages;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
+//? if >=1.21.9
 import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.client.resources.sounds.SimpleSoundInstance;
 import net.minecraft.network.chat.Component;
@@ -75,8 +78,9 @@ public class VtlResultScreen extends Screen {
 
     @Override
     protected void init() {
+        com.kevin.tiertagger.compat.ItemComponents.ensureBound(); // 26.1+: items need components, even on the title screen
         Minecraft mc = Minecraft.getInstance();
-        if (skin == null) skin = mc.getSkinManager().createLookup(mc.getGameProfile(), true);
+        if (skin == null) skin = Players.skin(mc.getGameProfile(), true);
         int bw = 150;
         button = this.addRenderableWidget(new HubButton((this.width - bw) / 2, this.height - 34, bw, 22,
                 Component.translatable(revealed ? "vtl.result.continue" : "vtl.result.skip"), HubButton.Style.PRIMARY, this::press));
@@ -87,9 +91,15 @@ public class VtlResultScreen extends Screen {
         else onClose();
     }
 
+    //? if >=1.21.9 {
     @Override
     public boolean mouseClicked(MouseButtonEvent event, boolean doubleClick) {
         if (super.mouseClicked(event, doubleClick)) return true;
+    //?} else {
+    /*@Override
+    public boolean mouseClicked(double mouseX, double mouseY, int button) {
+        if (super.mouseClicked(mouseX, mouseY, button)) return true;
+    *///?}
         if (!revealed) {
             reveal(now()); // a click anywhere skips the wait
             return true;

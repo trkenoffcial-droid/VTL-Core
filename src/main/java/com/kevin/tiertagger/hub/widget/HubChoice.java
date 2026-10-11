@@ -5,10 +5,12 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.narration.NarrationElementOutput;
+//? if >=1.21.9
 import net.minecraft.client.input.KeyEvent;
+//? if >=1.21.9
 import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.network.chat.Component;
-import org.lwjgl.glfw.GLFW;
+import com.mojang.blaze3d.platform.InputConstants;
 
 import java.util.List;
 import java.util.function.Consumer;
@@ -46,17 +48,29 @@ public class HubChoice<T> extends AbstractWidget {
         HubTheme.centered(g, font, shown, x + w / 2, ty, this.active ? HubTheme.TEXT : 0xFF7A6E88, 1f);
     }
 
+    //? if >=1.21.9 {
     @Override
     public void onClick(MouseButtonEvent event, boolean doubleClick) {
-        step(event.x() < getX() + getWidth() / 3.0 ? -1 : 1);
+        double mouseX = event.x();
+    //?} else {
+    /*@Override
+    public void onClick(double mouseX, double mouseY) {
+    *///?}
+        step(mouseX < getX() + getWidth() / 3.0 ? -1 : 1);
     }
 
+    //? if >=1.21.9 {
     @Override
     public boolean keyPressed(KeyEvent event) {
+        int key = event.key();
+    //?} else {
+    /*@Override
+    public boolean keyPressed(int key, int scanCode, int modifiers) {
+    *///?}
         if (!this.active || !this.visible || !this.isFocused()) return false;
-        switch (event.key()) {
-            case GLFW.GLFW_KEY_LEFT -> step(-1);
-            case GLFW.GLFW_KEY_RIGHT, GLFW.GLFW_KEY_ENTER, GLFW.GLFW_KEY_SPACE -> step(1);
+        switch (key) {
+            case InputConstants.KEY_LEFT -> step(-1);
+            case InputConstants.KEY_RIGHT, InputConstants.KEY_RETURN, InputConstants.KEY_SPACE -> step(1);
             default -> {
                 return false;
             }
