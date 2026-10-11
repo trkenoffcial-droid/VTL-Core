@@ -142,18 +142,18 @@ public final class QueueNotifier {
         chat(message);
     }
 
-    /** [Join]: runs {@code /tiertagger join <mode> <region>} for exactly this queue. */
+    /** [Join]: runs {@code /vtl join <mode> <region>} for exactly this queue. */
     public static MutableComponent joinButton(Queue queue) {
         return button("join", queue, ChatFormatting.GREEN);
     }
 
-    /** [Leave]: runs {@code /tiertagger leave <mode> <region>}. */
+    /** [Leave]: runs {@code /vtl leave <mode> <region>}. */
     public static MutableComponent leaveButton(Queue queue) {
         return button("leave", queue, ChatFormatting.RED);
     }
 
     private static MutableComponent button(String action, Queue queue, ChatFormatting color) {
-        String command = "/tiertagger " + action + " " + queue.mode().toLowerCase(Locale.ROOT) + " " + queue.region();
+        String command = "/vtl " + action + " " + queue.mode().toLowerCase(Locale.ROOT) + " " + queue.region();
         Component hover = Component.translatable("tiertagger.queue.button." + action + ".hover", queue.displayName(), QueueMessages.regionLabel(queue.region()));
         return Component.translatable("tiertagger.queue.button." + action)
                 .withStyle(style -> style.withColor(color).withBold(true)

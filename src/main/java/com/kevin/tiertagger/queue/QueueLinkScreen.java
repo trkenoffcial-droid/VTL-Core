@@ -12,7 +12,7 @@ import com.kevin.tiertagger.util.ValidatedEditBox;
 /**
  * Front-end for the link flow: type the short code the Discord bot gave you.
  *
- * <p>This screen and the {@code /tiertagger link <code>} command both end up in
+ * <p>This screen and the {@code /vtl link <code>} command both end up in
  * {@link QueueLinker}, so neither is a separate code path.</p>
  *
  * <p>The token itself is never shown here or anywhere else in the UI — there is deliberately

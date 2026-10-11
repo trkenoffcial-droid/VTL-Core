@@ -48,7 +48,7 @@ final class TrailerCard extends Screen {
         return new TrailerCard(true, List.of(
                 new Line("VTL Core", 0xFFFFD45C, 3.6f),
                 new Line("", 0, 0.6f),
-                new Line("3.3.0  ·  Minecraft 1.21.11  ·  Fabric", 0xFFE9DDF7, 1.6f),
+                new Line("1.0.0  ·  Minecraft 1.21.11  ·  Fabric", 0xFFE9DDF7, 1.6f),
                 new Line("", 0, 1f),
                 new Line("tierslist.net", 0xFFFFD45C, 2.2f)));
     }

@@ -81,9 +81,9 @@ public final class QueueProtocolCheck {
 
         // --- link ---
         HttpResponse<String> bad = post(linkUrl, linkBody("AAAAAA", "MockPlayer"), null);
-        check(bad.statusCode() == 400 && bad.body().contains("/tiertagger link"), "a wrong code answers 400 and names the Discord command");
+        check(bad.statusCode() == 400 && bad.body().contains("/vtl link"), "a wrong code answers 400 and names the Discord command (/vtl link, bot V40)");
         String code = dev("code", Map.of()).get("code").getAsString();
-        // bot V39: the body names the game account; mods before VTL Core 3.3.0 send only the code
+        // bot V39: the body names the game account; VTL Mod 3.2.0 and older send only the code
         HttpResponse<String> oldBody = post(linkUrl, "{\"code\":\"" + code + "\"}", null);
         check(oldBody.statusCode() == 400 && oldBody.body().contains("update_required"), "an old mod (code only) is told to update");
         HttpResponse<String> otherName = post(linkUrl, linkBody(code, "Someone"), null);

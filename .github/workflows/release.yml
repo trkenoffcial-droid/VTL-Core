@@ -1,4 +1,4 @@
-# Pushing a tag like v3.3.0 builds VTL Core and publishes a GitHub Release with the jar attached.
+# Pushing a tag like v1.0.0 builds VTL Core and publishes a GitHub Release with the jar attached.
 name: Release
 
 on:

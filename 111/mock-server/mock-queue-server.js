@@ -164,7 +164,7 @@ const actions = {
     if (!ACCOUNTS[discordId]) throw new Error('unknown account');
     if (name) ACCOUNTS[discordId].name = String(name);
     const { code, expiresAt } = linkStore.issueCode(discordId);
-    log(`link code for ${ACCOUNTS[discordId].name}: ${code} (expires in ${Math.round((expiresAt - Date.now()) / 60000)} min) -> /tiertagger link ${code}`);
+    log(`link code for ${ACCOUNTS[discordId].name}: ${code} (expires in ${Math.round((expiresAt - Date.now()) / 60000)} min) -> /vtl link ${code}`);
     return { code };
   },
   open({ mode = 'sword', region = 'EU' } = {}) {
@@ -330,7 +330,7 @@ const dev = http.createServer((req, res) => {
 });
 
 const HELP = `Commands:
-  code [discordId]            issue a link code (like /tiertagger link on Discord)
+  code [discordId]            issue a link code (like /vtl link on Discord)
   open <mode> <region>        open a queue          e.g. open sword EU
   close <mode> <region>       close it
   pull <mode> <region>        pull MockPlayer -> your_turn

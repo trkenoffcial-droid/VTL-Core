@@ -29,7 +29,7 @@ public final class QueueTuning {
 
     // Close codes sent by the bot (MOD-PROTOCOL-v2.md, "Close codes").
 
-    /** The token was revoked (/tiertagger unlink, or the account linked another install). */
+    /** The token was revoked (/vtl unlink on Discord, or the account linked another install). */
     public static final int CLOSE_TOKEN_REVOKED = 4001;
 
     /** The same token opened a newer connection (a second game instance). */

@@ -1,4 +1,4 @@
-# Testing VTL Core 3.3
+# Testing VTL Core
 
 The mod talks to the VTL bot's game-mod gateway, protocol v2
 (`111/MOD-PROTOCOL-v2.md`). For testing without the bot there is a mock in
@@ -93,7 +93,7 @@ closed kits are grey, and the big button says **LINK DISCORD** while not linked.
 
 ## 5. Link
 
-1. In the mock console type `code`. It prints `/tiertagger link XXXXXX`.
+1. In the mock console type `code`. It prints `/vtl link XXXXXX`.
 2. Type that (or `/vtl link XXXXXX`) in game chat, or use
    **SETTINGS → Discord → Link Discord**.
 3. Expect "Linked as MockPlayer!". The Hub's top bar shows the linked name.

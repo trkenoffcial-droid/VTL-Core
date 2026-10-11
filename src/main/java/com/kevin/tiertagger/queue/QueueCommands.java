@@ -26,7 +26,7 @@ import static net.fabricmc.fabric.api.client.command.v2.ClientCommandManager.arg
 import static net.fabricmc.fabric.api.client.command.v2.ClientCommandManager.literal;
 
 /**
- * The queue part of {@code /tiertagger}:
+ * The queue part of {@code /vtl} (also under {@code /tiertagger}):
  * <ul>
  *     <li>{@code link <code>} / {@code unlink}</li>
  *     <li>{@code queues}: every open queue, with [Join] / [Leave] buttons</li>
@@ -90,7 +90,7 @@ public final class QueueCommands {
         return 1;
     }
 
-    /** {@code /tiertagger link} without a code: where the code comes from. */
+    /** {@code /vtl link} without a code: where the code comes from. */
     private static int linkUsage() {
         QueueNotifier.info(tr("link.usage"));
         return 1;

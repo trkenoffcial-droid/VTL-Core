@@ -15,7 +15,7 @@ import java.util.concurrent.CompletableFuture;
 
 /**
  * Links this install to a Discord account: the player gets a one-time code from the bot
- * ({@code /tiertagger link} on Discord) and the mod exchanges it for a long-lived token.
+ * ({@code /vtl link} on Discord) and the mod exchanges it for a long-lived token.
  *
  * <p>The token is the only credential the mod holds. It is created at runtime, kept in its own
  * file ({@link QueueTokenStore}) and never shown or logged.</p>

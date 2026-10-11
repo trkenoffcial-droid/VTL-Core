@@ -1,5 +1,5 @@
 /**
- * Game-mod gateway: the HTTP + WebSocket endpoint the VTL TierTagger mod talks
+ * Game-mod gateway: the HTTP + WebSocket endpoint the VTL Core mod talks
  * to (protocol in MOD-PROTOCOL-v2.md). This module only does networking,
  * linking and connection bookkeeping. Every Discord-side decision - what a
  * queue looks like to an account, whether a join is allowed - is made by the
@@ -10,7 +10,7 @@
  *   - Alerts are public information, so an anonymous socket is allowed. It can
  *     only receive queue open/close events.
  *   - Everything personal (hello details, join/leave, your turn) needs a token.
- *     Tokens come from a one-time code issued on Discord (/tiertagger link), are 256-bit
+ *     Tokens come from a one-time code issued on Discord (/vtl link), are 256-bit
  *     random, and only their SHA-256 is stored. One active token per account.
  *   - Per-IP limits on link attempts, handshakes and anonymous sockets, a global
  *     socket cap, a 4 KB message cap and a minimum gap between requests.
@@ -38,7 +38,7 @@ const STORE_VERSION = 2;
 const NETWORK_HISTORY_MS = 30 * 24 * 3600 * 1000; // one network links one Discord account this long
 /** Why a linked game was signed out when it connected (sent in its hello as relink/relinkMessage). */
 const RELINK_MESSAGES = {
-  ip_changed: 'Your network changed, so the game was signed out. Run /tiertagger link on Discord and link again.',
+  ip_changed: 'Your network changed, so the game was signed out. Run /vtl link on Discord and link again.',
   account_changed: 'This game is logged in to a different Minecraft account than the one you linked. Link again.',
   ign_changed: 'Your verified Minecraft name changed. Link again.',
 };
@@ -411,8 +411,8 @@ function createModGateway(options) {
         let body = null;
         try { body = JSON.parse(await readBody(req)); } catch { return json(res, 400, { error: 'bad_request', message: 'Invalid request.' }); }
         if (!body || typeof body !== 'object') return json(res, 400, { error: 'bad_request', message: 'Invalid request.' });
-        // Mods before VTL Core 3.3.0 send only the code: they cannot prove who is playing.
-        if (body.player === undefined) return json(res, 400, { error: 'update_required', message: 'Update to VTL Core 3.3.0 to link this game.' });
+        // Mods before VTL Core (VTL Mod 3.2.0 and older) send only the code: they cannot prove who is playing.
+        if (body.player === undefined) return json(res, 400, { error: 'update_required', message: 'Update to VTL Core to link this game.' });
         const player = parseLinkPlayer(body.player);
         const proof = parseLinkProof(body.proof);
         if (!player || proof === undefined) return json(res, 400, { error: 'bad_request', message: 'Invalid request.' });
@@ -422,7 +422,7 @@ function createModGateway(options) {
         const discordId = linkStore.peekCode(body.code);
         if (!discordId) {
           linkFailures.hit('all');
-          return json(res, 400, { error: 'invalid_code', message: 'This code is invalid or has expired. Run /tiertagger link on Discord to get a new one.' });
+          return json(res, 400, { error: 'invalid_code', message: 'This code is invalid or has expired. Run /vtl link on Discord to get a new one.' });
         }
         const ipKey = linkStore.ipKey(ip);
         if (linkStore.networkTaken(discordId, ipKey)) {
@@ -449,7 +449,7 @@ function createModGateway(options) {
         const premiumVerified = Boolean(verdict.premiumVerified);
         const result = linkStore.redeemCode(body.code, { ...player, premiumVerified, ipKey });
         if (!result) {
-          return json(res, 400, { error: 'invalid_code', message: 'This code is invalid or has expired. Run /tiertagger link on Discord to get a new one.' });
+          return json(res, 400, { error: 'invalid_code', message: 'This code is invalid or has expired. Run /vtl link on Discord to get a new one.' });
         }
         // The account may have had an older install connected: that token is gone now.
         closeAccount(result.discordId, 4001, 'Linked on another install');
@@ -570,7 +570,7 @@ function createModGateway(options) {
       return send(ws, 'error', { code: 'bad_request', message: 'requestId (1-64 chars) and queueId are required.' });
     }
     if (!ws.discordId) {
-      return send(ws, resultType, { requestId, ok: false, code: 'not_linked', message: 'Link your Discord account first: run /tiertagger link on Discord.' });
+      return send(ws, resultType, { requestId, ok: false, code: 'not_linked', message: 'Link your Discord account first: run /vtl link on Discord.' });
     }
     const now = Date.now();
     if (now - ws.lastRequestAt < REQUEST_GAP_MS) {
@@ -596,7 +596,7 @@ function createModGateway(options) {
     }
     const answer = (fields) => send(ws, resultType, { requestId, ticketId: msg.ticketId, ...fields });
     if (!ws.discordId) {
-      return answer({ ok: false, code: 'not_linked', message: 'Link your Discord account first: run /tiertagger link on Discord.' });
+      return answer({ ok: false, code: 'not_linked', message: 'Link your Discord account first: run /vtl link on Discord.' });
     }
     if (typeof handleTicket !== 'function') {
       return answer({ ok: false, code: 'unsupported', message: 'Ticket chat is not available on this server.' });

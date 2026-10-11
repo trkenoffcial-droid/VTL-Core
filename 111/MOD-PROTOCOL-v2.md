@@ -19,15 +19,15 @@ follow (the mod treats a redirect like a 404 and waits 10 minutes).
 | POST   | `/mod/unlink` | `Bearer <token>`| revoke this token                    |
 | GET    | `/mod/ws?v=2` | optional Bearer | the WebSocket                        |
 
-Every request sends `X-VTL-Client: VTL-Core/<mod> mc/<game>` (`VTL-TierTagger/...` before 3.3.0).
-From VTL Core 3.3.0 every WebSocket also sends `X-VTL-Player: <uuid>`, the game's Minecraft UUID.
+Every request sends `X-VTL-Client: VTL-Core/<mod> mc/<game>` (`VTL-TierTagger/...` from VTL Mod 3.2.0 and older).
+From VTL Core 1.0.0 every WebSocket also sends `X-VTL-Player: <uuid>`, the game's Minecraft UUID.
 
 ## Linking
 
-1. On Discord: `/tiertagger link`. The bot answers (only visible to the player)
+1. On Discord: `/vtl link` (`/tiertagger link` before bot V40). The bot answers (only visible to the player)
    with a code: 6 characters from `ABCDEFGHJKMNPQRSTUVWXYZ23456789`, valid
    10 minutes, single use.
-2. In game: `/tiertagger link <code>` (or the Link screen) posts to `/mod/link` (bot V39):
+2. In game: `/vtl link <code>` (or the Link screen) posts to `/mod/link` (bot V39):
 
    ```json
    { "code": "<code>", "player": { "name": "<game name>", "uuid": "<game uuid>" }, "proof": { "nonce": "<16 bytes base64url>" } }
@@ -55,7 +55,7 @@ One token per Discord account: linking again revokes the previous install
 |--------|------------------|--------------------------------------------|
 | 400    | `invalid_code`   | unknown, used or expired code              |
 | 400    | `bad_request`    | body is not valid link JSON                |
-| 400    | `update_required`| body without `player` (mods before VTL Core 3.3.0) |
+| 400    | `update_required`| body without `player` (VTL Mod 3.2.0 and older) |
 | 400    | `not_verified`   | the Discord account is not verified        |
 | 400    | `name_mismatch`  | the game runs another name than the verified IGN |
 | 400    | `premium_required` | Premium account without a proof          |
@@ -67,7 +67,7 @@ One token per Discord account: linking again revokes the previous install
 
 Every error body also has a `message` meant for the player.
 
-Unlinking: `/tiertagger unlink` on Discord, or in game (the mod forgets the
+Unlinking: `/vtl unlink` on Discord, or in game (the mod forgets the
 token, reconnects anonymously, then posts `/mod/unlink` with the token).
 
 ## WebSocket

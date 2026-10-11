@@ -97,7 +97,7 @@ If another screen is open, a toast tells you to press **R** to see the result.
 
 Tiers show up right away. To join queues from the game, link your Discord account:
 1. Verify on the VTL Discord first (`/verify`), with the Minecraft name you play as.
-2. Run `/tiertagger link`. The bot answers with a 6-character code, valid for 10 minutes.
+2. Run `/vtl link`. The bot answers with a 6-character code, valid for 10 minutes.
 3. Start Minecraft on the PC you play on, logged in as that verified name, and type `/vtl link <code>`
    (or use **SETTINGS → Discord → Link Discord**).
 
@@ -120,7 +120,8 @@ A link only works for the player who verified:
 | `/vtl leave [kit] [region]` | Leave a queue |
 | `/vtl link <code>` / `/vtl unlink` | Link or unlink your Discord account |
 
-`/tiertagger` works as well. On its own, it lists the commands.
+In game, `/tiertagger` works as well. On its own, it lists the commands. On Discord the mod's
+commands are `/vtl link`, `/vtl unlink` and `/vtl status`.
 
 | Key | Does |
 |---|---|
@@ -137,7 +138,7 @@ Change them in **Options → Controls → VTL**.
   receives queue alerts.
 - **Linking:** gives the game a token, stored in `config/tiertagger-queue-token.txt`.
   - The token lets anyone join queues as you. **Never share that file.**
-  - **Unlink** in game or `/tiertagger unlink` on Discord revokes it.
+  - **Unlink** in game or `/vtl unlink` on Discord revokes it.
   - With a Premium session, the game first asks Mojang's session server to confirm it (`joinServer`).
     Your access token goes only to Mojang, never to VTL.
   - The bot keeps a keyed hash of your network to compare later connections, never the IP itself.

@@ -15,7 +15,8 @@
   ],
   "contact": {
     "homepage": "https://www.tierslist.net",
-    "sources": "https://github.com/Leoaxo098/VTL-TierTagger"
+    "sources": "https://github.com/trkenoffcial-droid/VTL-Core",
+    "issues": "https://github.com/trkenoffcial-droid/VTL-Core/issues"
   },
   "license": "MPL-2.0",
   "icon": "assets/vtl/icon.png",
@@ -33,7 +34,7 @@
   ],
   "depends": {
     "fabricloader": ">=0.17",
-    "minecraft": ">=1.21.11",
+    "minecraft": "~1.21.11",
     "fabric-api": "*"
   }
 }
