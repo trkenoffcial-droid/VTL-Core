@@ -6,6 +6,7 @@ import net.minecraft.world.entity.player.PlayerSkin;
 //? if <1.21.9 {
 /*import com.google.common.base.Suppliers;
 import com.mojang.authlib.GameProfileRepository;
+import com.mojang.authlib.ProfileLookupCallback;
 import com.mojang.authlib.yggdrasil.ProfileResult;
 import com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService;
 *///?}
@@ -33,7 +34,7 @@ public final class Players {
         //? if >=1.21.9 {
         return Minecraft.getInstance().services().profileResolver().fetchByName(name);
         //?} else {
-        /*Optional<GameProfile> found = REPOSITORY.get().findProfileByName(name);
+        /*Optional<GameProfile> found = byName(name);
         if (found.isEmpty()) return found;
         ProfileResult full = Minecraft.getInstance().getMinecraftSessionService().fetchProfile(found.get().getId(), false);
         return Optional.of(full != null ? full.profile() : found.get());
@@ -44,5 +45,26 @@ public final class Players {
     /*// before 1.21.9 the client has no name lookup of its own outside a world
     private static final Supplier<GameProfileRepository> REPOSITORY = Suppliers.memoize(() ->
             new YggdrasilAuthenticationService(Minecraft.getInstance().getProxy()).createProfileRepository());
+    *///?}
+
+    //? if >=1.21.5 && <1.21.9 {
+    /*private static Optional<GameProfile> byName(String name) {
+        return REPOSITORY.get().findProfileByName(name);
+    }
+    *///?} elif <1.21.5 {
+    /*// older authlib only looks names up in batches; it answers before the call returns
+    private static Optional<GameProfile> byName(String name) {
+        GameProfile[] found = new GameProfile[1];
+        REPOSITORY.get().findProfilesByNames(new String[] {name}, new ProfileLookupCallback() {
+            @Override
+            public void onProfileLookupSucceeded(GameProfile profile) {
+                found[0] = profile;
+            }
+
+            @Override
+            public void onProfileLookupFailed(String profileName, Exception e) {}
+        });
+        return Optional.ofNullable(found[0]);
+    }
     *///?}
 }

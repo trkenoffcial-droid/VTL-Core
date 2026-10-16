@@ -2,6 +2,7 @@ package com.kevin.tiertagger.dev;
 
 import com.google.gson.JsonObject;
 import com.kevin.tiertagger.TierTagger;
+import com.kevin.tiertagger.compat.Toasts;
 import com.kevin.tiertagger.config.TierTaggerConfig;
 import com.kevin.tiertagger.hub.HubTab;
 import com.kevin.tiertagger.hub.Kit;
@@ -202,7 +203,7 @@ public final class DevShots {
 
     /** Saves a picture after {@code delay} ticks, without tidying (the screen must not change underneath). */
     private static void grab(String name, int delay) {
-        step(name + " (clear toasts)", 0, null, () -> Minecraft.getInstance().getToastManager().clear());
+        step(name + " (clear toasts)", 0, null, Toasts::clear);
         step(name, delay, null, () -> grab(name));
     }
 
@@ -210,7 +211,7 @@ public final class DevShots {
     private static void shot(String name, int delay, BooleanSupplier until) {
         step(name + " (tidy)", delay, until, () -> {
             Minecraft mc = Minecraft.getInstance();
-            mc.getToastManager().clear();
+            Toasts.clear();
             mc.gui.getChat().clearMessages(false);
         });
         step(name, 5, null, () -> grab(name));
@@ -344,8 +345,13 @@ public final class DevShots {
         Minecraft mc = Minecraft.getInstance();
         // Screenshot.grab with a file name does not create the folder itself
         new File(DIR, "screenshots").mkdirs();
+        //? if >=1.21.6 {
         Screenshot.grab(new File(DIR), name + ".png", mc.getMainRenderTarget(), 1,
                 msg -> TierTagger.getLogger().info("[devshots] {}", msg.getString()));
+        //?} else {
+        /*Screenshot.grab(new File(DIR), name + ".png", mc.getMainRenderTarget(),
+                msg -> TierTagger.getLogger().info("[devshots] {}", msg.getString()));
+        *///?}
     }
 
     static void scale(int guiScale) {
@@ -359,17 +365,26 @@ public final class DevShots {
         //? if >=26 {
         /*LevelSettings settings = new LevelSettings("vtl-devshots", GameType.CREATIVE,
                 new LevelSettings.DifficultySettings(Difficulty.PEACEFUL, false, false), true, WorldDataConfiguration.DEFAULT);
-        *///?} else {
+        *///?} elif >=1.21.2 {
         LevelSettings settings = new LevelSettings("vtl-devshots", GameType.CREATIVE, false, Difficulty.PEACEFUL, true,
                 new GameRules(FeatureFlags.DEFAULT_FLAGS), WorldDataConfiguration.DEFAULT);
-        //?}
+        //?} else {
+        /*LevelSettings settings = new LevelSettings("vtl-devshots", GameType.CREATIVE, false, Difficulty.PEACEFUL, true,
+                new GameRules(), WorldDataConfiguration.DEFAULT);
+        *///?}
         //? if >=26.2 {
         /*// 26.2 dropped WorldPresets#createFlatWorldDimensions: build the flat preset from the registry
         java.util.function.Function<net.minecraft.core.HolderLookup.Provider, net.minecraft.world.level.levelgen.WorldDimensions> flat =
                 lookup -> lookup.lookupOrThrow(net.minecraft.core.registries.Registries.WORLD_PRESET)
                         .getOrThrow(WorldPresets.FLAT).value().createWorldDimensions();
-        *///?} else
+        *///?} elif >=1.21.2 {
         java.util.function.Function<net.minecraft.core.HolderLookup.Provider, net.minecraft.world.level.levelgen.WorldDimensions> flat = WorldPresets::createFlatWorldDimensions;
+        //?} else {
+        /*// before 1.21.2 there is no createFlatWorldDimensions, and the level is made from a RegistryAccess
+        java.util.function.Function<net.minecraft.core.RegistryAccess, net.minecraft.world.level.levelgen.WorldDimensions> flat =
+                registries -> registries.lookupOrThrow(net.minecraft.core.registries.Registries.WORLD_PRESET)
+                        .getOrThrow(WorldPresets.FLAT).value().createWorldDimensions();
+        *///?}
         mc.createWorldOpenFlows().createFreshLevel("vtl-devshots-" + System.currentTimeMillis(), settings,
                 WorldOptions.defaultWithRandomSeed(), flat, new TitleScreen());
     }

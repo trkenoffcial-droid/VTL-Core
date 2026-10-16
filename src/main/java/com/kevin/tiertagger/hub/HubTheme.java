@@ -3,7 +3,14 @@ package com.kevin.tiertagger.hub;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
+//? if >=1.21.6 {
 import net.minecraft.client.renderer.RenderPipelines;
+//?} elif >=1.21.2 {
+/*import net.minecraft.client.renderer.RenderType;
+*///?} else {
+/*import com.mojang.blaze3d.systems.RenderSystem;
+*///?}
+import com.kevin.tiertagger.compat.GuiPose;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 
@@ -48,11 +55,29 @@ public final class HubTheme {
 
     /** A whole texture (or any region of it) stretched to {@code w x h}. */
     public static void image(GuiGraphics g, Identifier texture, int x, int y, int w, int h, int texW, int texH) {
+        //? if >=1.21.6 {
         g.blit(RenderPipelines.GUI_TEXTURED, texture, x, y, 0, 0, w, h, texW, texH, texW, texH);
+        //?} elif >=1.21.2 {
+        /*g.blit(RenderType::guiTextured, texture, x, y, 0, 0, w, h, texW, texH, texW, texH);
+        *///?} else {
+        /*image(g, texture, x, y, w, h, texW, texH, 0xFFFFFFFF);
+        *///?}
     }
 
     public static void image(GuiGraphics g, Identifier texture, int x, int y, int w, int h, int texW, int texH, int color) {
+        //? if >=1.21.6 {
         g.blit(RenderPipelines.GUI_TEXTURED, texture, x, y, 0, 0, w, h, texW, texH, texW, texH, color);
+        //?} elif >=1.21.2 {
+        /*g.blit(RenderType::guiTextured, texture, x, y, 0, 0, w, h, texW, texH, texW, texH, color);
+        *///?} else {
+        /*// before 1.21.2 a blit has no colour of its own: tint the shader, and blend for the alpha
+        RenderSystem.enableBlend();
+        RenderSystem.defaultBlendFunc();
+        g.setColor((color >> 16 & 0xFF) / 255f, (color >> 8 & 0xFF) / 255f, (color & 0xFF) / 255f, (color >>> 24) / 255f);
+        g.blit(texture, x, y, w, h, 0, 0, texW, texH, texW, texH);
+        g.setColor(1f, 1f, 1f, 1f);
+        RenderSystem.disableBlend();
+        *///?}
     }
 
     /** A soft round glow of {@code color} (ARGB, alpha = strength) centred on {@code cx, cy}. */
@@ -81,11 +106,11 @@ public final class HubTheme {
             g.drawString(font, text, x, y, color, shadow);
             return;
         }
-        g.pose().pushMatrix();
-        g.pose().translate(x, y);
-        g.pose().scale(scale, scale);
+        GuiPose.push(g);
+        GuiPose.translate(g, x, y);
+        GuiPose.scale(g, scale, scale);
         g.drawString(font, text, 0, 0, color, shadow);
-        g.pose().popMatrix();
+        GuiPose.pop(g);
     }
 
     /** Text at {@code scale} (kept sharp), centred on {@code cx}. */

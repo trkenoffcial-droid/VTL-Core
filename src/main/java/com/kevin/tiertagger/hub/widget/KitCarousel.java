@@ -1,5 +1,6 @@
 package com.kevin.tiertagger.hub.widget;
 
+import com.kevin.tiertagger.compat.GuiPose;
 import com.kevin.tiertagger.hub.HubState.KitView;
 import com.kevin.tiertagger.hub.HubState.Status;
 import com.kevin.tiertagger.hub.HubTheme;
@@ -136,11 +137,11 @@ public class KitCarousel extends AbstractWidget {
             HubTheme.image(g, art, x + 1, y + 1, w - 2, h - tagH - 1, ART_W, ART_H);
         } else {
             int size = w * 56 / 100;
-            g.pose().pushMatrix();
-            g.pose().translate(x + (w - size) / 2f, y + h * 0.22f);
-            g.pose().scale(size / 16f, size / 16f);
+            GuiPose.push(g);
+            GuiPose.translate(g, x + (w - size) / 2f, y + h * 0.22f);
+            GuiPose.scale(g, size / 16f, size / 16f);
             g.renderItem(ICONS.get(kit), 0, 0);
-            g.pose().popMatrix();
+            GuiPose.pop(g);
         }
 
         // dim what is not the focus
@@ -195,11 +196,11 @@ public class KitCarousel extends AbstractWidget {
         for (int i = 0; i < lines.size(); i++) {
             FormattedCharSequence line = lines.get(i);
             int width = Math.round(font.width(line) * scale);
-            g.pose().pushMatrix();
-            g.pose().translate(cx - width / 2, y + i * lineH);
-            g.pose().scale(scale, scale);
+            GuiPose.push(g);
+            GuiPose.translate(g, cx - width / 2, y + i * lineH);
+            GuiPose.scale(g, scale, scale);
             g.drawString(font, line, 0, 0, color, true);
-            g.pose().popMatrix();
+            GuiPose.pop(g);
         }
     }
 

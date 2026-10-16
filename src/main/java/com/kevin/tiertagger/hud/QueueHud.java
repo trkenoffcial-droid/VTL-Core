@@ -9,8 +9,12 @@ import com.kevin.tiertagger.hub.HubTheme;
 import com.kevin.tiertagger.hub.WaitClock;
 import com.kevin.tiertagger.queue.QueueMessages;
 import com.kevin.tiertagger.queue.QueueMessages.Hello;
+//? if >=1.21.6 {
 import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElement;
 import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElementRegistry;
+//?} else {
+/*import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
+*///?}
 import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
@@ -23,14 +27,24 @@ import java.util.List;
  * The small queue box in a corner of the game screen: the player's place in line while waiting,
  * "your turn" while tested, otherwise how many queues are open for their alert filter.
  */
+//? if >=1.21.6 {
 public final class QueueHud implements HudElement {
+//?} else {
+/*public final class QueueHud {
+*///?}
     private static final int PAD = 4;
     private static final int ICON = 12;
 
     public static void register() {
+        //? if >=1.21.6 {
         HudElementRegistry.addLast(HubTheme.vtl("queue_hud"), new QueueHud());
+        //?} else {
+        /*// before 1.21.6 HUD callbacks run after the whole vanilla HUD, like addLast
+        HudRenderCallback.EVENT.register(new QueueHud()::render);
+        *///?}
     }
 
+    //? if >=1.21.6
     @Override
     public void render(GuiGraphics g, DeltaTracker delta) {
         Minecraft mc = Minecraft.getInstance();

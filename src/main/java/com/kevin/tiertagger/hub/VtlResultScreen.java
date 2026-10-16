@@ -130,12 +130,21 @@ public class VtlResultScreen extends Screen {
 
     @Override
     public void renderBackground(GuiGraphics g, int mouseX, int mouseY, float delta) {
+        //? if >=1.21.6
+        drawBackground(g);
+    }
+
+    private void drawBackground(GuiGraphics g) {
         HubBackground.render(g, this.width, this.height, 0, 0, now(), true);
         background.render(g, this.width, this.height, 0, 0, now());
     }
 
     @Override
     public void render(GuiGraphics g, int mouseX, int mouseY, float delta) {
+        //? if <1.21.6 {
+        /*// before 1.21.6 Screen#render drew the background itself, over the figure drawn before it
+        drawBackground(g);
+        *///?}
         float t = now();
         long millis = Util.getMillis();
         float dt = lastFrame == 0 ? 0 : Math.min(0.1f, (millis - lastFrame) / 1000f);

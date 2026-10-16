@@ -1,14 +1,13 @@
 package com.kevin.tiertagger.queue;
 
 import com.kevin.tiertagger.TierTagger;
+import com.kevin.tiertagger.compat.ChatEvents;
+import com.kevin.tiertagger.compat.Toasts;
 import com.kevin.tiertagger.queue.QueueMessages.Queue;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.components.toasts.SystemToast;
 import net.minecraft.client.resources.sounds.SimpleSoundInstance;
-import net.minecraft.network.chat.ClickEvent;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.HoverEvent;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.sounds.SoundEvents;
 
@@ -111,8 +110,8 @@ public final class QueueNotifier {
         if (uri != null) {
             line.append(Component.literal(" ")).append(Component.translatable("tiertagger.queue.yourTurn.open")
                     .withStyle(style -> style.withColor(ChatFormatting.AQUA).withUnderlined(true)
-                            .withClickEvent(new ClickEvent.OpenUrl(uri))
-                            .withHoverEvent(new HoverEvent.ShowText(Component.literal(uri.toString())))));
+                            .withClickEvent(ChatEvents.openUrl(uri))
+                            .withHoverEvent(ChatEvents.showText(Component.literal(uri.toString())))));
         }
         chat(line);
     }
@@ -157,8 +156,8 @@ public final class QueueNotifier {
         Component hover = Component.translatable("tiertagger.queue.button." + action + ".hover", queue.displayName(), QueueMessages.regionLabel(queue.region()));
         return Component.translatable("tiertagger.queue.button." + action)
                 .withStyle(style -> style.withColor(color).withBold(true)
-                        .withClickEvent(new ClickEvent.RunCommand(command))
-                        .withHoverEvent(new HoverEvent.ShowText(hover)));
+                        .withClickEvent(ChatEvents.runCommand(command))
+                        .withHoverEvent(ChatEvents.showText(hover)));
     }
 
     private enum Sound { OPEN, NEXT_UP, YOUR_TURN, MESSAGE }
@@ -179,11 +178,8 @@ public final class QueueNotifier {
     }
 
     private static void toast(Component title, Component body) {
-        Minecraft mc = Minecraft.getInstance();
-        if (mc == null) return;
-        // A fresh id per toast: SystemToastId doesn't override equals, and reusing one would make
-        // two events close together overwrite each other.
-        SystemToast.add(mc.getToastManager(), new SystemToast.SystemToastId(), title, body);
+        if (Minecraft.getInstance() == null) return;
+        Toasts.system(title, body);
     }
 
     private static void chat(Component message) {

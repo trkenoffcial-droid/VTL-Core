@@ -8,8 +8,7 @@
   ],
   "client": [
     ${trailer_mixin}
-    "MixinHumanoidModel",
-    "MixinHumanoidRenderState",
+    ${figure_mixins}
     "MixinPlayerTabOverlay",
     "MixinTextDisplayRenderer",
     "MixinTitleScreen"

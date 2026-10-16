@@ -1,5 +1,5 @@
 # Pushing a tag like v1.0.0 builds VTL Core for every Minecraft version and publishes a GitHub Release
-# with the six jars attached.
+# with the ten jars attached.
 name: Release
 
 on:

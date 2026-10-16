@@ -1,6 +1,7 @@
 package com.kevin.tiertagger.mixin;
 
 import com.kevin.tiertagger.hub.anim.Pose;
+import com.kevin.tiertagger.hub.anim.VtlFigure;
 import com.kevin.tiertagger.hub.anim.VtlPosed;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.ModelPart;
@@ -30,21 +31,6 @@ public abstract class MixinHumanoidModel {
         if (!(state instanceof VtlPosed posed)) return;
         Pose p = posed.vtl$pose();
         if (p == null) return;
-        head.xRot = p.headPitch();
-        head.yRot = p.headYaw();
-        head.zRot = p.headRoll();
-        rightArm.xRot = p.rightArmPitch();
-        rightArm.yRot = p.rightArmYaw();
-        rightArm.zRot = p.rightArmRoll();
-        // the model mirrors the left side: outwards is negative roll there
-        leftArm.xRot = p.leftArmPitch();
-        leftArm.yRot = p.leftArmYaw();
-        leftArm.zRot = -p.leftArmRoll();
-        rightLeg.xRot = p.rightLegPitch();
-        rightLeg.yRot = 0;
-        rightLeg.zRot = p.rightLegRoll();
-        leftLeg.xRot = p.leftLegPitch();
-        leftLeg.yRot = 0;
-        leftLeg.zRot = -p.leftLegRoll();
+        VtlFigure.applyPose(p, head, rightArm, leftArm, rightLeg, leftLeg);
     }
 }

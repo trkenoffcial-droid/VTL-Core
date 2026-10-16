@@ -142,6 +142,11 @@ public class VtlHubScreen extends Screen {
 
     @Override
     public void renderBackground(GuiGraphics g, int mouseX, int mouseY, float delta) {
+        //? if >=1.21.6
+        drawBackground(g);
+    }
+
+    private void drawBackground(GuiGraphics g) {
         HubBackground.render(g, this.width, this.height, TOP, BOTTOM, time(), tab != null && tab.wantsStage());
         effects.render(g, this.width, this.height, TOP, BOTTOM, time());
         g.fill(0, 0, this.width, TOP, HubTheme.BAR);
@@ -152,6 +157,10 @@ public class VtlHubScreen extends Screen {
 
     @Override
     public void render(GuiGraphics g, int mouseX, int mouseY, float delta) {
+        //? if <1.21.6 {
+        /*// before 1.21.6 Screen#render drew the background itself, over the stage drawn before it
+        drawBackground(g);
+        *///?}
         if (tab != null) tab.renderBehind(g, mouseX, mouseY, delta);
         super.render(g, mouseX, mouseY, delta);
         renderTopBar(g);

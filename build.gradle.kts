@@ -75,6 +75,10 @@ stonecutter {
         replace("Util.getPlatform().openUri(url);", "com.mojang.blaze3d.Blaze3D.openUri(java.net.URI.create(url));")
         replace("VanillaRegistries.createLookup()", "VanillaRegistries.createWorldLookup()")
     }
+    // before 1.21.6 the game version was read with getName()
+    replacements.string(current.parsed < "1.21.6") {
+        replace("SharedConstants.getCurrentVersion().name()", "SharedConstants.getCurrentVersion().getName()")
+    }
     // GuiGraphics#renderOutline was called submitOutline in 1.21.9 and 1.21.10 only
     replacements.string(current.parsed >= "1.21.9" && current.parsed < "1.21.11") {
         replace("g.renderOutline(", "g.submitOutline(")
@@ -96,6 +100,18 @@ if (!trailerNode) {
                 "com/kevin/tiertagger/dev/FrameRecorder.java", "com/kevin/tiertagger/dev/VirtualClock.java",
                 "com/kevin/tiertagger/mixin/MixinGameRenderer.java")
         }
+    }
+}
+// The hub figure: from 1.21.2 the player renderer draws it from a render state that carries its pose;
+// before 1.21.6 through the renderer itself, before 1.21.2 by hand.
+val renderStates = sc.current.parsed >= "1.21.2"
+val oldGuiEntity = renderStates && sc.current.parsed < "1.21.6"
+sourceSets.main {
+    java {
+        if (renderStates) exclude("com/kevin/tiertagger/hub/anim/LegacyFigure.java")
+        else exclude("com/kevin/tiertagger/hub/anim/VtlFigureState.java",
+            "com/kevin/tiertagger/mixin/MixinHumanoidModel.java", "com/kevin/tiertagger/mixin/MixinHumanoidRenderState.java")
+        if (!oldGuiEntity) exclude("com/kevin/tiertagger/mixin/AccessorEntityRenderDispatcher.java")
     }
 }
 version = "${project.property("mod_version")}+mc${project.property("minecraft_version")}"
@@ -182,6 +198,8 @@ tasks.processResources {
         "mixin_java" to project.property("mixin_java") as String,
         // the trailer's frame hook exists only where the trailer recorder is built
         "trailer_mixin" to if (trailerNode) "\"MixinGameRenderer\"," else "",
+        "figure_mixins" to (if (renderStates) "\"MixinHumanoidModel\", \"MixinHumanoidRenderState\"," else "") +
+            (if (oldGuiEntity) " \"AccessorEntityRenderDispatcher\"," else ""),
     )
     inputs.properties(values)
     filteringCharset = "UTF-8"

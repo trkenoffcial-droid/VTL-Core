@@ -5,7 +5,7 @@ It shows every player's tier above their head, and brings the whole testing flow
 see which queues are open, join one, chat with your tester and watch your result, without
 switching to Discord.
 
-**Fabric · Minecraft 1.21.8 to 26.3 · client side only**
+**Fabric · Minecraft 1.21 to 26.3 · client side only**
 
 ![VTL Hub](docs/images/hub-play.png)
 
@@ -95,7 +95,11 @@ If another screen is open, a toast tells you to press **R** to see the result.
 
    | Minecraft | Jar |
    |---|---|
-   | 1.21.8 | `VTL-Core+mc1.21.8.jar` |
+   | 1.21, 1.21.1 | `VTL-Core+mc1.21.1.jar` |
+   | 1.21.2, 1.21.3 | `VTL-Core+mc1.21.3.jar` |
+   | 1.21.4 | `VTL-Core+mc1.21.4.jar` |
+   | 1.21.5 | `VTL-Core+mc1.21.5.jar` |
+   | 1.21.6, 1.21.7, 1.21.8 | `VTL-Core+mc1.21.8.jar` |
    | 1.21.9, 1.21.10 | `VTL-Core+mc1.21.10.jar` |
    | 1.21.11 | `VTL-Core+mc1.21.11.jar` |
    | 26.1, 26.1.1, 26.1.2 | `VTL-Core+mc26.1.2.jar` |
@@ -164,7 +168,7 @@ You need **JDK 25** (it also builds the Java 21 jars for Minecraft 1.21.x).
 ./gradlew chiseledBuild
 ```
 
-The six jars are written to `build/libs/<mod version>/`. One source tree builds every Minecraft version
+The ten jars are written to `build/libs/<mod version>/`. One source tree builds every Minecraft version
 with [Stonecutter](https://stonecutter.kikugie.dev):
 - `src/` holds the code as it is for Minecraft 1.21.11;
 - `//? if` comments and the string replacements in `build.gradle.kts` adapt it to the other versions;

@@ -2,6 +2,7 @@ package com.kevin.tiertagger.hub;
 
 import com.kevin.tiertagger.TierCache;
 import com.kevin.tiertagger.TierTagger;
+import com.kevin.tiertagger.compat.Toasts;
 import com.kevin.tiertagger.config.TierTaggerConfig;
 import com.kevin.tiertagger.config.TierTaggerConfig.HighestMode;
 import com.kevin.tiertagger.config.TierTaggerConfig.HudCorner;
@@ -19,7 +20,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.components.EditBox;
-import net.minecraft.client.gui.components.toasts.SystemToast;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.Util;
 
@@ -129,8 +129,7 @@ public class SettingsTab implements HubTab {
                     cfg.setApiUrl(t.getUrl());
                     save();
                     TierCache.init();
-                    SystemToast.add(Minecraft.getInstance().getToastManager(), new SystemToast.SystemToastId(),
-                            Component.translatable("vtl.settings.tierlist.changed", t.getName()), Component.translatable("vtl.settings.tierlist.reloading"));
+                    Toasts.system(Component.translatable("vtl.settings.tierlist.changed", t.getName()), Component.translatable("vtl.settings.tierlist.reloading"));
                 });
         button(c, "vtl.settings.clearCache", HubButton.Style.GHOST, TierCache::clearCache);
     }

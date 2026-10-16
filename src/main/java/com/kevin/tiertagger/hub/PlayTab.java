@@ -1,5 +1,6 @@
 package com.kevin.tiertagger.hub;
 
+import com.kevin.tiertagger.compat.GuiPose;
 import com.kevin.tiertagger.TierCache;
 import com.kevin.tiertagger.TierTagger;
 import com.kevin.tiertagger.hub.HubState.Action;
@@ -273,11 +274,12 @@ public class PlayTab implements HubTab {
         int vault = Math.round(stageH * 0.62f);
         float bob = (float) Math.sin(Util.getMillis() / 1000.0 * 1.3) * 2f;
         HubTheme.glow(g, cx, stageY + stageH * 2 / 5, vault, vault, HubTheme.argb(0xC27BFF, 0x60));
-        g.pose().pushMatrix();
-        g.pose().translate(cx - vault / 2f, stageY + stageH * 0.10f + bob);
-        g.pose().scale(vault / 16f, vault / 16f);
+        GuiPose.push(g);
+        GuiPose.translate(g, cx - vault / 2f, stageY + stageH * 0.10f + bob);
+        GuiPose.scale(g, vault / 16f, vault / 16f);
         g.renderItem(VAULT, 0, 0);
-        g.pose().popMatrix();
+        GuiPose.pop(g);
+        GuiPose.layer(g);
         g.fill(cx - vault / 2, stageY, cx + vault / 2 + 1, stageY + stageH, 0x40000000);
 
         // pedestal glow under the feet
