@@ -3,13 +3,14 @@ package com.kevin.tiertagger.hub;
 import java.util.Locale;
 
 /**
- * The eight VTL kits in carousel order, with the mode id the bot sends, the label the website
+ * The nine VTL kits in carousel order, with the mode id the bot sends, the label the website
  * uses and the kit's tag colour (RGB).
  */
 public enum Kit {
     AXE("axe", "Axe", 0x5AD1FF),
     VANILLA("vanilla", "Vanilla", 0xB07CFF),
     MACE("mace", "Mace", 0xFF4FA3),
+    SPEAR("spear", "Spear", 0xB9A9CC),
     SWORD("sword", "Sword", 0xFF8A3D),
     NETHOP("nethop", "NethOP", 0x5DFF8A),
     POT("pot", "Pot", 0xFF5A5A),

@@ -20,7 +20,7 @@ public final class VtlModelAnimator {
     }
 
     /** How the figure holds the kit's items. */
-    public enum Stance { NONE, SWORD_GUARD, SHIELD_UP, MACE_RAISE, POT_READY, CRYSTAL_HOLD, BOW_DRAW }
+    public enum Stance { NONE, SWORD_GUARD, SHIELD_UP, MACE_RAISE, POT_READY, CRYSTAL_HOLD, BOW_DRAW, SPEAR_THRUST }
 
     /** How long a change of stance (picking another kit) takes, in seconds. */
     public static final float TRANSITION_S = 0.45f;
@@ -56,6 +56,8 @@ public final class VtlModelAnimator {
             case MACE_RAISE -> legs.withArms(-2.55f + sway, 0.10f, -0.15f, -0.40f - sway, 0.0f, 0.12f);
             case POT_READY -> legs.withArms(-2.10f + sway, -0.20f, 0.25f, -0.30f - sway, 0.0f, 0.08f);
             case CRYSTAL_HOLD -> legs.withArms(-0.95f + sway, -0.25f, 0.05f, -0.60f - sway, 0.30f, 0.05f);
+            // Spear levelled forward at chest height, wind charge ready in the other hand
+            case SPEAR_THRUST -> legs.withArms(-1.0f + sway, 0.0f, 0.6f, -0.75f - sway, 0.35f, 0.05f);
             // Minecraft's own bow pose, both arms follow the head
             case BOW_DRAW -> legs.withArms(-HALF_PI + headPitch, -0.1f + headYaw, 0, -HALF_PI + headPitch, 0.5f + headYaw, 0);
         };

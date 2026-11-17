@@ -21,7 +21,7 @@ const REGIONS = ['AS_ME', 'AU_OC', 'NA_SA', 'EU'];
 // Same ids and names the bot sends (crystal -> vanilla, neth -> nethop, axeshield -> axe, diapot -> pot).
 const MODES = {
   vanilla: 'Crystal', nethop: 'NetheritePot', sword: 'Sword', mace: 'Mace',
-  uhc: 'UHC', smp: 'SMP Kit', axe: 'Axe & Shield', pot: 'DiamondPot',
+  uhc: 'UHC', smp: 'SMP Kit', axe: 'Axe & Shield', pot: 'DiamondPot', spear: 'Spear Mace',
 };
 // Simulated Discord members. "You" is the account a link code is issued for by default.
 const ACCOUNTS = {

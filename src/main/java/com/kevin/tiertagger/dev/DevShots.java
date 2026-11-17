@@ -107,6 +107,7 @@ public final class DevShots {
             dev("open", Map.of("mode", "vanilla", "region", "AS_ME"));
             dev("open", Map.of("mode", "mace", "region", "NA_SA"));
             dev("open", Map.of("mode", "nethop", "region", "EU"));
+            dev("open", Map.of("mode", "spear", "region", "AS_ME"));
             dev("open", Map.of("mode", "sword", "region", "AS_ME"));
         });
         shot("01-title-menu", 60, () -> TierTagger.getQueue().hello() != null);
@@ -122,6 +123,23 @@ public final class DevShots {
         step("linked", 20, () -> QueueTokenStore.isLinked() && TierTagger.getQueue().hello() != null && TierTagger.getQueue().hello().linked(),
                 () -> hub().switchTo(HubTab.Id.PLAY));
         shot("05-hub-linked", 30, null);
+        // the Spear kit selected, so its figure is in the big view
+        step("select spear", 2, null, () -> {
+            if (hub().tab() instanceof PlayTab play) {
+                for (int i = 0; i < Kit.values().length && play.selectedKit() != Kit.SPEAR; i++) key(hub(), InputConstants.KEY_LEFT);
+            }
+        });
+        shot("05b-hub-spear", 30, null);
+        // below 1.21.11 the Spear card is locked: pressing the button explains why
+        step("press on spear", 2, null, () -> {
+            if (!com.kevin.tiertagger.compat.SpearItem.available() && hub().tab() instanceof PlayTab play) press(hub(), play.actionButton());
+        });
+        shot("05c-hub-spear-pressed", 20, null);
+        step("select sword", 2, null, () -> {
+            if (hub().tab() instanceof PlayTab play) {
+                for (int i = 0; i < Kit.values().length && play.selectedKit() != Kit.SWORD; i++) key(hub(), InputConstants.KEY_RIGHT);
+            }
+        });
         step("someone ahead", 2, null, () -> dev("add", Map.of("mode", "sword", "region", "EU")));
         step("join", 30, null, () -> TierTagger.getQueue().join("EU:sword"));
         shot("06-hub-waiting", 40, () -> waiting("EU:sword"));

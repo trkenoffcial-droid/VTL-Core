@@ -1,6 +1,7 @@
 package com.kevin.tiertagger.hub;
 
 import com.kevin.tiertagger.compat.GuiPose;
+import com.kevin.tiertagger.compat.SpearItem;
 import com.kevin.tiertagger.TierCache;
 import com.kevin.tiertagger.TierTagger;
 import com.kevin.tiertagger.hub.HubState.Action;
@@ -59,6 +60,7 @@ public class PlayTab implements HubTab {
     private Component message;
     private int messageColor;
     private long messageUntil;
+    private long lockedUntil;
 
     @Override
     public boolean wantsStage() {
@@ -88,6 +90,7 @@ public class PlayTab implements HubTab {
         carousel = screen.add(new KitCarousel(x + (w - carouselW) / 2, carouselTop, carouselW, carouselH, i -> {
             userPicked = true;
             selected = i;
+            if (views.get(i).status() == Status.LOCKED) showLocked();
         }));
         screen.add(new HubButton(carousel.getX() - 22, carouselTop + carouselH / 2 - 9, 16, 18, Component.literal("‹"), HubButton.Style.GHOST, () -> step(-1)));
         screen.add(new HubButton(carousel.getX() + carouselW + 6, carouselTop + carouselH / 2 - 9, 16, 18, Component.literal("›"), HubButton.Style.GHOST, () -> step(1)));
@@ -113,7 +116,7 @@ public class PlayTab implements HubTab {
 
     private void refresh() {
         Hello hello = TierTagger.getQueue().hello();
-        List<KitView> fresh = HubState.kits(TierTagger.getQueue().openQueues(), hello == null ? null : hello.region());
+        List<KitView> fresh = HubState.kits(TierTagger.getQueue().openQueues(), hello == null ? null : hello.region(), PlayTab::playable);
         // the region the player picked by hand, while that queue is still open
         fresh = fresh.stream().map(v -> {
             String wanted = regionOverride.get(v.kit());
@@ -133,14 +136,25 @@ public class PlayTab implements HubTab {
         action.setMessage(Component.translatable("vtl.play.action." + a.name().toLowerCase(Locale.ROOT)));
         action.setStyle(switch (a) {
             case LEAVE -> HubButton.Style.DANGER;
+            case LOCKED -> HubButton.Style.GHOST;
             case OPEN_TICKET -> HubButton.Style.SUCCESS;
             default -> HubButton.Style.PRIMARY;
         });
-        action.active = !pending && (a == Action.LINK || a == Action.JOIN || a == Action.LEAVE || a == Action.OPEN_TICKET);
+        action.active = !pending && (a == Action.LINK || a == Action.JOIN || a == Action.LEAVE || a == Action.OPEN_TICKET || a == Action.LOCKED);
 
         boolean manyRegions = infoW > 0 && view.queues().size() > 1 && view.status() != Status.WAITING && view.status() != Status.TESTING;
         regionButton.visible = manyRegions;
         if (manyRegions) regionButton.setMessage(Component.literal(QueueMessages.regionLabel(view.chosen().region()) + " ⇄"));
+    }
+
+    /** Spear Mace needs spears, which the game has from 1.21.11. */
+    private static boolean playable(Kit kit) {
+        return kit != Kit.SPEAR || SpearItem.available();
+    }
+
+    /** Explains a locked kit on a band across the stage for a few seconds. */
+    private void showLocked() {
+        lockedUntil = Util.getMillis() + 6000;
     }
 
     private Action currentAction(KitView view) {
@@ -158,6 +172,11 @@ public class PlayTab implements HubTab {
     /** The kit whose card is selected (DevShots reads it). */
     public Kit selectedKit() {
         return views.get(selected).kit();
+    }
+
+    /** The big button under the carousel (DevShots presses it). */
+    public HubButton actionButton() {
+        return action;
     }
 
     private void step(int direction) {
@@ -188,6 +207,7 @@ public class PlayTab implements HubTab {
                 if (TierTagger.getQueue().ticketLog().snapshot().ticket() != null) screen.switchTo(HubTab.Id.TICKET);
                 else openTicket();
             }
+            case LOCKED -> showLocked();
             default -> {
                 // disabled states do nothing
             }
@@ -327,6 +347,14 @@ public class PlayTab implements HubTab {
                     QueueMessages.regionLabel(view.chosen().region()), ahead,
                     WaitClock.format(WaitClock.waited(view.chosen().sessionId(), Util.getMillis())));
             HubTheme.centered(g, font, line, cx, y + 23, 0xFFE6D8F5, 0.85f);
+        } else if (view.status() == Status.LOCKED && Util.getMillis() < lockedUntil) {
+            int y = stageY + stageH / 2 - 16;
+            g.fill(ax, y, ax + aw, y + 34, 0xD0140A06);
+            g.fillGradient(ax, y, ax + aw, y + 34, 0x30FFC83D, 0x10FFC83D);
+            g.fill(ax, y, ax + aw, y + 1, 0x99FFC83D);
+            g.fill(ax, y + 33, ax + aw, y + 34, 0x99FFC83D);
+            HubTheme.centered(g, font, Component.translatable("vtl.play.lockedTitle"), ax + aw / 2, y + 5, HubTheme.GOLD, 2f);
+            HubTheme.centered(g, font, Component.translatable("vtl.play.locked"), ax + aw / 2, y + 23, 0xFFFFF1CC, 0.85f);
         } else if (view.status() == Status.TESTING) {
             int y = stageY + stageH / 2 - 16;
             // dark band first so the words read over the player behind them

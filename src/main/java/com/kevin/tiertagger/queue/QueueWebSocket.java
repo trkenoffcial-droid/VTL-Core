@@ -61,6 +61,16 @@ public final class QueueWebSocket implements QueueClient.Listener {
                 var user = Minecraft.getInstance().getUser();
                 return user == null || user.getProfileId() == null ? null : user.getProfileId().toString();
             }
+
+            @Override
+            public String installId() {
+                return InstallId.cached(FabricLoader.getInstance().getConfigDir().resolve(InstallId.FILE_NAME));
+            }
+
+            @Override
+            public String modVersion() {
+                return modVersionPlain();
+            }
         }, this, new QueueClient.Log() {
             @Override
             public void info(String message) {
@@ -80,6 +90,15 @@ public final class QueueWebSocket implements QueueClient.Listener {
     }
 
     /** {@code VTL-TierTagger/<mod version> mc/<game version>}, sent with every request. */
+    /** The mod version without the {@code +mc...} suffix, e.g. {@code 1.1.0}. */
+    public static String modVersionPlain() {
+        String full = FabricLoader.getInstance().getModContainer("vtl")
+                .map(m -> m.getMetadata().getVersion().getFriendlyString()).orElse(null);
+        if (full == null) return null;
+        int plus = full.indexOf('+');
+        return plus < 0 ? full : full.substring(0, plus);
+    }
+
     public static String clientHeader() {
         String modVersion = FabricLoader.getInstance().getModContainer("vtl")
                 .map(m -> m.getMetadata().getVersion().getFriendlyString()).orElse("unknown");

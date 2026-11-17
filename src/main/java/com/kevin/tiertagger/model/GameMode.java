@@ -88,8 +88,8 @@ public record GameMode(String id, String title) {
             case "og_vanilla" -> Pair.of('\uE810', TextColor.fromLegacyFormat(ChatFormatting.GOLD));
             case "speed" -> Pair.of('\uE811', TextColor.fromRgb(0x43a9d1));
             case "trident" -> Pair.of('\uE812', TextColor.fromRgb(0x579b8c));
-            // Viet tierlist-only modes (no icon PNG yet — falls back to bullet point)
-            case "spear" -> Pair.of('•', TextColor.fromLegacyFormat(ChatFormatting.WHITE));
+            // Viet tierlist-only modes
+            case "spear" -> Pair.of(TagIcons.SPEAR, TextColor.fromRgb(TagIcons.SPEAR_COLOR));
             default -> Pair.of('•', TextColor.fromLegacyFormat(ChatFormatting.WHITE));
         };
     }

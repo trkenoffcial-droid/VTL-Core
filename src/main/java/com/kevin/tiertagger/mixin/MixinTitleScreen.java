@@ -1,8 +1,8 @@
 package com.kevin.tiertagger.mixin;
 
 import com.kevin.tiertagger.TierTagger;
-import net.fabricmc.loader.api.FabricLoader;
-import net.fabricmc.loader.api.Version;
+import com.kevin.tiertagger.queue.QueueWebSocket;
+import com.kevin.tiertagger.util.UpdateCheck;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.ConfirmScreen;
@@ -20,8 +20,9 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 @Mixin(TitleScreen.class)
 public class MixinTitleScreen extends Screen {
+    /** The prompt shows at most once per game start. */
     @Unique
-    private static final AtomicBoolean hasCheckedVersion = new AtomicBoolean(false);
+    private static final AtomicBoolean hasShownPrompt = new AtomicBoolean(false);
 
     protected MixinTitleScreen(Component title) {
         super(title);
@@ -29,13 +30,10 @@ public class MixinTitleScreen extends Screen {
 
     @Inject(method = "init", at = @At("RETURN"))
     public void showUpdateScreen(CallbackInfo ci) {
-        if (hasCheckedVersion.get()) return;
-
-        Version currentVersion = FabricLoader.getInstance().getModContainer("vtl")
-                .map(m -> m.getMetadata().getVersion()).orElse(null);
-        Version latestVersion = TierTagger.getLatestVersion();
+        if (hasShownPrompt.get()) return;
 
         if (TierTagger.isObsolete()) {
+            hasShownPrompt.set(true);
             Minecraft.getInstance().setScreen(new ConfirmScreen(
                     b -> {
                         if (b) {
@@ -49,25 +47,29 @@ public class MixinTitleScreen extends Screen {
                     Component.translatable("menu.quit"),
                     Component.translatable("tiertagger.outdated.ignore")
             ));
-        } else if (currentVersion != null && latestVersion != null && currentVersion.compareTo(latestVersion) < 0) {
-            Component newVersion = Component.literal(latestVersion.getFriendlyString()).withStyle(ChatFormatting.GREEN);
-
-            Minecraft.getInstance().setScreen(new ConfirmScreen(
-                    b -> {
-                        if (b) {
-                            String url = "https://modrinth.com/mod/tiertagger/version/" + latestVersion.getFriendlyString();
-                            Util.getPlatform().openUri(url);
-                        }
-
-                        Minecraft.getInstance().setScreen(this);
-                    },
-                    Component.translatable("tiertagger.outdated.title"),
-                    Component.translatable("tiertagger.outdated.desc", newVersion),
-                    Component.translatable("tiertagger.outdated.download"),
-                    Component.translatable("tiertagger.outdated.ignore")
-            ));
+            return;
         }
 
-        hasCheckedVersion.set(true);
+        // The check runs in the background; until it has answered, a later title screen asks again.
+        UpdateCheck.Latest update = TierTagger.getLatestUpdate();
+        if (update == null) return;
+        hasShownPrompt.set(true);
+
+        String current = QueueWebSocket.modVersionPlain();
+        Component newVersion = Component.literal(update.version()).withStyle(ChatFormatting.GREEN);
+        Component oldVersion = Component.literal(current == null ? "?" : current);
+        Minecraft.getInstance().setScreen(new ConfirmScreen(
+                b -> {
+                    if (b) {
+                        java.net.URI uri = java.net.URI.create(UpdateCheck.safeUrl(update.url()));
+                        Util.getPlatform().openUri(uri);
+                    }
+                    Minecraft.getInstance().setScreen(this);
+                },
+                Component.translatable("vtl.update.title"),
+                Component.translatable("vtl.update.desc", newVersion, oldVersion),
+                Component.translatable("vtl.update.download"),
+                Component.translatable("vtl.update.later")
+        ));
     }
 }

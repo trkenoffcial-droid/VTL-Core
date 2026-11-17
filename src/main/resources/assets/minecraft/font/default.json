@@ -58,6 +58,13 @@
     },
     {
       "type": "bitmap",
+      "file": "tier-tagger:mctiers/spear.png",
+      "ascent": 8,
+      "height": 8,
+      "chars": ["\uE709"]
+    },
+    {
+      "type": "bitmap",
       "file": "tier-tagger:subtiers/bed.png",
       "ascent": 8,
       "height": 8,

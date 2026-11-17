@@ -267,6 +267,11 @@ val compileQueueCheck by tasks.registering(JavaCompile::class) {
     source(rootProject.file("src/test/java/com/kevin/tiertagger/queue/TicketLogCheck.java"))
     source(rootProject.file("src/main/java/com/kevin/tiertagger/queue/LinkRequest.java"))
     source(rootProject.file("src/test/java/com/kevin/tiertagger/queue/LinkRequestCheck.java"))
+    source(rootProject.file("src/main/java/com/kevin/tiertagger/queue/InstallId.java"))
+    source(rootProject.file("src/main/java/com/kevin/tiertagger/util/UpdateCheck.java"))
+    source(rootProject.file("src/test/java/com/kevin/tiertagger/queue/InstallIdCheck.java"))
+    source(rootProject.file("src/main/java/com/kevin/tiertagger/model/TagIcons.java"))
+    source(rootProject.file("src/test/java/com/kevin/tiertagger/model/TagIconCheck.java"))
     source(rootProject.file("src/main/java/com/kevin/tiertagger/hub/anim/Pose.java"))
     source(rootProject.file("src/main/java/com/kevin/tiertagger/hub/anim/VtlModelAnimator.java"))
     source(rootProject.file("src/main/java/com/kevin/tiertagger/hub/anim/TierChange.java"))
@@ -302,7 +307,7 @@ tasks.register<JavaExec>("hubStateCheck") {
     dependsOn(compileQueueCheck)
     classpath = files(queueCheckOutput) + queueCheckClasspath
     mainClass.set("com.kevin.tiertagger.hub.HubStateCheck")
-    dependsOn("quickJoinCheck", "textFitCheck", "ticketLogCheck", "animatorCheck", "linkRequestCheck")
+    dependsOn("quickJoinCheck", "textFitCheck", "ticketLogCheck", "animatorCheck", "linkRequestCheck", "installIdCheck", "tagIconCheck")
 }
 
 /** The hub figure's animations, test results read as up/down, and the GUI particles. */
@@ -335,6 +340,27 @@ tasks.register<JavaExec>("particleCheck") {
 
 /** The ticket chat log: order, duplicates, unread count, sending, closing. */
 /** The link request VTL Core sends (bot V39): Mojang proof id and body. */
+/** The install id in the config folder and the website's latest-version answer. */
+tasks.register<JavaExec>("installIdCheck") {
+    group = "verification"
+    description = "Runs the install id and update check self-checks"
+
+    dependsOn(compileQueueCheck)
+    classpath = files(queueCheckOutput) + queueCheckClasspath
+    mainClass.set("com.kevin.tiertagger.queue.InstallIdCheck")
+}
+
+/** Kit icons on name tags: each Viet-only kit has a font glyph and a texture (no game). */
+tasks.register<JavaExec>("tagIconCheck") {
+    group = "verification"
+    description = "Runs the name tag kit icon self-checks"
+
+    dependsOn(compileQueueCheck)
+    classpath = files(queueCheckOutput) + queueCheckClasspath
+    mainClass.set("com.kevin.tiertagger.model.TagIconCheck")
+    workingDir = rootProject.projectDir
+}
+
 tasks.register<JavaExec>("linkRequestCheck") {
     group = "verification"
     description = "Runs the link request self-checks"

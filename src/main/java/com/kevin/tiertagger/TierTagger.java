@@ -9,6 +9,7 @@ import com.kevin.tiertagger.hub.VtlHubScreen;
 import com.kevin.tiertagger.menu.MenuButtons;
 import com.kevin.tiertagger.queue.QueueNotifier;
 import com.kevin.tiertagger.queue.QueueWebSocket;
+import com.kevin.tiertagger.util.UpdateCheck;
 import com.kevin.tiertagger.model.GameMode;
 import com.kevin.tiertagger.model.PlayerInfo;
 import com.kevin.tiertagger.queue.QueueCommands;
@@ -24,7 +25,6 @@ import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.loader.api.FabricLoader;
-import net.fabricmc.loader.api.Version;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
@@ -43,6 +43,9 @@ import java.net.ProxySelector;
 import java.net.SocketAddress;
 import java.net.URI;
 import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.time.Duration;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -109,16 +112,40 @@ public class TierTagger implements ModInitializer {
     @Getter
     private static final QueueWebSocket queue = new QueueWebSocket();
 
-    // === version checker stuff ===
-    // The update check asked Modrinth about the original TierTagger project, so it would have
-    // told VTL players to replace this build with one that has no VTL support. It stays off
-    // until VTL has its own release channel; the title screen prompt then never shows.
+    // === update check ===
+    // Asks tierslist.net (the only place VTL Core is published) for the newest version once per
+    // start. Null until the answer arrives, and stays null when it fails or nothing is newer;
+    // the title screen then shows no prompt.
     @Getter
-    private static final Version latestVersion = null;
+    private static volatile UpdateCheck.Latest latestUpdate = null;
+
+    private static void checkForUpdate() {
+        String current = QueueWebSocket.modVersionPlain();
+        if (current == null) return;
+        HttpRequest request = HttpRequest.newBuilder(URI.create(UpdateCheck.LATEST_URL))
+                .timeout(Duration.ofSeconds(10))
+                .header("User-Agent", "VTL-Core/" + current)
+                .GET()
+                .build();
+        client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
+                .thenAccept(response -> {
+                    if (response.statusCode() != 200) return;
+                    UpdateCheck.Latest latest = UpdateCheck.parse(response.body());
+                    if (latest != null && UpdateCheck.isNewer(latest.version(), current)) {
+                        latestUpdate = latest;
+                        logger.info("VTL Core " + latest.version() + " is available (this is " + current + ")");
+                    }
+                })
+                .exceptionally(error -> {
+                    logger.debug("Update check failed: " + error);
+                    return null;
+                });
+    }
 
     @Override
     public void onInitialize() {
         TierCache.init();
+        checkForUpdate();
 
         // Literal children win over the "player" argument for an exact token match, so a player
         // literally named "link", "unlink", "join", "leave" or "queues" can no longer be looked up
@@ -417,7 +444,7 @@ public class TierTagger implements ModInitializer {
         }
     }
 
-    /** Always false while the update check is off (see {@link #latestVersion}). */
+    /** Always false: no version of VTL Core is blocked from running. */
     public static boolean isObsolete() {
         return false;
     }

@@ -75,6 +75,19 @@ public final class QueueClient {
         default String playerId() {
             return null;
         }
+
+        /**
+         * This game install's random id ({@link InstallId}), sent as {@code X-VTL-Install} so the
+         * bot can count installs (bot V49). Null sends nothing.
+         */
+        default String installId() {
+            return null;
+        }
+
+        /** The mod version without the Minecraft suffix, sent as {@code X-VTL-Mod}. Null sends nothing. */
+        default String modVersion() {
+            return null;
+        }
     }
 
     public enum StopReason {
@@ -340,6 +353,10 @@ public final class QueueClient {
                 .header("X-VTL-Client", settings.clientName());
         String player = settings.playerId();
         if (player != null) builder.header("X-VTL-Player", player);
+        String install = settings.installId();
+        if (install != null) builder.header("X-VTL-Install", install);
+        String mod = settings.modVersion();
+        if (mod != null) builder.header("X-VTL-Mod", mod);
         if (token != null) {
             // A header, never the URL: URLs end up in proxy access logs.
             builder.header("Authorization", "Bearer " + token);

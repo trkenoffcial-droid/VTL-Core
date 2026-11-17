@@ -7,6 +7,7 @@ import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Predicate;
 
 /**
  * What the VTL Hub shows for each kit, worked out from the open queues the bot reported.
@@ -27,11 +28,13 @@ public final class HubState {
         /** The player is in line. */
         WAITING,
         /** The player is being tested. */
-        TESTING
+        TESTING,
+        /** This version of the game cannot play the kit (Spear Mace before 1.21.11). */
+        LOCKED
     }
 
     /** The big button under the carousel. */
-    public enum Action { LINK, JOIN, LEAVE, OPEN_TICKET, NO_QUEUE, OFFLINE, JOIN_DISABLED }
+    public enum Action { LINK, JOIN, LEAVE, OPEN_TICKET, NO_QUEUE, OFFLINE, JOIN_DISABLED, LOCKED }
 
     /**
      * One card of the carousel.
@@ -44,14 +47,26 @@ public final class HubState {
     public record KitView(Kit kit, Status status, List<Queue> queues, Queue chosen, int waiting, Integer myPosition) {
     }
 
-    /** Always eight views, in carousel order; queues of unknown modes are ignored. */
+    /** Always one view per kit, in carousel order; queues of unknown modes are ignored. */
     public static List<KitView> kits(Collection<Queue> open, String myRegion) {
+        return kits(open, myRegion, kit -> true);
+    }
+
+    /**
+     * Same, with the kits this game can play: the others are {@link Status#LOCKED}, unless the
+     * player is already waiting or tested in them (so they can still see and leave the line).
+     */
+    public static List<KitView> kits(Collection<Queue> open, String myRegion, Predicate<Kit> playable) {
         List<KitView> views = new ArrayList<>(Kit.values().length);
         for (Kit kit : Kit.values()) {
             List<Queue> mine = open.stream()
                     .filter(q -> q != null && kit == Kit.byId(q.mode()))
                     .toList();
-            views.add(view(kit, mine, myRegion));
+            KitView view = view(kit, mine, myRegion);
+            if (!playable.test(kit) && view.status() != Status.WAITING && view.status() != Status.TESTING) {
+                view = new KitView(kit, Status.LOCKED, mine, null, 0, null);
+            }
+            views.add(view);
         }
         return views;
     }
@@ -94,11 +109,13 @@ public final class HubState {
     }
 
     public static Action action(KitView view, boolean connected, boolean linked, boolean joinAllowed) {
+        if (view.status() == Status.LOCKED) return Action.LOCKED;
         if (!connected) return Action.OFFLINE;
         return switch (view.status()) {
             case TESTING -> Action.OPEN_TICKET;
             case WAITING -> Action.LEAVE;
             case CLOSED -> Action.NO_QUEUE;
+            case LOCKED -> Action.LOCKED;
             case OPEN, NOT_OPEN_TO_YOU -> !linked ? Action.LINK : !joinAllowed ? Action.JOIN_DISABLED : Action.JOIN;
         };
     }
@@ -116,7 +133,7 @@ public final class HubState {
             if (views.get(i).status() == Status.OPEN) return i;
         }
         for (int i = 0; i < views.size(); i++) {
-            if (views.get(i).status() != Status.CLOSED) return i;
+            if (views.get(i).status() != Status.CLOSED && views.get(i).status() != Status.LOCKED) return i;
         }
         for (int i = 0; i < views.size(); i++) {
             if (views.get(i).kit() == Kit.SWORD) return i;

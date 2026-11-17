@@ -1,5 +1,6 @@
 package com.kevin.tiertagger.hub.anim;
 
+import com.kevin.tiertagger.compat.SpearItem;
 import com.kevin.tiertagger.hub.Kit;
 import com.kevin.tiertagger.hub.anim.VtlModelAnimator.Stance;
 import net.minecraft.core.component.DataComponents;
@@ -50,6 +51,7 @@ public final class VtlKitRegistry {
         map.put(Kit.AXE, diamond(new ItemStack(Items.DIAMOND_AXE), new ItemStack(Items.SHIELD), Stance.SHIELD_UP));
         map.put(Kit.VANILLA, netherite(new ItemStack(Items.END_CRYSTAL), new ItemStack(Items.TOTEM_OF_UNDYING), Stance.CRYSTAL_HOLD));
         map.put(Kit.MACE, netherite(new ItemStack(Items.MACE), new ItemStack(Items.WIND_CHARGE), Stance.MACE_RAISE));
+        map.put(Kit.SPEAR, netherite(new ItemStack(SpearItem.get()), new ItemStack(Items.WIND_CHARGE), Stance.SPEAR_THRUST));
         map.put(Kit.SWORD, diamond(new ItemStack(Items.DIAMOND_SWORD), ItemStack.EMPTY, Stance.SWORD_GUARD));
         map.put(Kit.NETHOP, netherite(new ItemStack(Items.NETHERITE_SWORD), new ItemStack(Items.TOTEM_OF_UNDYING), Stance.SWORD_GUARD));
         ItemStack healing = new ItemStack(Items.SPLASH_POTION);

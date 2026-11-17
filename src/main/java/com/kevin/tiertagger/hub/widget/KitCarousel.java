@@ -1,6 +1,7 @@
 package com.kevin.tiertagger.hub.widget;
 
 import com.kevin.tiertagger.compat.GuiPose;
+import com.kevin.tiertagger.compat.SpearItem;
 import com.kevin.tiertagger.hub.HubState.KitView;
 import com.kevin.tiertagger.hub.HubState.Status;
 import com.kevin.tiertagger.hub.HubTheme;
@@ -27,7 +28,7 @@ import java.util.Map;
 import java.util.function.IntConsumer;
 
 /**
- * The row of eight kit cards. The selected card is larger and in colour; kits with an open queue
+ * The row of nine kit cards. The selected card is larger and in colour; kits with an open queue
  * are in colour with their region and line length; closed kits are grey.
  *
  * <p>Card art lives at {@code vtl:textures/gui/kit/<id>.png} (colour) and {@code <id>_gray.png};
@@ -38,6 +39,7 @@ public class KitCarousel extends AbstractWidget {
             Kit.AXE, new ItemStack(Items.NETHERITE_AXE),
             Kit.VANILLA, new ItemStack(Items.END_CRYSTAL),
             Kit.MACE, new ItemStack(Items.MACE),
+            Kit.SPEAR, new ItemStack(SpearItem.get()),
             Kit.SWORD, new ItemStack(Items.NETHERITE_SWORD),
             Kit.NETHOP, new ItemStack(Items.TOTEM_OF_UNDYING),
             Kit.POT, new ItemStack(Items.SPLASH_POTION),
@@ -123,7 +125,8 @@ public class KitCarousel extends AbstractWidget {
         KitView view = views.get(i);
         Kit kit = view.kit();
         var font = Minecraft.getInstance().font;
-        boolean closed = view.status() == Status.CLOSED;
+        boolean locked = view.status() == Status.LOCKED;
+        boolean closed = view.status() == Status.CLOSED || locked;
         int color = kit.color();
 
         if (isSelected) {
@@ -150,6 +153,8 @@ public class KitCarousel extends AbstractWidget {
             g.fill(x, y, x + w, y + h, shade);
         }
 
+        if (locked) drawLock(g, x + w / 2, y + (h - tagH) / 2, Math.max(12, w * 3 / 10));
+
         // kit tag: bold when it fits, plain when bold is too wide; always inside the card
         boolean greyTag = closed && !isSelected;
         g.fill(x, y + h - tagH, x + w, y + h, greyTag ? 0xFF4A4452 : HubTheme.argb(color, 0xFF));
@@ -173,6 +178,19 @@ public class KitCarousel extends AbstractWidget {
 
         g.renderOutline(x, y, w, h, isSelected ? 0xFFFFFFFF : HubTheme.BLACK);
         if (isSelected) g.renderOutline(x - 1, y - 1, w + 2, h + 2, HubTheme.argb(color, 0xFF));
+    }
+
+    private static final Identifier LOCK = HubTheme.vtl("textures/gui/lock.png");
+
+    /**
+     * The 16x16 pixel padlock, about {@code size} pixels wide, centred on ({@code cx}, {@code cy});
+     * the size is rounded to whole texture pixels at the current GUI scale so it stays crisp.
+     */
+    private static void drawLock(GuiGraphics g, int cx, int cy, int size) {
+        int gs = HubTheme.guiScale();
+        int px = Math.max(1, Math.round(size * gs / 16f));
+        int s = Math.max(1, Math.round(px * 16f / gs));
+        HubTheme.image(g, LOCK, cx - s / 2, cy - s / 2, s, s, 16, 16);
     }
 
     /**
@@ -207,6 +225,7 @@ public class KitCarousel extends AbstractWidget {
     private static Component statusText(KitView v) {
         return switch (v.status()) {
             case CLOSED -> Component.translatable("vtl.play.card.closed");
+            case LOCKED -> Component.translatable("vtl.play.card.locked");
             case NOT_OPEN_TO_YOU -> Component.translatable("vtl.play.card.notOpen");
             case WAITING -> Component.translatable("vtl.play.card.position", v.myPosition() == null ? "?" : v.myPosition());
             case TESTING -> Component.translatable("vtl.play.card.testing");
@@ -217,6 +236,7 @@ public class KitCarousel extends AbstractWidget {
     private static int statusColor(KitView v) {
         return switch (v.status()) {
             case CLOSED -> 0xFF8A7D99;
+            case LOCKED -> 0xFFFFC83D;
             case NOT_OPEN_TO_YOU -> 0xFFFFAA55;
             case WAITING -> HubTheme.GOLD;
             case TESTING, OPEN -> HubTheme.GREEN;

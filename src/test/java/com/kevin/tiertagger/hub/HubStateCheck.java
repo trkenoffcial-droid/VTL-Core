@@ -32,6 +32,7 @@ public final class HubStateCheck {
         queueClosedWhileWaitingFallsBack();
         unknownModeIgnored();
         defaultSelection();
+        unplayableKitIsLocked();
         System.out.println("HubStateCheck: " + checks + " checks passed");
     }
 
@@ -53,9 +54,9 @@ public final class HubStateCheck {
 
     private static void allEightKitsInOrder() {
         List<KitView> views = HubState.kits(List.of(), null);
-        check(views.size() == 8, "always 8 kits, got " + views.size());
-        check(views.stream().map(v -> v.kit().id()).toList().equals(List.of("axe", "vanilla", "mace", "sword", "nethop", "pot", "uhc", "smp")),
-                "carousel order is Axe, Vanilla, Mace, Sword, NethOP, Pot, UHC, SMP");
+        check(views.size() == 9, "always 9 kits, got " + views.size());
+        check(views.stream().map(v -> v.kit().id()).toList().equals(List.of("axe", "vanilla", "mace", "spear", "sword", "nethop", "pot", "uhc", "smp")),
+                "carousel order is Axe, Vanilla, Mace, Spear, Sword, NethOP, Pot, UHC, SMP");
         check(Kit.byId("nethop") == Kit.NETHOP && Kit.byId("NethOP") == Kit.NETHOP && Kit.byId("bogus") == null, "Kit.byId is case-insensitive and null for unknown ids");
         check("NethOP".equals(Kit.NETHOP.label()) && Kit.SWORD.color() == 0xFF8A3D, "labels and colours match the spec");
     }
@@ -138,8 +139,8 @@ public final class HubStateCheck {
     }
 
     private static void unknownModeIgnored() {
-        List<KitView> views = HubState.kits(List.of(q("EU", "spear", 4), q("EU", null, 1)), "EU");
-        check(views.size() == 8 && views.stream().allMatch(v -> v.status() == Status.CLOSED), "unknown or missing modes are ignored");
+        List<KitView> views = HubState.kits(List.of(q("EU", "bogus", 4), q("EU", null, 1)), "EU");
+        check(views.size() == 9 && views.stream().allMatch(v -> v.status() == Status.CLOSED), "unknown or missing modes are ignored");
     }
 
     private static void defaultSelection() {
@@ -153,6 +154,21 @@ public final class HubStateCheck {
         List<KitView> onlyNotMine = HubState.kits(List.of(q("NA_SA", "mace", 0, false, new Me("none", null))), "EU");
         check(onlyNotMine.get(HubState.defaultSelection(onlyNotMine)).kit() == Kit.MACE,
                 "with nothing joinable, an open kit (not open to me) still beats a closed Sword");
+    }
+
+    private static void unplayableKitIsLocked() {
+        java.util.function.Predicate<Kit> noSpear = k -> k != Kit.SPEAR;
+        List<KitView> closed = HubState.kits(List.of(), "EU", noSpear);
+        check(view(closed, Kit.SPEAR).status() == Status.LOCKED, "a kit this game cannot play is LOCKED even when closed");
+        List<KitView> open = HubState.kits(List.of(q("EU", "spear", 2)), "EU", noSpear);
+        check(view(open, Kit.SPEAR).status() == Status.LOCKED, "a kit this game cannot play is LOCKED even when open");
+        check(view(open, Kit.SWORD).status() == Status.CLOSED, "other kits are not affected");
+        check(HubState.action(view(open, Kit.SPEAR), true, true, true) == Action.LOCKED, "a locked kit offers the LOCKED button");
+        check(HubState.action(view(open, Kit.SPEAR), false, false, false) == Action.LOCKED, "locked wins over offline");
+        List<KitView> waiting = HubState.kits(List.of(q("EU", "spear", 2, true, new Me("waiting", 1))), "EU", noSpear);
+        check(view(waiting, Kit.SPEAR).status() == Status.WAITING, "a player already in line can still see and leave it");
+        check(HubState.defaultSelection(open) != open.indexOf(view(open, Kit.SPEAR)), "a locked kit is never selected by default");
+        check(view(HubState.kits(List.of(q("EU", "spear", 2)), "EU"), Kit.SPEAR).status() == Status.OPEN, "every kit is playable by default");
     }
 
     private static void check(boolean condition, String message) {
